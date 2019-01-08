@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :require_admin!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @users = User.all
     #@users = User.search(params[:search])
