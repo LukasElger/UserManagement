@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :require_admin!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :is_allowed?, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -35,7 +35,11 @@ class UsersController < ApplicationController
 
     if @user.update_user_data(account_update_params)
       @user.save
-      redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich geupdatet!"}
+      if current_user.admin?
+        redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich geupdatet!"}
+      else
+        redirect_to root_path, flash: {success: "Der Benutzer wurde erfolgreich geupdatet!"}
+      end
     else
       render "edit"
     end

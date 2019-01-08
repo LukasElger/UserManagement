@@ -6,11 +6,13 @@
       %th{:scope => "col"} ID
       %th{:scope => "col"} Name
       %th{:scope => "col"} E-Mail
+      %th{:scope => "col"} Admin
   %tbody
     %tr
       %th= @user.id
       %th= @user.name
       %th= @user.email
+      %th= @user.admin
 %h1#h2 Edit / Delete this account
 #wrapper
   = button_to 'Edit', edit_user_path(@user), method: :get
