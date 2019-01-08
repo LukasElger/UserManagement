@@ -1,0 +1,26 @@
+#sign-up-form.container
+  .col-sm-offset-4.col-sm-4
+    %h2 Edit
+    = form_for(@user) do |f|
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+      .field
+        = f.label :password
+        %i (leave blank if you don't want to change it)
+        %br/
+        = f.password_field :password, autocomplete: "new-password"
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password"
+      .field
+        = f.label :admin
+        %br/
+        = f.check_box :admin
+      .actions
+        = f.submit "Update"
+    %h3 Delete my account
+    = button_to 'Delete', user_path(@user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{@user.id}"
+    = link_to "Back", :back

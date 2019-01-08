@@ -1,0 +1,18 @@
+%h1#h1
+  Profile of "#{@user.name}"
+%table.table
+  %thead.thead-dark
+    %tr
+      %th{:scope => "col"} ID
+      %th{:scope => "col"} Name
+      %th{:scope => "col"} E-Mail
+  %tbody
+    %tr
+      %th= @user.id
+      %th= @user.name
+      %th= @user.email
+%h1#h2 Edit / Delete this account
+#wrapper
+  = button_to 'Edit', edit_user_path(@user), method: :get
+  = button_to 'Delete', user_path(@user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{@user.id}"
+  = link_to "Back", :back
