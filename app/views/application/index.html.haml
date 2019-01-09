@@ -13,7 +13,8 @@
           %th{:scope => "col"} E-Mail
           %th{:scope => "col"} Show
       %tbody
-        - User.all.reverse[0..8].each do |user|
+        - @users = User.order created_at: :desc
+        - @users[0..10].each do |user|
           %tr
             %td= user.id
             %td= user.name
