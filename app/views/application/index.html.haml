@@ -1,3 +1,21 @@
-%h1 Home page
 - if !user_signed_in?
+  %h1 Home page
   = button_to 'Login', login_path, method: :get
+- else
+  %h1 Recently added Users
+
+  .container
+    %table.table
+      %thead.thead-dark
+        %tr
+          %th{:scope => "col"} ID
+          %th{:scope => "col"} Name
+          %th{:scope => "col"} E-Mail
+          %th{:scope => "col"} Show
+      %tbody
+        - User.all.reverse[0..8].each do |user|
+          %tr
+            %td= user.id
+            %td= user.name
+            %td= user.email
+            %td= link_to 'Show', user_path(user)
