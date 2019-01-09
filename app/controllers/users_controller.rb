@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     if @user.update_with_password(update_profile_params)
       @user.save
-      redirect_to root_path, flash: {success: "Dein Profil wurde erfolgreich geupdatet!"}
+      redirect_to root_path, flash: {success: "Dein Profil wurde erfolgreich bearbeitet!"}
     else
       render "edit_profile"
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
     if @user.update_user_data(account_update_params)
       @user.save
-      redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich geupdatet!"}
+      redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich bearbeitet!"}
     else
       render "edit"
     end

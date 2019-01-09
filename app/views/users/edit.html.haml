@@ -1,6 +1,6 @@
 #sign-up-form.container
   .col-sm-offset-4.col-sm-4
-    %h2 Edit
+    %h2= t ".header"
     = form_for(@user) do |f|
       .field
         = f.label :email
@@ -9,17 +9,17 @@
       .field
         = f.label :password
         %br/
-        = f.password_field :password, autocomplete: "new-password"
+        = f.password_field :password
       .field
         = f.label :password_confirmation
         %br/
-        = f.password_field :password_confirmation, autocomplete: "new-password"
+        = f.password_field :password_confirmation
       .field
         = f.label :admin
         %br/
         = f.check_box :admin
       .actions
-        = f.submit "Update"
-    %h3 Delete my account
-    = button_to 'Delete', user_path(@user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{@user.id}"
-    = button_to 'Back', users_path(@user), method: :get
+        = f.submit t("actions.update")
+    %h3= t ".footer"
+    = button_to t("actions.delete"), user_path(@user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{@user.id}"
+    = button_to t("actions.back"), users_path(@user), method: :get

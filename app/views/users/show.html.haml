@@ -1,14 +1,12 @@
-%h1#h1
-  Profile of "#{@user.name}"
-
+%h1#h1= t(".header") + " \"#{@user.name}\""
 .container
   %table.table
     %thead
       %tr
-        %th ID
-        %th Name
-        %th E-Mail
-        %th Admin
+        %th= User.human_attribute_name(:id)
+        %th= User.human_attribute_name(:name)
+        %th= User.human_attribute_name(:email)
+        %th= User.human_attribute_name(:admin)
     %tbody
       %tr
         %th= @user.id
@@ -16,8 +14,8 @@
         %th= @user.email
         %th= @user.admin
 
-%h1#h2 Edit / Delete this account
+%h1#h2= t ".footer"
 #wrapper
-  = button_to 'Edit', edit_user_path(@user), method: :get
-  = button_to 'Delete', user_path(@user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{@user.id}"
-  = button_to 'Back', users_path(@user), method: :get
+  = button_to t('actions.edit'), edit_user_path(@user), method: :get
+  = button_to t('actions.delete'), user_path(@user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{@user.id}"
+  = button_to t('actions.back'), users_path(@user), method: :get

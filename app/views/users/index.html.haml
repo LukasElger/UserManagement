@@ -1,22 +1,22 @@
-%h1#index= link_to 'Create new User', new_user_path
+%h1#index= link_to t('.create_new'), new_user_path
 
 .container
-  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => "Search..", :type => "text"}/
+  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t(".search"), :type => "text"}/
   %table.table#SearchableTable
     %thead.thead-dark
       %tr
-        %th{:scope => "col"} ID
-        %th{:scope => "col"} Name
-        %th{:scope => "col"} E-Mail
-        %th{:scope => "col"} Show
-        %th{:scope => "col"} Edit
-        %th{:scope => "col"} Delete
+        %th{:scope => "col"}= User.human_attribute_name(:id)
+        %th{:scope => "col"}= User.human_attribute_name(:name)
+        %th{:scope => "col"}= User.human_attribute_name(:email)
+        %th{:scope => "col"}= t "actions.show"
+        %th{:scope => "col"}= t "actions.edit"
+        %th{:scope => "col"}= t "actions.delete"
     %tbody
       - @users.each do |user|
         %tr
           %td= user.id
           %td= user.name
           %td= user.email
-          %td= link_to 'Show', user_path(user)
-          %td= link_to 'Edit', edit_user_path(user)
-          %td= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{user.id}"
+          %td= link_to t('actions.show'), user_path(user)
+          %td= link_to t('actions.edit'), edit_user_path(user)
+          %td= link_to t('actions.delete'), user_path(user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{user.id}"

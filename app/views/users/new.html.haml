@@ -1,10 +1,11 @@
+%h1= t ".header"
 #sign-up-form.container
   .col-sm-offset-4.col-sm-4
     = bootstrap_form_for(@user, url: users_path) do |f|
-      = f.text_field :name, placeholder: 'username', class: 'form-control'
-      = f.text_field :email, placeholder: 'email', class: 'form-control'
-      = f.password_field :password, placeholder: 'password', class: 'form-control'
-      = f.password_field :password_confirmation, placeholder: 'password confirmation', class: 'form-control'
+      = f.text_field :name, placeholder: User.human_attribute_name(:name), class: 'form-control'
+      = f.text_field :email, placeholder: User.human_attribute_name(:email), class: 'form-control'
+      = f.password_field :password, placeholder: User.human_attribute_name(:password), class: 'form-control'
+      = f.password_field :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation), class: 'form-control'
       = f.check_box :admin
-      = f.submit 'Create', class: 'btn sign-up-button'
-    = button_to 'Back', users_path(@user), method: :get
+      = f.submit t('actions.create'), class: 'btn sign-up-button'
+    = button_to t("actions.back"), users_path(@user), method: :get
