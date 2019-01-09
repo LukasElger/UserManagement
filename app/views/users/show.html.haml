@@ -1,18 +1,21 @@
 %h1#h1
   Profile of "#{@user.name}"
-%table.table
-  %thead.thead-dark
-    %tr
-      %th{:scope => "col"} ID
-      %th{:scope => "col"} Name
-      %th{:scope => "col"} E-Mail
-      %th{:scope => "col"} Admin
-  %tbody
-    %tr
-      %th= @user.id
-      %th= @user.name
-      %th= @user.email
-      %th= @user.admin
+
+.container
+  %table.table
+    %thead
+      %tr
+        %th ID
+        %th Name
+        %th E-Mail
+        %th Admin
+    %tbody
+      %tr
+        %th= @user.id
+        %th= @user.name
+        %th= @user.email
+        %th= @user.admin
+
 %h1#h2 Edit / Delete this account
 #wrapper
   = button_to 'Edit', edit_user_path(@user), method: :get

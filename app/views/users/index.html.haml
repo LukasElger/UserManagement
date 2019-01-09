@@ -1,20 +1,21 @@
 %h1#index= link_to 'Create new User', new_user_path
 
-%table.table
-  %thead.thead-dark
-    %tr
-      %th{:scope => "col"} ID
-      %th{:scope => "col"} Name
-      %th{:scope => "col"} E-Mail
-      %th{:scope => "col"} Show
-      %th{:scope => "col"} Edit
-      %th{:scope => "col"} Delete
-  %tbody
-    - @users.each do |user|
+.container
+  %table.table
+    %thead.thead-dark
       %tr
-        %th= user.id
-        %th= user.name
-        %th= user.email
-        %th= link_to 'Show', user_path(user)
-        %th= link_to 'Edit', edit_user_path(user)
-        %th= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{user.id}"
+        %th{:scope => "col"} ID
+        %th{:scope => "col"} Name
+        %th{:scope => "col"} E-Mail
+        %th{:scope => "col"} Show
+        %th{:scope => "col"} Edit
+        %th{:scope => "col"} Delete
+    %tbody
+      - @users.each do |user|
+        %tr
+          %th= user.id
+          %th= user.name
+          %th= user.email
+          %th= link_to 'Show', user_path(user)
+          %th= link_to 'Edit', edit_user_path(user)
+          %th= link_to 'Delete', user_path(user), method: :delete, data: {confirm: "Möchten Sie den Benutzer wirklich löschen?"}, id: "delete_user_link_#{user.id}"

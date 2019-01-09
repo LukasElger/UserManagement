@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  before_action :is_allowed?, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :require_admin!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
     @users = User.all
@@ -26,6 +26,21 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit_profile
+    @user = current_user
+  end
+
+  def update_profile
+    @user = current_user
+
+    if @user.update_with_password(update_profile_params)
+      @user.save
+      redirect_to root_path, flash: {success: "Dein Profil wurde erfolgreich geupdatet!"}
+    else
+      render "edit_profile"
+    end
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -35,11 +50,7 @@ class UsersController < ApplicationController
 
     if @user.update_user_data(account_update_params)
       @user.save
-      if current_user.admin?
-        redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich geupdatet!"}
-      else
-        redirect_to root_path, flash: {success: "Der Benutzer wurde erfolgreich geupdatet!"}
-      end
+      redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich geupdatet!"}
     else
       render "edit"
     end
@@ -58,7 +69,8 @@ class UsersController < ApplicationController
     params.require(:user).permit( :name,
                                   :email,
                                   :password,
-                                  :password_confirmation
+                                  :password_confirmation,
+                                  :admin
                                 )
   end
 
@@ -68,6 +80,15 @@ class UsersController < ApplicationController
                                   :password,
                                   :password_confirmation,
                                   :admin
+                                )
+  end
+
+  def update_profile_params
+    params.require(:user).permit( :name,
+                                  :email,
+                                  :password,
+                                  :password_confirmation,
+                                  :current_password
                                 )
   end
 end

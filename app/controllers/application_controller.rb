@@ -1,10 +1,8 @@
 class ApplicationController < ActionController::Base
 
 
-  def is_allowed?
-    if current_user.admin?
-    elsif current_user.id && params[:id]
-    else
+  def require_admin!
+    if !current_user.admin?
       redirect_back(fallback_location: root_path, flash: {error: "Zugriff verweigert!"})
     end
   end
