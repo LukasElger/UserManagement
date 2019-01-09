@@ -7,8 +7,20 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
-    = render 'layouts/navigation'
-    - flash.each do |key, value|
-      = content_tag :div, value, class: "alert alert-#{key} flash alert-dismissible fade in #{key}"
-    = yield
+  %body#wrapper
+    -# = render 'layouts/navigation'
+    -if user_signed_in?
+      = render 'layouts/sidebar'
+      #page-content-wrapper
+        %button.hamburger.is-closed{"data-toggle" => "offcanvas", :type => "button"}
+          %span.hamb-top
+          %span.hamb-middle
+          %span.hamb-bottom
+        - flash.each do |key, value|
+          = content_tag :div, value, class: "alert alert-#{key} flash alert-dismissible fade in #{key}"
+        = yield
+    -else
+      #page-content-wrapper
+        - flash.each do |key, value|
+          = content_tag :div, value, class: "alert alert-#{key} flash alert-dismissible fade in #{key}"
+        = yield

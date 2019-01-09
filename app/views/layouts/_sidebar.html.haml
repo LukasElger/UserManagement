@@ -1,0 +1,16 @@
+/ ---- Include the above in your HEAD tag --------
+.overlay
+/ Sidebar
+%nav#sidebar-wrapper.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
+  %ul.nav.sidebar-nav
+    %li.sidebar-brand= link_to 'Home', root_path
+    %li= link_to 'Users', users_path
+    %li= link_to 'Log out', destroy_user_session_path, method: :delete, data: {confirm: "Möchten Sie sich wirklich ausloggen?"}
+    %li.dropdown
+      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        Account
+        %span.caret
+      %ul.dropdown-menu{:role => "menu"}
+        %li.dropdown-header User Actions
+        %li= link_to 'Edit Profile', edit_profile_path(current_user)
+        %li= link_to 'Show', user_path(current_user)
