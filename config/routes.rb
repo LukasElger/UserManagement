@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'
+    get 'change_lang', to: 'users#change_lang'
   end
 
   resources :users

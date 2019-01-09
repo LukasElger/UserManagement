@@ -1,5 +1,6 @@
 en:
   actions:
+    confirmation: "Do you really want to delete this account?"
     login: "Log in"
     show: "Show"
     create: "Create"
@@ -29,9 +30,11 @@ en:
   sidebar:
     users: "Users"
     create_new: "New User"
+    lang: "Language"
     logout: "Log out"
     account: "Account"
     edit: "Edit Profile"
+    confirmation: "Do you want to log out?"
 
   activerecord:
     models:

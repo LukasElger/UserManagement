@@ -1,5 +1,6 @@
 de:
   actions:
+    confirmation: "Willst du diesen Account wirklich löschen?"
     login: "Einloggen"
     show: "Anzeigen"
     create: "Erstellen"
@@ -29,9 +30,11 @@ de:
   sidebar:
     users: "Benutzer"
     create_new: "Neuer Benutzer"
+    lang: "Sprache"
     logout: "Ausloggen"
     account: "Account"
     edit: "Profil Bearbeiten"
+    confirmation: "Möchten Sie sich wirklich ausloggen?"
 
   activerecord:
     models:
