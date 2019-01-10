@@ -62,7 +62,12 @@ RSpec.configure do |config|
   end
 
   config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Shoulda::Matchers::ActionController, type: :controller
   config.include FactoryBot::Syntax::Methods
+
+  Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+  config.extend ControllerMacros, type: :controller
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
@@ -78,6 +83,9 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!

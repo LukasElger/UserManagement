@@ -32,6 +32,7 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 3.6'
+  gem "rspec-activemodel-mocks"
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'headless'
@@ -39,6 +40,7 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'capybara'
+  gem 'shoulda-matchers'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

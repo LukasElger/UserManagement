@@ -4,7 +4,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    #@users = User.search(params[:search])
   end
 
   def new
@@ -49,7 +48,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_user_data(account_update_params)
-      @user.save
       redirect_to users_path, flash: {success: t("flash.user_update")}
     else
       render "edit"
