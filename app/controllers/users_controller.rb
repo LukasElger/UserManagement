@@ -63,10 +63,6 @@ class UsersController < ApplicationController
     redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich gelöscht!"}
   end
 
-  def change_lang
-    @user = current_user
-  end
-
   private
 
   def create_params

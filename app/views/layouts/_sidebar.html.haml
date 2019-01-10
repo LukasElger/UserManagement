@@ -4,7 +4,6 @@
     %li.sidebar-brand= link_to 'Home', root_path
     %li= link_to t('sidebar.users'), users_path
     %li= link_to t('sidebar.create_new'), new_user_path
-    %li= link_to t('sidebar.lang'), change_lang_path, method: :get
     %li= link_to t('sidebar.logout'), destroy_user_session_path, method: :delete, data: {confirm: t("sidebar.confirmation")}
     %li.dropdown
       %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
