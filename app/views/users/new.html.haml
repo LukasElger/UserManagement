@@ -8,4 +8,4 @@
       = f.password_field :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation), class: 'form-control'
       = f.check_box :admin
       = f.submit t('actions.create'), class: 'btn sign-up-button'
-    = button_to t("actions.back"), users_path(@user), method: :get
+    = button_to t("actions.back"), root_path, method: :get

@@ -22,4 +22,4 @@
         = f.submit t("actions.update")
     %h3= t ".footer"
     = button_to t("actions.delete"), user_path(@user), method: :delete, data: {confirm: t("actions.confirmation")}, id: "delete_user_link_#{@user.id}"
-    = button_to t("actions.back"), users_path(@user), method: :get
+    = button_to t("actions.back"), root_path, method: :get

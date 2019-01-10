@@ -18,4 +18,4 @@
 #wrapper
   = button_to t('actions.edit'), edit_user_path(@user), method: :get
   = button_to t('actions.delete'), user_path(@user), method: :delete, data: {confirm: t("actions.confirmation")}
-  = button_to t('actions.back'), users_path(@user), method: :get
+  = button_to t('actions.back'), root_path, method: :get
