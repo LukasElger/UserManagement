@@ -4,19 +4,13 @@
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t(".search"), :type => "text"}/
   %table.table#SearchableTable
     %thead.thead-dark
-      %tr
-        %th{:scope => "col"}= User.human_attribute_name(:id)
-        %th{:scope => "col"}= User.human_attribute_name(:name)
-        %th{:scope => "col"}= User.human_attribute_name(:email)
-        %th{:scope => "col"}= t "actions.show"
-        %th{:scope => "col"}= t "actions.edit"
-        %th{:scope => "col"}= t "actions.delete"
+      %tr#header_row
+        %th#user_id_head{:scope => "col"}= User.human_attribute_name(:id)
+        %th#user_name_head{:scope => "col"}= User.human_attribute_name(:name)
+        %th#user_email_head{:scope => "col"}= User.human_attribute_name(:email)
+        %th#show_header{:scope => "col"}= t "actions.show"
+        %th#edit_header{:scope => "col"}= t "actions.edit"
+        %th#delete_header{:scope => "col"}= t "actions.delete"
     %tbody
       - @users.each do |user|
-        %tr
-          %td= user.id
-          %td= user.name
-          %td= user.email
-          %td= link_to t('actions.show'), user_path(user)
-          %td= link_to t('actions.edit'), edit_user_path(user)
-          %td= link_to t('actions.delete'), root_path, method: :delete, data: {confirm: t("actions.confirmation")}, id: "delete_user_link_#{user.id}"
+        = render partial: "user", locals: {user: user}

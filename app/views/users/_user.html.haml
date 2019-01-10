@@ -1,0 +1,7 @@
+%tr.user_row{id: dom_id(user)}
+  %td#user_id_body= user.id
+  %td#user_name_body= user.name
+  %td#user_email_body= user.email
+  %td#show_body= link_to t('actions.show'), user_path(user)
+  %td#edit_body= link_to t('actions.edit'), edit_user_path(user)
+  %td#delete_body= link_to t('actions.delete'), user_path(user), method: :delete, data: {confirm: t("flash.delete")}, id: "delete_user_link_#{user.id}"

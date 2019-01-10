@@ -25,11 +25,9 @@
         %br/
         = f.password_field :current_password
       .field
-        = f.label :admin
+        = f.label :locale
         %br/
-        = f.check_box :admin
+        = f.select :locale, [[t("lang.de"), :de], [t("lang.en"), :en]]
       .actions
         = f.submit t("actions.update")
-    %h3= t "users.edit.footer"
-    = button_to t("actions.delete"), user_path(@user), method: :delete, data: {confirm: t("actions.confirmation")}, id: "delete_user_link_#{@user.id}"
-    = button_to t("actions.back"), root_path, method: :get
+    = button_to t("actions.back"), root_path, method: :get, id: "back_to_root_button"

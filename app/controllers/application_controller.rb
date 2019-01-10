@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def require_admin!
     if !current_user.admin?
-      redirect_back(fallback_location: root_path, flash: {error: "Zugriff verweigert!"})
+      redirect_back(fallback_location: root_path, flash: {error: t("flash.denied")})
     end
   end
 

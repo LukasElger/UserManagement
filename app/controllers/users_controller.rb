@@ -15,9 +15,9 @@ class UsersController < ApplicationController
     @user = User.new(create_params)
 
     if @user.save
-      redirect_to users_path, flash: {success: "Benutzer wurde erfolgreich erstellt!"}
+      redirect_to users_path, flash: {success: t("flash.created")}
     else
-      flash[:error] = "Fehler bei der Erstellung des Benutzers. Bitte überprüfen Sie Ihre Eingaben."
+      flash[:danger] = t("flash.creation_error")
       render "new"
     end
   end
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     if @user.update_with_password(update_profile_params)
       @user.save
-      redirect_to root_path, flash: {success: "Dein Profil wurde erfolgreich bearbeitet!"}
+      redirect_to root_path, flash: {success: t("flash.profile_update")}
     else
       render "edit_profile"
     end
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
 
     if @user.update_user_data(account_update_params)
       @user.save
-      redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich bearbeitet!"}
+      redirect_to users_path, flash: {success: t("flash.user_update")}
     else
       render "edit"
     end
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to users_path, flash: {success: "Der Benutzer wurde erfolgreich gelöscht!"}
+    redirect_to users_path, flash: {success: t("flash.user_delete")}
   end
 
   private
@@ -88,7 +88,8 @@ class UsersController < ApplicationController
                                   :email,
                                   :password,
                                   :password_confirmation,
-                                  :current_password
+                                  :current_password,
+                                  :locale
                                 )
   end
 end
