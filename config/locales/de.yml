@@ -51,9 +51,11 @@ de:
     account: "Account"
     edit: "Profil Bearbeiten"
 
-  lang:
+  general:
     en: "Englisch"
     de: "Deutsch"
+    admin_true: "Ja"
+    admin_false: "Nein"
 
   activerecord:
     models:

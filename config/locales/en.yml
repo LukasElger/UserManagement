@@ -51,9 +51,11 @@ en:
     account: "Account"
     edit: "Edit profile"
 
-  lang:
+  general:
     en: "English"
     de: "German"
+    yes: "Yes"
+    no: "No"
 
   activerecord:
     models:

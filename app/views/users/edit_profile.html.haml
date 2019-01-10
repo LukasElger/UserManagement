@@ -27,7 +27,7 @@
       .field
         = f.label :locale
         %br/
-        = f.select :locale, [[t("lang.de"), :de], [t("lang.en"), :en]]
+        = f.select :locale, [[t("general.de"), :de], [t("general.en"), :en]]
       .actions
         = f.submit t("actions.update")
     = button_to t("actions.back"), root_path, method: :get, id: "back_to_root_button"

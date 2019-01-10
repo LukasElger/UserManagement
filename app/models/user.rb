@@ -17,4 +17,12 @@ class User < ApplicationRecord
   def self.search(value)
     where("LOWER(name) ILIKE  '#{value.downcase}%'")
   end
+
+  def admin_human
+    if admin?
+      I18n.t("general.admin_true")
+    else
+      I18n.t("general.admin_false")
+    end
+  end
 end
