@@ -36,11 +36,12 @@ RSpec.describe UsersController, type: :controller do
     let(:users){ double }
 
     before(:each) do
-      allow(User).to receive(:all){ users }
+      allow(User).to receive(:order){ users }
+      allow(users).to receive(:page){ users }
     end
 
     it "object should be fetched" do
-      expect(User).to receive(:all)
+      expect(User).to receive(:order)
       get :index
     end
 

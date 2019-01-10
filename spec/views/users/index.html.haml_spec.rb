@@ -3,7 +3,9 @@ require 'rails_helper'
 RSpec.describe "users/index", type: :view do
   before do
     @user = FactoryBot.create(:user)
-    assign(:users, [@user])
+    users = [@user]
+    elements = Kaminari.paginate_array(users).page(1)
+    assign(:users, elements)
     render
   end
 
