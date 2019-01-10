@@ -33,7 +33,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update_with_password(update_profile_params)
-      @user.save
+      set_locale
       redirect_to root_path, flash: {success: t("flash.profile_update")}
     else
       render "edit_profile"
@@ -48,6 +48,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_user_data(account_update_params)
+      set_locale
       redirect_to users_path, flash: {success: t("flash.user_update")}
     else
       render "edit"

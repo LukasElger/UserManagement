@@ -46,4 +46,22 @@ RSpec.describe User, type: :model do
       }
     end
   end
+
+  describe "valid mail" do
+    subject { FactoryBot.build(:user, email: "lala@test.de") }
+
+    it {
+      expect(subject).to be_valid
+    }
+
+    context "invalid mail" do
+      before do
+        subject.email = "test"
+      end
+
+      it {
+        expect(subject).not_to be_valid
+      }
+    end
+  end
 end
