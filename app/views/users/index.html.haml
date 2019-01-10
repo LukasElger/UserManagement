@@ -14,3 +14,5 @@
     %tbody
       - @users.each do |user|
         = render partial: "user", locals: {user: user}
+
+  = paginate @users 

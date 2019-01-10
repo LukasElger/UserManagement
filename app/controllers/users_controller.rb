@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :require_admin!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.order(:name).page params[:page]
   end
 
   def new
