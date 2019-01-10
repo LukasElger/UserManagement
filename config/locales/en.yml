@@ -18,6 +18,13 @@ en:
     logout: "Do you want to Log out?"
     denied: "Acces denied!"
 
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&lsaquo; Prev"
+      next: "Next &rsaquo;"
+
   users:
     index:
       create_new: "Create new user"

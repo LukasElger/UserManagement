@@ -18,6 +18,13 @@ de:
     logout: "Möchten Sie sich wirklich ausloggen?"
     denied: "Zugriff verweigert!"
 
+  views:
+    pagination:
+      first: "&laquo; Erste"
+      last: "Letzte &raquo;"
+      previous: "&lsaquo; Zurück"
+      next: "Nächste &rsaquo;"
+
   users:
     index:
       create_new: "Neuen Benutzer erstellen"
