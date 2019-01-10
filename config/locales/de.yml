@@ -1,6 +1,5 @@
 de:
   actions:
-    confirmation: "Willst du diesen Account wirklich löschen?"
     login: "Einloggen"
     show: "Anzeigen"
     create: "Erstellen"
@@ -8,6 +7,16 @@ de:
     update: "Bestätigen"
     delete: "Löschen"
     back: "Zurück"
+
+  flash:
+    created: "Benutzer wurde erfolgreich erstellt!"
+    creation_error: "Fehler bei der Erstellung des Benutzers. Bitte überprüfen Sie Ihre Eingaben!"
+    profile_update: "Dein Profil wurde erfolgreich bearbeitet!"
+    user_update: "Der Benutzer wurde erfolgreich bearbeitet!"
+    user_delete: "Der Benutzer wurde erfolgreich gelöscht!"
+    delete: "Willst du diesen Account wirklich löschen?"
+    logout: "Möchten Sie sich wirklich ausloggen?"
+    denied: "Zugriff verweigert!"
 
   users:
     index:
@@ -34,7 +43,10 @@ de:
     logout: "Ausloggen"
     account: "Account"
     edit: "Profil Bearbeiten"
-    confirmation: "Möchten Sie sich wirklich ausloggen?"
+
+  lang:
+    en: "Englisch"
+    de: "Deutsch"
 
   activerecord:
     models:
