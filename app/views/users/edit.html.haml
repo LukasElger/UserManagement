@@ -15,9 +15,14 @@
         %br/
         = f.password_field :password_confirmation
       .field
-        = f.label :admin
-        %br/
-        = f.check_box :admin
+        .col-sm-6
+          = f.label :admin
+          %br/
+          = f.check_box :admin
+        .col-sm-6
+          = f.label :account_active
+          %br/
+          = f.check_box :account_active
       .actions
         = f.submit t("actions.update")
     %h3= t ".footer"

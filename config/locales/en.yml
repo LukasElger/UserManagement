@@ -72,4 +72,5 @@ en:
         password_confirmation: "Password confirmation"
         locale: "Language"
         admin: "Admin"
+        account_active: "Active"
         remember_me: "Remember me?"

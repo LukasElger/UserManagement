@@ -7,12 +7,14 @@
         %th#user_name_head= User.human_attribute_name(:name)
         %th#user_email_head= User.human_attribute_name(:email)
         %th#user_admin_head= User.human_attribute_name(:admin)
+        %th#user_admin_head= User.human_attribute_name(:account_active)
     %tbody
       %tr#body_row
         %td= @user.id
         %td= @user.name
         %td= @user.email
         %td= @user.admin_human
+        %td= @user.account_active
 
 %h1#h2= t ".footer"
 #wrapper

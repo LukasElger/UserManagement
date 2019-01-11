@@ -25,4 +25,15 @@ class User < ApplicationRecord
       I18n.t("general.admin_false")
     end
   end
+
+   def active_for_authentication?
+      # Uncomment the below debug statement to view the properties of the returned self model values.
+      # logger.debug self.to_yaml
+
+      super && account_active?
+    end
+
+  def inactive_message
+    account_active? ? super : :inactive
+  end
 end

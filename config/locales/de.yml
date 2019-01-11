@@ -72,4 +72,5 @@ de:
         password_confirmation: "Passwort bestätigen"
         locale: "Sprache"
         admin: "Admin"
+        account_active: "Aktiv"
         remember_me: "Eingeloggt bleiben?"
