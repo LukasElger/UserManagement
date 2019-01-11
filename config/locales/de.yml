@@ -31,7 +31,7 @@ de:
       create_new: "Neuen Benutzer erstellen"
     versions:
       header: "Versionen aller Benutzer"
-      action: "Aktion"
+      action: "Letzte"
       created_at: "Erstellt"
     new:
       header: "Erstelle einen neuen Benutzer"

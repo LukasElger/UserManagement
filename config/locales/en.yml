@@ -31,7 +31,7 @@ en:
       create_new: "Create new user"
     versions:
       header: "Versions of all users"
-      action: "Action"
+      action: "Last"
       created_at: "Created"
     new:
       header: "Create new user"

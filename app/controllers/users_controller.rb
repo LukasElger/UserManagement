@@ -2,11 +2,11 @@ class UsersController < ApplicationController
   before_action :require_admin!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
 
   def index
-    @users = User.order(:name).page params[:page]
+    @users = User.order(:id).page params[:page]
   end
 
   def versions
-    @users = User.order(:name).page params[:page]
+    @users = User.order(:id).page params[:page]
   end
 
   def new

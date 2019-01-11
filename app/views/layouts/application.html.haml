@@ -2,16 +2,16 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Collabfield
+    %title UserManagement
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body#wrapper
-    -# = render 'layouts/navigation'
     -if user_signed_in?
       = render 'layouts/sidebar'
       #page-content-wrapper
+        = link_to t('sidebar.logout'), destroy_user_session_path, class: "btn btn-default", method: :delete, data: {confirm: t("flash.logout")}
         %button.hamburger.is-closed{"data-toggle" => "offcanvas", :type => "button"}
           %span.hamb-top
           %span.hamb-middle
