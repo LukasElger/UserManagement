@@ -26,6 +26,14 @@ class User < ApplicationRecord
     end
   end
 
+  def active_human
+    if account_active?
+      I18n.t("general.active_true")
+    else
+      I18n.t("general.active_false")
+    end
+  end
+
    def active_for_authentication?
       # Uncomment the below debug statement to view the properties of the returned self model values.
       # logger.debug self.to_yaml

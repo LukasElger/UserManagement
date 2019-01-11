@@ -4,6 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.4.5'
 
 gem "haml-rails", "~> 1.0"
+gem 'draper'
 gem 'kaminari'
 gem 'devise'
 gem 'bootstrap_form'

@@ -54,8 +54,10 @@ en:
   general:
     en: "English"
     de: "German"
-    yes: "Yes"
-    no: "No"
+    admin_true: "Yes"
+    admin_false: "No"
+    active_true: "Yes"
+    active_false: "No"
 
   activerecord:
     models:
