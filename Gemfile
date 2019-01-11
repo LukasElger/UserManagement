@@ -5,6 +5,7 @@ ruby '2.4.5'
 
 gem "haml-rails", "~> 1.0"
 gem 'draper'
+gem 'paper_trail'
 gem 'kaminari'
 gem 'devise'
 gem 'bootstrap_form'
