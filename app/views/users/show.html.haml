@@ -13,8 +13,8 @@
         %td= @user.id
         %td= @user.name
         %td= @user.email
-        %td= @user.admin_human
-        %td= @user.active_human
+        %td= @user.decorate.admin_human(@user)
+        %td= @user.decorate.active_human(@user)
 
 %h1#h2= t ".footer"
 #wrapper
