@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'application#index'
+  get 'versions', to: 'users#versions'
 
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'

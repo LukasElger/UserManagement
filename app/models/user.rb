@@ -1,6 +1,5 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_paper_trail
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   devise :database_authenticatable,
          :recoverable, :rememberable, :validatable

@@ -7,6 +7,7 @@ de:
     update: "Bestätigen"
     delete: "Löschen"
     back: "Zurück"
+    search: "Suchen..."
 
   flash:
     created: "Benutzer wurde erfolgreich erstellt!"
@@ -28,7 +29,10 @@ de:
   users:
     index:
       create_new: "Neuen Benutzer erstellen"
-      search: "Suchen..."
+    versions:
+      header: "Versionen aller Benutzer"
+      action: "Aktion"
+      created_at: "Erstellt"
     new:
       header: "Erstelle einen neuen Benutzer"
     edit:
@@ -45,6 +49,7 @@ de:
 
   sidebar:
     users: "Benutzer"
+    versions: "Versionen"
     create_new: "Neuer Benutzer"
     lang: "Sprache"
     logout: "Ausloggen"

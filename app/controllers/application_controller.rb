@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_locale
+  before_action :set_locale, :set_paper_trail_whodunnit
 
 
   def require_admin!

@@ -1,4 +1,4 @@
-%h1#index= link_to t('.create_new'), new_user_path
+%h1= t(".header")
 
 .container
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
@@ -7,13 +7,15 @@
       %tr#header_row
         %th#user_id_head{:scope => "col"}= User.human_attribute_name(:id)
         %th#user_name_head{:scope => "col"}= User.human_attribute_name(:name)
-        %th#user_email_head{:scope => "col"}= User.human_attribute_name(:email)
-        %th#user_admin_head{:scope => "col"}= User.human_attribute_name(:account_active)
+        %th#show_header{:scope => "col"}= t ".action"
+        %th#show_header{:scope => "col"}= t ".created_at"
         %th#show_header{:scope => "col"}= t "actions.show"
-        %th#edit_header{:scope => "col"}= t "actions.edit"
-        %th#delete_header{:scope => "col"}= t "actions.delete"
     %tbody
       - @users.each do |user|
-        = render partial: "user", locals: {user: user}
-
+        %tr.user_row{id: dom_id(user)}
+          %td#user_id_body= user.id
+          %td#user_name_body= user.name
+          %td#user_version_body= user.versions.last.event
+          %td#user_version_body= user.decorate.created_at(user)
+          %td#show_body= link_to t('actions.show'), user_path(user)
   = paginate @users
