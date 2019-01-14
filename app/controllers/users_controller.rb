@@ -5,10 +5,6 @@ class UsersController < ApplicationController
     @users = User.order(:id).page params[:page]
   end
 
-  def versions
-    @users = User.order(:id).page params[:page]
-  end
-
   def new
     @user = User.new
   end

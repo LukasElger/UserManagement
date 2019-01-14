@@ -28,11 +28,8 @@ de:
 
   users:
     index:
+      header: "Alle Benutzer"
       create_new: "Neuen Benutzer erstellen"
-    versions:
-      header: "Versionen aller Benutzer"
-      action: "Letzte"
-      created_at: "Erstellt"
     new:
       header: "Erstelle einen neuen Benutzer"
     edit:
@@ -41,6 +38,13 @@ de:
     show:
       header: "Profil von"
       footer: "Diesen Account Bearbeiten/Löschen"
+
+  versions:
+    header: "Alle Versionen"
+    action: "Aktion"
+    versions: "Versionen"
+    versioning: "Erstellte Versionen"
+    created_at: "Erstellt"
 
   application:
     index:

@@ -1,4 +1,5 @@
-%h1#index= link_to t('.create_new'), new_user_path
+= button_to t(".create_new"), new_user_path, class: "btn btn-default"
+%h1#index_header= t(".header")
 
 .container
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
@@ -18,7 +19,7 @@
           %td#user_id_body= user.id
           %td#user_name_body= user.name
           %td#user_email_body= user.email
-          %td#user_active_body= user.decorate.active_human(user)
+          %td#user_active_body= user.decorate.active_human
           %td#show_body= link_to t('actions.show'), user_path(user)
           %td#edit_body= link_to t('actions.edit'), edit_user_path(user)
           %td#delete_body= link_to t('actions.delete'), user_path(user), method: :delete, data: {confirm: t("flash.delete")}, id: "delete_user_link_#{user.id}"

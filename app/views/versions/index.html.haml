@@ -1,0 +1,25 @@
+- if !params[:item_id]
+  = button_to t("versions.versioning"), user_versions_path(current_user.id), method: :get, class: "btn btn-default"
+%h1= t("versions.header")
+
+.container
+  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
+  %table.table#SearchableTable
+    %thead.thead-dark
+      %tr#header_row
+        %th#user_id_head{:scope => "col"}= User.human_attribute_name(:id)
+        %th#user_name_head{:scope => "col"}= User.human_attribute_name(:name)
+        %th#show_header{:scope => "col"}= t "versions.action"
+        %th#show_header{:scope => "col"}= t "versions.created_at"
+        - if !params[:item_id]
+          %th#show_header{:scope => "col"}= t "versions.versions"
+    %tbody
+      - @versions.reverse.each do |version|
+        - version = VersionDecorator.decorate version
+        %tr.version_row
+          %td#version_id_body= version.item_id
+          %td#version_name_body= version.item.name
+          %td#version_event_body= version.event
+          %td#version_created_at_body= version.created_at
+          - if !params[:item_id]
+            %td#show_body= link_to t('versions.versions'), versions_path(User, version.item_id)
