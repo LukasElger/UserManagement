@@ -59,6 +59,7 @@ en:
     logout: "Log out"
     account: "Account"
     edit: "Edit profile"
+    admin: "Admin"
 
   general:
     en: "English"
@@ -80,6 +81,7 @@ en:
         email: "E-Mail"
         password: "Password"
         current_password: "Current password"
+        created_at: "Created at"
         password_confirmation: "Password confirmation"
         locale: "Language"
         admin: "Admin"

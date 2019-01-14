@@ -16,10 +16,10 @@
           %span.hamb-middle
           %span.hamb-bottom
         - flash.each do |key, value|
-          = content_tag :div, value, class: "alert alert-#{key} flash alert-dismissible fade in #{key}"
+          = content_tag :div, value, class: "alert alert-#{flash_error_key(key)} flash alert-dismissible fade in #{flash_error_key(key)}"
         = yield
     -else
       #page-content-wrapper
         - flash.each do |key, value|
-          = content_tag :div, value, class: "alert alert-#{key} flash alert-dismissible fade in #{key}"
+          = content_tag :div, value, class: "alert alert-#{flash_error_key(key)} flash alert-dismissible fade in #{flash_error_key(key)}"
         = yield
