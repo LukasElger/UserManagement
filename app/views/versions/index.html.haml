@@ -6,17 +6,17 @@
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   %table.table#SearchableTable
     %thead.thead-dark
-      %tr
-        %th{:scope => "col"}= PaperTrail::Version.human_attribute_name(:id)
-        %th{:scope => "col"}= PaperTrail::Version.human_attribute_name(:name)
-        %th{:scope => "col"}= t "versions.action"
-        %th{:scope => "col"}= t "versions.created_at"
+      %tr#header_row
+        %th#id_head{:scope => "col"}= PaperTrail::Version.human_attribute_name(:id)
+        %th#name_head{:scope => "col"}= PaperTrail::Version.human_attribute_name(:name)
+        %th#action_head{:scope => "col"}= t "versions.action"
+        %th#created_at_head{:scope => "col"}= t "versions.created_at"
         - if !params[:item_id]
-          %th{:scope => "col"}= t "versions.versions"
+          %th#versions_head{:scope => "col"}= t "versions.versions"
     %tbody
       - @versions.reverse.each do |version|
         - version = VersionDecorator.decorate version
-        %tr
+        %tr#body_row
           %td= version.item_id
           %td= version.item.name
           %td= version.event

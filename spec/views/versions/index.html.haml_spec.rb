@@ -16,11 +16,11 @@ RSpec.describe "versions/index", type: :view do
     assert_select "table" do
       expect(rendered).to have_css("tr#header_row")
       expect(rendered).to have_css("tr#body_row")
-      expect(rendered).to have_css("th#version_id_head")
-      expect(rendered).to have_css("th#version_name_head")
-      expect(rendered).to have_css("th#version_action_head")
-      expect(rendered).to have_css("th#version_created_at_head")
-      expect(rendered).to have_css("th#version_versions_head")
+      expect(rendered).to have_css("th#id_head")
+      expect(rendered).to have_css("th#name_head")
+      expect(rendered).to have_css("th#action_head")
+      expect(rendered).to have_css("th#created_at_head")
+      expect(rendered).to have_css("th#versions_head")
     end
   end
 end
