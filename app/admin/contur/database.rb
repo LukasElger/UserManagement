@@ -43,13 +43,3 @@ ActiveAdmin.register Contur::Database do
     end
   end
 end
-# url
-# vm_username
-# comment
-# contur_type
-# service_id
-# starts_at
-# ends_at
-# github_branch
-# created_at
-# updated_at

@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.5'
 
-gem "haml-rails", "~> 1.0"
+gem 'haml-rails', '~> 1.0'
 gem 'activeadmin'
 gem 'draper'
 gem 'paper_trail'
@@ -35,8 +35,9 @@ group :development do
 end
 
 group :test do
+  gem 'shoulda-matchers'
   gem 'rspec-rails', '~> 3.6'
-  gem "rspec-activemodel-mocks"
+  gem 'rspec-activemodel-mocks'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'headless'
