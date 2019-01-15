@@ -16,7 +16,6 @@
 //= require jquery
 //= require bootstrap-sprockets
 $(document).ready(function () {
-  console.log("test");
   var trigger = $('.hamburger'),
       overlay = $('.overlay'),
      isClosed = false;

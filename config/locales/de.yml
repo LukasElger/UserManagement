@@ -74,6 +74,13 @@ de:
       user:
         one: "Benutzer"
         other: "Benutzer"
+      paper_trail/version:
+        one: "Version"
+        other: "Versionen"
+      contur/database:
+        one: "Datenbank"
+        other: "Datenbanken"
+
     attributes:
       user:
         id: "ID"
@@ -87,3 +94,14 @@ de:
         admin: "Admin"
         account_active: "Aktiv"
         remember_me: "Eingeloggt bleiben?"
+      paper_trail/version:
+      contur/database:
+        url: "URL"
+        vm_username: "VM-Benutzername"
+        comment: "Kommentar"
+        contur_type: "Anpassung"
+        starts_at: "Beginnt am"
+        ends_at: "Endet am"
+        github_branch: "Github-Branch"
+        created_at: "Erstellt am"
+        updated_at: "Bearbeitet am"
