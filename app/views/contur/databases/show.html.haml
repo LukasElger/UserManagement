@@ -1,0 +1,30 @@
+%h1= t("contur/database.show.header")
+.container
+  %table.table
+    %tr
+      %th= Contur::Database.human_attribute_name(:url)
+      %td= @db.url
+    %tr
+      %th= Contur::Database.human_attribute_name(:vm_username)
+      %td= @db.vm_username
+    %tr
+      %th= Contur::Database.human_attribute_name(:github_branch)
+      %td= @db.github_branch
+    %tr
+      %th= Contur::Database.human_attribute_name(:contur_type)
+      %td= @db.contur_type
+    %tr
+      %th= Contur::Database.human_attribute_name(:service_id)
+      %td= @db.service_id
+    %tr
+      %th= Contur::Database.human_attribute_name(:starts_at)
+      %td= @db.starts_at
+    %tr
+      %th= Contur::Database.human_attribute_name(:ends_at)
+      %td= @db.ends_at
+
+%h1= t "contur/database.show.footer"
+.buttons
+  .col-sm-2.col-sm-offset-5
+    = button_to t('actions.edit'), edit_contur_database_path(@db), method: :get, class: 'form-control'
+    = button_to t("actions.back"), :back, method: :get, class: 'form-control'

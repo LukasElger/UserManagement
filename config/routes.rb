@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get "versions/:item_type(/:item_id)", to:"versions#index", as: :versions
   get "user_versions/:whodunnit", to:"versions#user_versions", as: :user_versions
 
+  namespace :contur do
+    resources :databases
+  end
+
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'

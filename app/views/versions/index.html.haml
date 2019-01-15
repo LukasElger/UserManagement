@@ -6,20 +6,20 @@
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   %table.table#SearchableTable
     %thead.thead-dark
-      %tr#header_row
-        %th#version_id_head{:scope => "col"}= User.human_attribute_name(:id)
-        %th#version_name_head{:scope => "col"}= User.human_attribute_name(:name)
-        %th#version_action_head{:scope => "col"}= t "versions.action"
-        %th#version_created_at_head{:scope => "col"}= t "versions.created_at"
+      %tr
+        %th{:scope => "col"}= PaperTrail::Version.human_attribute_name(:id)
+        %th{:scope => "col"}= PaperTrail::Version.human_attribute_name(:name)
+        %th{:scope => "col"}= t "versions.action"
+        %th{:scope => "col"}= t "versions.created_at"
         - if !params[:item_id]
-          %th#version_versions_head{:scope => "col"}= t "versions.versions"
+          %th{:scope => "col"}= t "versions.versions"
     %tbody
       - @versions.reverse.each do |version|
         - version = VersionDecorator.decorate version
-        %tr#body_row
-          %td#version_id_body= version.item_id
-          %td#version_name_body= version.item.name
-          %td#version_event_body= version.event
-          %td#version_created_at_body= version.created_at
+        %tr
+          %td= version.item_id
+          %td= version.item.name
+          %td= version.event
+          %td= version.created_at
           - if !params[:item_id]
-            %td#show_body= link_to t('versions.versions'), versions_path(User, version.item_id)
+            %td= link_to t('versions.versions'), versions_path(User, version.item_id)

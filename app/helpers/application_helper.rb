@@ -7,6 +7,8 @@ module ApplicationHelper
     case key
     when "error"
       "danger"
+    when "notice"
+      "success"
     else
       key
     end

@@ -14,8 +14,11 @@ de:
     creation_error: "Fehler bei der Erstellung des Benutzers. Bitte überprüfen Sie Ihre Eingaben!"
     profile_update: "Dein Profil wurde erfolgreich bearbeitet!"
     user_update: "Der Benutzer wurde erfolgreich bearbeitet!"
+    db_update: "Die Datenbank wurde erfolgreich bearbeitet!"
     user_delete: "Der Benutzer wurde erfolgreich gelöscht!"
+    db_delete: "Die Datenbank wurde erfolgreich gelöscht!"
     delete: "Willst du diesen Account wirklich löschen?"
+    delete_db: "Willst du diese Datenbank wirklich löschen?"
     logout: "Möchten Sie sich wirklich ausloggen?"
     denied: "Zugriff verweigert!"
 
@@ -37,14 +40,24 @@ de:
       footer: "Diesen Account Löschen"
     show:
       header: "Profil von"
-      footer: "Diesen Account Bearbeiten/Löschen"
+      footer: "Diesen Account Bearbeiten"
 
   versions:
     header: "Alle Versionen"
     action: "Aktion"
     versions: "Versionen"
     versioning: "Erstellte Versionen"
-    created_at: "Erstellt"
+    created_at: "Erstellt am"
+
+  contur/database:
+    index:
+      header: "Alle Datenbanken"
+    edit:
+      header: "Datenbank bearbeiten"
+      footer: "Datenbank Löschen"
+    show:
+      header: "Datenbank Informationen"
+      footer: "Datenbank bearbeiten"
 
   application:
     index:
@@ -52,14 +65,17 @@ de:
       header: "Zuletzt hinzugefügt"
 
   sidebar:
+    lists: "Listen"
     users: "Benutzer"
+    databases: "Datenbanken"
     versions: "Versionen"
     create_new: "Neuer Benutzer"
     lang: "Sprache"
     logout: "Ausloggen"
-    account: "Account"
+    account: "Verwaltung"
     edit: "Profil Bearbeiten"
     admin: "Admin"
+    actions: "Aktionen"
 
   general:
     en: "Englisch"
@@ -74,9 +90,11 @@ de:
       user:
         one: "Benutzer"
         other: "Benutzer"
+
       paper_trail/version:
         one: "Version"
         other: "Versionen"
+
       contur/database:
         one: "Datenbank"
         other: "Datenbanken"
@@ -94,14 +112,19 @@ de:
         admin: "Admin"
         account_active: "Aktiv"
         remember_me: "Eingeloggt bleiben?"
+
       paper_trail/version:
+        id: "ID"
+        name: "Name"
+
       contur/database:
         url: "URL"
         vm_username: "VM-Benutzername"
         comment: "Kommentar"
         contur_type: "Anpassung"
-        starts_at: "Beginnt am"
-        ends_at: "Endet am"
+        service_id: "Service-ID"
+        starts_at: "Gültig vom"
+        ends_at: "Gültig bis"
         github_branch: "Github-Branch"
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"

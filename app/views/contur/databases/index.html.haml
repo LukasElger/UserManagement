@@ -1,0 +1,19 @@
+%h1= t("contur/database.index.header")
+
+.container
+  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
+  %table.table#SearchableTable
+    %thead.thead-dark
+      %tr
+        %th{:scope => "col"}= Contur::Database.human_attribute_name(:id)
+        %th{:scope => "col"}= t "actions.show"
+        %th{:scope => "col"}= t "actions.edit"
+        %th{:scope => "col"}= t "actions.delete"
+    %tbody
+      - @dbs.each do |db|
+        %tr
+          %td= db.id
+          %td= link_to t('actions.show'), contur_database_path(db)
+          %td= link_to t('actions.edit'), edit_contur_database_path(db)
+          %td= link_to t('actions.delete'), contur_database_path(db), method: :delete, data: {confirm: t("flash.delete_db")}
+  = paginate @dbs

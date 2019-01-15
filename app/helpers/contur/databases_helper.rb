@@ -1,0 +1,2 @@
+module Contur::DatabasesHelper
+end

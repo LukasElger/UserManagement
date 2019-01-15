@@ -1,15 +1,15 @@
-%h1= t ".header"
-#sign-up-form.container
-  .col-sm-offset-4.col-sm-4
-    = bootstrap_form_for(@user, url: users_path) do |f|
-      = f.text_field :name, placeholder: User.human_attribute_name(:name), class: 'form-control'
-      = f.text_field :email, placeholder: User.human_attribute_name(:email), class: 'form-control'
-      = f.password_field :password, placeholder: User.human_attribute_name(:password), class: 'form-control'
-      = f.password_field :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation), class: 'form-control'
+.container
+  .col-sm-6.col-sm-offset-3
+    %h2= t "users.new.header"
+    = simple_form_for(@user, url: users_path) do |f|
+      = f.input :name, placeholder: User.human_attribute_name(:name)
+      = f.input :email, placeholder: User.human_attribute_name(:email)
+      = f.input :password, placeholder: User.human_attribute_name(:password)
+      = f.input :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation)
       .field
         .col-sm-6
-          = f.check_box :admin
+          = f.input :admin, as: :boolean
         .col-sm-6
-          = f.check_box :account_active
-      = f.submit t('actions.create'), class: 'btn sign-up-button'
-    = button_to t("actions.back"), root_path, method: :get, id: "back_to_root_button"
+          = f.input :account_active, as: :boolean
+      = f.submit t("actions.create"), class: 'form-control'
+    = button_to t("actions.back"), :back, method: :get, class: 'form-control'

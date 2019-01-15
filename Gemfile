@@ -3,23 +3,26 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.5'
 
-gem 'haml-rails', '~> 1.0'
 gem 'activeadmin'
 gem 'draper'
 gem 'paper_trail'
 gem 'kaminari'
 gem 'devise'
-gem 'bootstrap_form'
+gem 'simple_form'
+
 gem 'rails', '~> 5.2.2'
-gem 'jquery-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
+
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+gem 'haml-rails', '~> 1.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+
 gem 'rails-i18n'
 gem 'bootsnap', '>= 1.1.0', require: false
 
@@ -45,7 +48,4 @@ group :test do
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
   gem 'capybara'
-  gem 'shoulda-matchers'
 end
-
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

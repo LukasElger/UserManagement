@@ -3,7 +3,7 @@ FactoryBot.define do
     sequence(:url) { |n| "http://www.test.de/#{n}" }
     sequence(:github_branch) { |n| "Branch_#{n}" }
     vm_username { "VM-Username" }
-    contur_type { "Contur-Type" }
+    contur_type { Contur::Database::CONTUR }
     service_id { "Service-ID" }
     comment { "Comment of Contur_Database" }
     starts_at { Date.new(2018,12,12) }

@@ -1,30 +1,16 @@
-#sign-up-form.container
-  .col-sm-offset-4.col-sm-4
-    %h2= t ".header"
-    = form_for(@user) do |f|
-      .field
-        = f.label :email
-        %br/
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-      .field
-        = f.label :password
-        %br/
-        = f.password_field :password
-      .field
-        = f.label :password_confirmation
-        %br/
-        = f.password_field :password_confirmation
+.container
+  .col-sm-6.col-sm-offset-3
+    %h2= t("users.edit.header")
+    = simple_form_for(@user) do |f|
+      = f.input :email, autocomplete: "email", placeholder: User.human_attribute_name(:name)
+      = f.input :password, placeholder: User.human_attribute_name(:password)
+      = f.input :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation)
       .field
         .col-sm-6
-          = f.label :admin
-          %br/
-          = f.check_box :admin
+          = f.input :admin, as: :boolean
         .col-sm-6
-          = f.label :account_active
-          %br/
-          = f.check_box :account_active
-      .actions
-        = f.submit t("actions.update")
-    %h3= t ".footer"
-    = button_to t("actions.delete"), user_path(@user), method: :delete, data: {confirm: t("flash.delete")}, id: "delete_user_link"
-    = button_to t("actions.back"), root_path, method: :get, id: "back_to_root_button"
+          = f.input :account_active, as: :boolean
+      = f.submit t("actions.update"), class: 'form-control'
+    %h3= t("users.edit.footer")
+    = button_to t("actions.delete"), user_path(@user), method: :delete, class: 'form-control', data: {confirm: t("flash.delete")}
+    = button_to t("actions.back"), :back, method: :get, class: 'form-control'

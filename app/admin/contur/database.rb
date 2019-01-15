@@ -13,6 +13,7 @@ ActiveAdmin.register Contur::Database do
   end
 
   filter :created_at
+  filter :contur_type, as: :select, collection: Contur::Database::ANPASSUNGEN
 
   form do |f|
     f.inputs do
