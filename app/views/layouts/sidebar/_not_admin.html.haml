@@ -6,8 +6,14 @@
     %h3 UserManagement
   %ul.list-unstyled.components
     %li
-      %a= link_to t('sidebar.info'), user_path(current_user)
+      = link_to user_path(current_user) do
+        = t('sidebar.info')
+        %i.fas.fa-info
     %li
-      %a= link_to t('sidebar.edit'), edit_profile_path
+      = link_to edit_profile_path(current_user) do
+        = t('sidebar.edit')
+        %i.fas.fa-edit
     %li
-      %a= link_to t('sidebar.logout'), destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")}
+      = link_to destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")} do
+        = t('sidebar.logout')
+        %i.fas.fa-sign-out-alt

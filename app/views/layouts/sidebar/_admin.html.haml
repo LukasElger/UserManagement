@@ -11,21 +11,35 @@
         %span.fas.fa-angle-down
       %ul#listsSubmenu.collapse.list-unstyled
         %li
-          = link_to t('sidebar.users'), users_path
+          = link_to users_path do
+            = t('sidebar.users')
+            %i.fas.fa-user
         %li
-          = link_to t('sidebar.versions'), versions_path(User)
+          = link_to versions_path(User) do
+            = t('sidebar.versions')
+            %i.fas.fa-code-branch
         %li
-          = link_to t('sidebar.databases'), contur_databases_path
+          = link_to contur_databases_path do
+            = t('sidebar.databases')
+            %i.fas.fa-database
     %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#accSubmenu"}
         = t("sidebar.account")
         %span.fas.fa-angle-down
       %ul#accSubmenu.collapse.list-unstyled
         %li
-          = link_to t('sidebar.info'), user_path(current_user)
+          = link_to user_path(current_user) do
+            = t('sidebar.info')
+            %i.fas.fa-info
         %li
-          = link_to t('sidebar.edit'), edit_profile_path(current_user)
+          = link_to edit_profile_path(current_user) do
+            = t('sidebar.edit')
+            %i.fas.fa-edit
         %li
-          = link_to t('sidebar.admin'), admin_root_path
+          = link_to admin_root_path do
+            = t('sidebar.admin')
+            %i.fas.fa-toolbox
     %li
-      = link_to t('sidebar.logout'), destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")}
+      = link_to destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")} do
+        = t('sidebar.logout')
+        %i.fas.fa-sign-out-alt
