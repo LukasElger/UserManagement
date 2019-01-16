@@ -5,22 +5,22 @@
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   %table.table#SearchableTable
     %thead.thead-dark
-      %tr
-        %th{:scope => "col"}= User.human_attribute_name(:id)
-        %th{:scope => "col"}= User.human_attribute_name(:name)
-        %th{:scope => "col"}= User.human_attribute_name(:email)
-        %th{:scope => "col"}= User.human_attribute_name(:account_active)
-        %th{:scope => "col"}= t "actions.show"
-        %th{:scope => "col"}= t "actions.edit"
-        %th{:scope => "col"}= t "actions.delete"
+      %tr#header_row
+        %th#id_head{:scope => "col"}= User.human_attribute_name(:id)
+        %th#name_head{:scope => "col"}= User.human_attribute_name(:name)
+        %th#email_head{:scope => "col"}= User.human_attribute_name(:email)
+        %th#active_head{:scope => "col"}= User.human_attribute_name(:account_active)
+        %th#show_header{:scope => "col"}= t "actions.show"
+        %th#edit_header{:scope => "col"}= t "actions.edit"
+        %th#delete_header{:scope => "col"}= t "actions.delete"
     %tbody
       - @users.each do |user|
-        %tr
+        %tr#body_row
           %td= user.id
           %td= user.name
           %td= user.email
           %td= user.decorate.active_human
-          %td= link_to t('actions.show'), user_path(user)
-          %td= link_to t('actions.edit'), edit_user_path(user)
-          %td= link_to t('actions.delete'), user_path(user), method: :delete, data: {confirm: t("flash.delete")}
+          %td#show_body= link_to t('actions.show'), user_path(user)
+          %td#edit_body= link_to t('actions.edit'), edit_user_path(user)
+          %td#delete_body= link_to t('actions.delete'), user_path(user), method: :delete, data: {confirm: t("flash.delete")}
   = paginate @users

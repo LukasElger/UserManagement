@@ -12,13 +12,10 @@ RSpec.describe "users/edit", type: :view do
       assert_select "input[name='user[password]']"
       assert_select "input[name='user[password_confirmation]']"
       assert_select "input[name='user[admin]']"
+      assert_select "input[name='user[account_active]']"
       assert_select "input[type='submit']"
+      expect(rendered).to have_css("input#back_to_root_button")
+      expect(rendered).to have_css("input#delete_user_button")
     end
-  end
-
-  it "contains #sign-up-form" do
-    expect(rendered).to have_css("div#sign-up-form")
-    expect(rendered).to have_css("input#back_to_root_button")
-    expect(rendered).to have_css("input#delete_user_link")
   end
 end

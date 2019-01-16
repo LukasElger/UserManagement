@@ -10,10 +10,11 @@ RSpec.describe "users/show", type: :view do
     assert_select "table" do
       expect(rendered).to have_css("tr#header_row")
       expect(rendered).to have_css("tr#body_row")
-      expect(rendered).to have_css("th#user_id_head")
-      expect(rendered).to have_css("th#user_name_head")
-      expect(rendered).to have_css("th#user_email_head")
-      expect(rendered).to have_css("th#user_admin_head")
+      expect(rendered).to have_css("th#id_head")
+      expect(rendered).to have_css("th#name_head")
+      expect(rendered).to have_css("th#email_head")
+      expect(rendered).to have_css("th#admin_head")
+      expect(rendered).to have_css("th#active_head")
     end
   end
 

@@ -12,5 +12,5 @@
           = f.input :account_active, as: :boolean
       = f.submit t("actions.update"), class: 'form-control'
     %h3= t("users.edit.footer")
-    = button_to t("actions.delete"), user_path(@user), method: :delete, class: 'form-control', data: {confirm: t("flash.delete")}
-    = button_to t("actions.back"), :back, method: :get, class: 'form-control'
+    = button_to t("actions.delete"), user_path(@user), method: :delete, class: 'form-control', id: "delete_user_button", data: {confirm: t("flash.delete")}
+    = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
