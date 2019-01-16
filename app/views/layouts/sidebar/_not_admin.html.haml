@@ -5,9 +5,8 @@
   .sidebar-header
     %h3 UserManagement
   %ul.list-unstyled.components
-    %p Actions
     %li
-      %a= link_to t('sidebar.show'), user_path(current_user)
+      %a= link_to t('sidebar.info'), user_path(current_user)
     %li
       %a= link_to t('sidebar.edit'), edit_profile_path
     %li

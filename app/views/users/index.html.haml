@@ -1,7 +1,5 @@
-= button_to t("users.index.create_new"), new_user_path, method: :get, class: "btn btn-light"
-%h1= t("users.index.header")
-
 .container
+  %h1= t("users.index.header")
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   %table.table#SearchableTable
     %thead.thead-dark

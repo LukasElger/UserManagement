@@ -1,16 +1,15 @@
-.container
-  .col-sm-6.col-sm-offset-3
-    %h2= t("users.edit.header")
-    = simple_form_for(@user) do |f|
-      = f.input :email, autocomplete: "email", placeholder: User.human_attribute_name(:name)
-      = f.input :password, placeholder: User.human_attribute_name(:password)
-      = f.input :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation)
-      .field
-        .col-sm-6
-          = f.input :admin, as: :boolean
-        .col-sm-6
-          = f.input :account_active, as: :boolean
-      = f.submit t("actions.update"), class: 'form-control'
-    %h3= t("users.edit.footer")
-    = button_to t("actions.delete"), user_path(@user), method: :delete, class: 'form-control', id: "delete_user_button", data: {confirm: t("flash.delete")}
-    = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+.container.col-sm-4
+  %h2= t("users.edit.header")
+  = simple_form_for(@user) do |f|
+    = f.input :email, autocomplete: "email", placeholder: User.human_attribute_name(:name)
+    = f.input :password, placeholder: User.human_attribute_name(:password)
+    = f.input :password_confirmation, placeholder: User.human_attribute_name(:password_confirmation)
+    .row
+      .col-sm-6
+        = f.input :admin, as: :boolean
+      .col-sm-6
+        = f.input :account_active, as: :boolean
+    = f.submit t("actions.update"), class: 'form-control'
+  %h3= t("users.edit.footer")
+  = button_to t("actions.delete"), user_path(@user), method: :delete, class: 'form-control', id: "delete_user_button", data: {confirm: t("flash.delete")}
+  = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"

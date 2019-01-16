@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title UserManagement
     = csrf_meta_tags
@@ -16,8 +17,7 @@
         %nav.navbar.navbar-expand-lg.navbar-light.bg-light
           .container-fluid
             %button#sidebarCollapse.btn.btn-info{:type => "button"}
-              %i.fas.fa-align-left
-              Sidebar
+              %i.fas.fa-bars.fa-2x
         - flash.each do |key, value|
           = content_tag :div, value, class: "alert alert-#{flash_error_key(key)} flash alert-dismissible fade in #{flash_error_key(key)}"
         = yield

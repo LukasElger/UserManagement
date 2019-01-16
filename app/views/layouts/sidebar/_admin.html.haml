@@ -3,15 +3,29 @@
   #dismiss
     %i.fas.fa-arrow-left
   .sidebar-header
-    %h3 UserManagement
+    = link_to t('general.title'), root_path
   %ul.list-unstyled.components
-    %p Actions
     %li
-      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu"} Kategorien
-      %ul#homeSubmenu.collapse.list-unstyled
+      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#listsSubmenu"}
+        = t("sidebar.lists")
+        %span.fas.fa-angle-down
+      %ul#listsSubmenu.collapse.list-unstyled
         %li
-          %a{:href => "#"} Home 1
+          = link_to t('sidebar.users'), users_path
         %li
-          %a{:href => "#"} Home 2
+          = link_to t('sidebar.versions'), versions_path(User)
         %li
-          %a{:href => "#"} Home 3
+          = link_to t('sidebar.databases'), contur_databases_path
+    %li
+      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#accSubmenu"}
+        = t("sidebar.account")
+        %span.fas.fa-angle-down
+      %ul#accSubmenu.collapse.list-unstyled
+        %li
+          = link_to t('sidebar.info'), user_path(current_user)
+        %li
+          = link_to t('sidebar.edit'), edit_profile_path(current_user)
+        %li
+          = link_to t('sidebar.admin'), admin_root_path
+    %li
+      = link_to t('sidebar.logout'), destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")}

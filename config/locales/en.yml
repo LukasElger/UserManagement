@@ -65,21 +65,22 @@ de:
       header: "Recently added"
 
   sidebar:
-    lists: "Lists"
+    lists: "Categories"
     users: "Users"
     databases: "Databases"
     versions: "Versions"
     create_new: "New USer"
     lang: "Language"
     logout: "Log out"
-    account: "Management"
+    info: "Info"
     edit: "Edit profile"
-    admin: "Admin"
+    admin: "Administration"
     actions: "Actions"
 
   general:
     en: "English"
     de: "German"
+    title: "UserManagement"
     admin_true: "Yes"
     admin_false: "No"
     active_true: "Yes"
