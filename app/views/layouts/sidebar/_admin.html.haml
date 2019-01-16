@@ -1,25 +1,17 @@
-.overlay
-%nav#sidebar-wrapper.navbar.navbar-inverse.navbar-fixed-top{:role => "navigation"}
-  %ul.nav.sidebar-nav
-    %li.sidebar-brand= link_to 'Home', root_path
-    %li.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        = t("sidebar.lists")
-        %span.caret
-      %ul.dropdown-menu{:role => "menu"}
-        %li.dropdown-header= t("sidebar.actions")
-        %li= link_to t('sidebar.users'), users_path
-        %li= link_to t('sidebar.databases'), contur_databases_path
-        %li= link_to t('sidebar.versions'), versions_path(User)
-
-    %li= link_to t('sidebar.create_new'), new_user_path
-    %li= link_to t('sidebar.logout'), destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")}
-    %li.dropdown
-      %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-        = t("sidebar.account")
-        %span.caret
-      %ul.dropdown-menu{:role => "menu"}
-        %li.dropdown-header= t("sidebar.actions")
-        %li= link_to t('sidebar.edit'), edit_profile_path
-        %li= link_to t('sidebar.admin'), admin_root_path(current_user)
-        %li= link_to t('actions.show'), user_path(current_user)
+/ Sidebar
+%nav#sidebar
+  #dismiss
+    %i.fas.fa-arrow-left
+  .sidebar-header
+    %h3 UserManagement
+  %ul.list-unstyled.components
+    %p Actions
+    %li
+      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu"} Kategorien
+      %ul#homeSubmenu.collapse.list-unstyled
+        %li
+          %a{:href => "#"} Home 1
+        %li
+          %a{:href => "#"} Home 2
+        %li
+          %a{:href => "#"} Home 3

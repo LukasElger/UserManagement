@@ -7,14 +7,17 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  .overlay
   %body#wrapper
     -if user_signed_in?
       = render 'layouts/sidebar'
       #page-content-wrapper
-        %button.hamburger.is-closed{"data-toggle" => "offcanvas", :type => "button"}
-          %span.hamb-top
-          %span.hamb-middle
-          %span.hamb-bottom
+        %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+          .container-fluid
+            %button#sidebarCollapse.btn.btn-info{:type => "button"}
+              %i.fas.fa-align-left
+              Sidebar
         - flash.each do |key, value|
           = content_tag :div, value, class: "alert alert-#{flash_error_key(key)} flash alert-dismissible fade in #{flash_error_key(key)}"
         = yield

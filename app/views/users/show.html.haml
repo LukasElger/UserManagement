@@ -1,5 +1,5 @@
-%h1= t("users.show.header") + " \"#{@user.name}\""
 .container
+  %h1= t("users.show.header") + " \"#{@user.name}\""
   %table.table
     %thead
       %tr#header_row
@@ -16,8 +16,7 @@
         %td= @user.decorate.admin_human
         %td= @user.decorate.active_human
 
-%h1= t "users.show.footer"
-.buttons
-  .col-sm-2.col-sm-offset-5
+  %h1= t "users.show.footer"
+  .col-sm-2
     = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'form-control', id: "edit_user_button"
     = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
