@@ -1,4 +1,4 @@
-de:
+en:
   actions:
     login: "Login"
     show: "Show"
@@ -65,6 +65,7 @@ de:
       header: "Recently added"
 
   sidebar:
+    home: "Home"
     lists: "Categories"
     users: "Users"
     databases: "Databases"
