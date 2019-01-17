@@ -2,7 +2,7 @@ class VersionsController < ApplicationController
 
   def index
     @versions = PaperTrail::Version.where(item_type: "User")
-      
+
     if params[:item_id]
       @versions = @versions.where(item_id: params[:item_id])
     end

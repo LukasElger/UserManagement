@@ -43,6 +43,7 @@ en:
       footer: "Edit this account"
 
   versions:
+    id_header: "All Versions of"
     header: "All Versions"
     action: "Action"
     versions: "Versions"

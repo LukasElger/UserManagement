@@ -3,8 +3,12 @@
   #dismiss
     %i.fas.fa-arrow-left
   .sidebar-header
-    = link_to t('general.title'), root_path
+    %h3 UserManagement
   %ul.list-unstyled.components
+    %li
+      = link_to root_path do
+        = t('sidebar.home')
+        %i.fas.fa-home
     %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#listsSubmenu"}
         = t("sidebar.lists")

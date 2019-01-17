@@ -1,18 +1,14 @@
-.container
-  .col-sm-6.col-sm-offset-3
-    %h2= t("contur/database.edit.header")
-    = simple_form_for(@db) do |f|
-      = f.input :url, autocomplete: "url", placeholder: Contur::Database.human_attribute_name(:url)
-      = f.input :vm_username, autocomplete: "vm_username", placeholder: Contur::Database.human_attribute_name(:vm_username)
-      = f.input :contur_type, autocomplete: "contur_type", placeholder: Contur::Database.human_attribute_name(:contur_type)
-      = f.input :github_branch, autocomplete: "github_branch", placeholder: Contur::Database.human_attribute_name(:github_branch)
-      = f.input :service_id, autocomplete: "service_id", placeholder: Contur::Database.human_attribute_name(:service_id)
-      .field
-        .col-sm-6
-          = f.input :starts_at, autocomplete: "starts_at", placeholder: Contur::Database.human_attribute_name(:starts_at)
-        .col-sm-6
-          = f.input :ends_at, autocomplete: "ends_at", placeholder: Contur::Database.human_attribute_name(:ends_at)
-      = f.submit t("actions.update"), class: 'form-control'
-    %h3= t("contur/database.edit.footer")
-    = button_to t("actions.delete"), contur_database_path(@db), method: :delete, class: 'form-control', data: {confirm: t("flash.delete_db")}
-    = button_to t("actions.back"), :back, method: :get, class: 'form-control'
+.container.col-sm-4
+  %h2= t("contur/database.edit.header")
+  = simple_form_for(@db) do |f|
+    = f.input :url, autocomplete: "url", placeholder: Contur::Database.human_attribute_name(:url)
+    = f.input :vm_username, autocomplete: "vm_username", placeholder: Contur::Database.human_attribute_name(:vm_username)
+    = f.input :contur_type, autocomplete: "contur_type", placeholder: Contur::Database.human_attribute_name(:contur_type)
+    = f.input :github_branch, autocomplete: "github_branch", placeholder: Contur::Database.human_attribute_name(:github_branch)
+    = f.input :service_id, autocomplete: "service_id", placeholder: Contur::Database.human_attribute_name(:service_id)
+    = f.input :starts_at, autocomplete: "starts_at", placeholder: Contur::Database.human_attribute_name(:starts_at)
+    = f.input :ends_at, autocomplete: "ends_at", placeholder: Contur::Database.human_attribute_name(:ends_at)
+    = f.submit t("actions.update"), class: 'form-control'
+  %h3= t("contur/database.edit.footer")
+  = button_to t("actions.delete"), contur_database_path(@db), method: :delete, class: 'form-control', data: {confirm: t("flash.delete_db")}
+  = button_to t("actions.back"), :back, method: :get, class: 'form-control'

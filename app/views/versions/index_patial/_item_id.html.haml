@@ -1,0 +1,18 @@
+.container
+  %h1= t("versions.id_header") + " #{@versions.first.item.name}"
+  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
+  %table.table#SearchableTable
+    %thead.thead-dark
+      %tr#header_row
+        %th#id_head{:scope => "col"}= PaperTrail::Version.human_attribute_name(:id)
+        %th#name_head{:scope => "col"}= PaperTrail::Version.human_attribute_name(:name)
+        %th#action_head{:scope => "col"}= t "versions.action"
+        %th#created_at_head{:scope => "col"}= t "versions.created_at"
+    %tbody
+      - @versions.reverse.each do |version|
+        - version = VersionDecorator.decorate version
+        %tr#body_row
+          %td= version.item_id
+          %td= version.item.name
+          %td= version.event
+          %td= version.created_at

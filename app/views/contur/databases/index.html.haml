@@ -6,6 +6,7 @@
     %thead.thead-dark
       %tr
         %th{:scope => "col"}= Contur::Database.human_attribute_name(:id)
+        %th{:scope => "col"}= Contur::Database.human_attribute_name(:url)
         %th{:scope => "col"}= t "actions.show"
         %th{:scope => "col"}= t "actions.edit"
         %th{:scope => "col"}= t "actions.delete"
@@ -13,7 +14,27 @@
       - @dbs.each do |db|
         %tr
           %td= db.id
-          %td= link_to t('actions.show'), contur_database_path(db)
-          %td= link_to t('actions.edit'), edit_contur_database_path(db)
-          %td= link_to t('actions.delete'), contur_database_path(db), method: :delete, data: {confirm: t("flash.delete_db")}
+          %td
+            %span.fas.fa-globe-europe{"data-target" => "#urlModal", "data-toggle" => "modal"}
+          %td
+            = link_to contur_database_path(db) do
+              %i.fas.fa-search
+          %td
+            = link_to edit_contur_database_path(db) do
+              %i.fas.fa-edit
+          %td
+            = link_to contur_database_path(db), method: :delete, data: {confirm: t("flash.delete_db")} do
+              %i.fas.fa-trash-alt
+          / Modal
+          #urlModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+            .modal-dialog{:role => "document"}
+              .modal-content
+                .modal-header
+                  %h5#exampleModalLabel.modal-title= Contur::Database.human_attribute_name(:url)
+                  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span{"aria-hidden" => "true"} ×
+                .modal-body
+                  = db.url
+                .modal-footer
+                  %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
   = paginate @dbs
