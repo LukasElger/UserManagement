@@ -1,33 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe "users/index", type: :view do
+  let(:user) { FactoryBot.create(:user) }
   before do
-    @user = FactoryBot.create(:user)
-    users = [@user]
+    users = [user]
     elements = Kaminari.paginate_array(users).page(1)
     assign(:users, elements)
     render
   end
 
-  it "contains a table with all headings" do
-    assert_select "table" do
-      expect(rendered).to have_css("tr#header_row")
-      expect(rendered).to have_css("th#id_head")
-      expect(rendered).to have_css("th#name_head")
-      expect(rendered).to have_css("th#email_head")
-      expect(rendered).to have_css("th#active_head")
-      expect(rendered).to have_css("th#show_header")
-      expect(rendered).to have_css("th#edit_header")
-      expect(rendered).to have_css("th#delete_header")
+  describe "contains table with all users" do
+    it "page header content" do
+      expect(rendered).to have_selector('h1', text: I18n.t("users.index.header"))
+      expect(rendered).to have_selector('input', id: 'SearchInput')
     end
-  end
 
-  it "contains a table with all users" do
-    assert_select "table" do
-      expect(rendered).to have_css("tr#body_row")
-      expect(rendered).to have_css("td#show_body")
-      expect(rendered).to have_css("td#edit_body")
-      expect(rendered).to have_css("td#delete_body")
+    it "table head content" do
+      expect(rendered).to have_selector('table', class: 'table', id: 'SearchableTable')
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:id))
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:name))
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:email))
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:account_active))
+      expect(rendered).to have_selector('th', text: I18n.t("actions.show"))
+      expect(rendered).to have_selector('th', text: I18n.t("actions.edit"))
+      expect(rendered).to have_selector('th', text: I18n.t("actions.delete"))
+    end
+
+    it "table body content" do
+      expect(rendered).to have_selector('td', text: "#{user.id}")
+      expect(rendered).to have_selector('td', text: "#{user.name}")
+      expect(rendered).to have_selector('td', text: "#{user.email}")
+      expect(rendered).to have_selector('td', text: "#{user.decorate.active_human}")
+      expect(rendered).to have_selector('i', class: 'fas fa-search')
+      expect(rendered).to have_selector('i', class: 'fas fa-edit')
+      expect(rendered).to have_selector('i', class: 'fas fa-trash-alt')
     end
   end
 end

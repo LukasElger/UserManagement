@@ -3,20 +3,20 @@
   %br
   %table.table
     %thead
-      %tr#header_row
-        %th#id_head= User.human_attribute_name(:id)
-        %th#name_head= User.human_attribute_name(:name)
-        %th#email_head= User.human_attribute_name(:email)
-        %th#admin_head= User.human_attribute_name(:admin)
-        %th#active_head= User.human_attribute_name(:account_active)
+      %tr
+        %th= User.human_attribute_name(:id)
+        %th= User.human_attribute_name(:name)
+        %th= User.human_attribute_name(:email)
+        %th= User.human_attribute_name(:admin)
+        %th= User.human_attribute_name(:account_active)
     %tbody
-      %tr#body_row
+      %tr
         %td= @user.id
         %td= @user.name
         %td= @user.email
         %td= @user.decorate.admin_human
         %td= @user.decorate.active_human
-  %h1= t "users.show.footer"
+  %h2= t "users.show.footer"
   .container.col-sm-3
     = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'form-control', id: "edit_user_button"
     = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"

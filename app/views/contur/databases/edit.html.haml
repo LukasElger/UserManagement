@@ -1,5 +1,5 @@
 .container.col-sm-4
-  %h2= t("contur/database.edit.header")
+  %h1= t("contur/database.edit.header")
   = simple_form_for(@db) do |f|
     = f.input :url, autocomplete: "url", placeholder: Contur::Database.human_attribute_name(:url)
     = f.input :vm_username, autocomplete: "vm_username", placeholder: Contur::Database.human_attribute_name(:vm_username)
@@ -9,6 +9,6 @@
     = f.input :starts_at, autocomplete: "starts_at", placeholder: Contur::Database.human_attribute_name(:starts_at)
     = f.input :ends_at, autocomplete: "ends_at", placeholder: Contur::Database.human_attribute_name(:ends_at)
     = f.submit t("actions.update"), class: 'form-control'
-  %h3= t("contur/database.edit.footer")
-  = button_to t("actions.delete"), contur_database_path(@db), method: :delete, class: 'form-control', data: {confirm: t("flash.delete_db")}
-  = button_to t("actions.back"), :back, method: :get, class: 'form-control'
+  %h2= t("contur/database.edit.footer")
+  = button_to t("actions.delete"), contur_database_path(@db), method: :delete, class: 'form-control', id: "delete_db_button", data: {confirm: t("flash.delete_db")}
+  = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"

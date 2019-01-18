@@ -1,25 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe "users/show", type: :view do
+  let(:user) { FactoryBot.create(:user) }
   before do
-    assign(:user, FactoryBot.create(:user))
+    assign(:user, user)
     render
   end
 
-  it "contains a table with listed users" do
-    assert_select "table" do
-      expect(rendered).to have_css("tr#header_row")
-      expect(rendered).to have_css("tr#body_row")
-      expect(rendered).to have_css("th#id_head")
-      expect(rendered).to have_css("th#name_head")
-      expect(rendered).to have_css("th#email_head")
-      expect(rendered).to have_css("th#admin_head")
-      expect(rendered).to have_css("th#active_head")
-    end
-  end
+  describe "contains table with listed user" do
 
-  it "contains buttons" do
-    expect(rendered).to have_css("input#edit_user_button")
-    expect(rendered).to have_css("input#back_to_root_button")
+    it "table head content" do
+      expect(rendered).to have_selector('table', class: 'table')
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:id))
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:name))
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:email))
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:admin))
+      expect(rendered).to have_selector('th', text: User.human_attribute_name(:account_active))
+    end
+
+    it "table body content" do
+      expect(rendered).to have_selector('td', text: "#{user.id}")
+      expect(rendered).to have_selector('td', text: "#{user.name}")
+      expect(rendered).to have_selector('td', text: "#{user.email}")
+      expect(rendered).to have_selector('td', text: "#{user.decorate.admin_human}")
+      expect(rendered).to have_selector('td', text: "#{user.decorate.active_human}")
+    end
+
+    it "contains header / footer / buttons" do
+      expect(rendered).to have_selector('h1', text: I18n.t("users.show.header"))
+      expect(rendered).to have_selector('h2', text: I18n.t("users.show.footer"))
+      expect(rendered).to have_css("input#edit_user_button")
+      expect(rendered).to have_css("input#back_to_root_button")
+    end
   end
 end

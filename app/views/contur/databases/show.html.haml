@@ -1,5 +1,5 @@
-%h1= t("contur/database.show.header")
 .container
+  %h1= t("contur/database.show.header")
   %table.table
     %tr
       %th= Contur::Database.human_attribute_name(:url)
@@ -23,7 +23,7 @@
       %th= Contur::Database.human_attribute_name(:ends_at)
       %td= @db.ends_at
 
-  %h1= t "contur/database.show.footer"
+  %h2= t "contur/database.show.footer"
   .container.col-sm-3
-    = button_to t('actions.edit'), edit_contur_database_path(@db), method: :get, class: 'form-control'
-    = button_to t("actions.back"), :back, method: :get, class: 'form-control'
+    = button_to t('actions.edit'), edit_contur_database_path(@db), method: :get, class: 'form-control', id: 'edit_database_button'
+    = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: 'back_to_root_button'

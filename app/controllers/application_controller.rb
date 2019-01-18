@@ -1,6 +1,9 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale, :set_paper_trail_whodunnit
 
+  def index
+    @users = User.limit(10).order(created_at: :desc)
+  end
 
   def require_admin!
     if !current_user.admin?

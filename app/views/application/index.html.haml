@@ -13,9 +13,8 @@
             %th{:scope => "col"}= User.human_attribute_name(:email)
             %th{:scope => "col"}= t "actions.show"
         %tbody
-          - @users = User.order created_at: :desc
-          - @users[0..10].each do |user|
-            %tr
+          - @users.each do |user|
+            %tr{id: dom_id(user)}
               %td= user.id
               %td= user.name
               %td= user.email

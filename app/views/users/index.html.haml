@@ -3,28 +3,28 @@
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   %table.table#SearchableTable
     %thead.thead-dark
-      %tr#header_row
-        %th#id_head{:scope => "col"}= User.human_attribute_name(:id)
-        %th#name_head{:scope => "col"}= User.human_attribute_name(:name)
-        %th#email_head{:scope => "col"}= User.human_attribute_name(:email)
-        %th#active_head{:scope => "col"}= User.human_attribute_name(:account_active)
-        %th#show_header{:scope => "col"}= t "actions.show"
-        %th#edit_header{:scope => "col"}= t "actions.edit"
-        %th#delete_header{:scope => "col"}= t "actions.delete"
+      %tr
+        %th= User.human_attribute_name(:id)
+        %th= User.human_attribute_name(:name)
+        %th= User.human_attribute_name(:email)
+        %th= User.human_attribute_name(:account_active)
+        %th= t "actions.show"
+        %th= t "actions.edit"
+        %th= t "actions.delete"
     %tbody
       - @users.each do |user|
-        %tr#body_row
+        %tr
           %td= user.id
           %td= user.name
           %td= user.email
           %td= user.decorate.active_human
-          %td#show_body
+          %td
             = link_to user_path(user) do
               %i.fas.fa-search
-          %td#edit_body
+          %td
             = link_to edit_user_path(user) do
               %i.fas.fa-edit
-          %td#delete_body
+          %td
             = link_to user_path(user), method: :delete, data: {confirm: t("flash.delete")} do
               %i.fas.fa-trash-alt
   = paginate @users

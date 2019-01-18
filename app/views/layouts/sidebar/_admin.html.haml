@@ -10,7 +10,7 @@
         = t('sidebar.home')
         %i.fas.fa-home
     %li
-      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#listsSubmenu"}
+      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#listsSubmenu", id: "lists-data-toggle"}
         = t("sidebar.lists")
         %span.fas.fa-angle-down
       %ul#listsSubmenu.collapse.list-unstyled
@@ -27,7 +27,7 @@
             = t('sidebar.databases')
             %i.fas.fa-database
     %li
-      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#accSubmenu"}
+      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#accSubmenu", id: "acc-data-toggle"}
         = t("sidebar.account")
         %span.fas.fa-angle-down
       %ul#accSubmenu.collapse.list-unstyled

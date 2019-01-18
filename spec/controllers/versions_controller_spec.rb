@@ -28,6 +28,11 @@ RSpec.describe VersionsController, type: :controller do
         get :index, params: {item_type: User, item_id: 1}
         expect(assigns[:versions]).to eq(versions)
       end
+
+      it "assigns @item_id" do
+        get :index, params: {item_type: User, item_id: 1}
+        expect(assigns[:item_id]).to eq("1")
+      end
     end
   end
 
