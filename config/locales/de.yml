@@ -10,6 +10,8 @@ de:
     search: "Suchen..."
 
   flash:
+    db_created: "Datenbank wurde erfolgreich erstellt!"
+    db_creation_error: "Fehler bei der Erstellung der Datenbank. Bitte überprüfen Sie Ihre Eingaben!"
     created: "Benutzer wurde erfolgreich erstellt!"
     creation_error: "Fehler bei der Erstellung des Benutzers. Bitte überprüfen Sie Ihre Eingaben!"
     profile_update: "Dein Profil wurde erfolgreich bearbeitet!"
@@ -66,9 +68,12 @@ de:
       header: "Zuletzt hinzugefügt"
 
   sidebar:
+    manage: "Verwaltung"
     home: "Start"
     lists: "Kategorien"
+    users_new: "Neuer Benutzer"
     users: "Benutzer"
+    databases_new: "Neue Datenbank"
     databases: "Datenbanken"
     versions: "Versionen"
     create_new: "Neuer Benutzer"

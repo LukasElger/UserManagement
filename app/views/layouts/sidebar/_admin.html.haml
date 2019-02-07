@@ -10,6 +10,19 @@
         = t('sidebar.home')
         %i.fas.fa-home
     %li
+      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#manageSubmenu", id: "lists-data-toggle"}
+        = t("sidebar.manage")
+        %span.fas.fa-angle-down
+      %ul#manageSubmenu.collapse.list-unstyled
+        %li
+          = link_to new_user_path do
+            = t('sidebar.users_new')
+            %i.fas.fa-user-plus
+        %li
+          = link_to new_contur_database_path(User) do
+            = t('sidebar.databases_new')
+            %i.fas.fa-database
+    %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#listsSubmenu", id: "lists-data-toggle"}
         = t("sidebar.lists")
         %span.fas.fa-angle-down

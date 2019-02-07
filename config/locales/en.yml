@@ -10,6 +10,8 @@ en:
     search: "search..."
 
   flash:
+    db_created: "Database has been created successfully!"
+    db_creation_error: "An error occured while creating the Database. Please check your data!"
     created: "User has been created successfully!"
     creation_error: "An error occured while creating the user. Please check your data!"
     profile_update: "Profile has been edited successfully!"
@@ -66,9 +68,12 @@ en:
       header: "Recently added"
 
   sidebar:
+    manage: "Management"
     home: "Home"
     lists: "Categories"
+    users_new: "New User"
     users: "Users"
+    databases_new: "New Database"
     databases: "Databases"
     versions: "Versions"
     create_new: "New USer"

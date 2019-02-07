@@ -8,6 +8,21 @@ class Contur::DatabasesController < ApplicationController
     @db = Contur::Database.find(params[:id])
   end
 
+  def new
+    @db = Contur::Database.new
+  end
+
+  def create
+    @db = Contur::Database.new(create_params)
+
+    if @db.save
+      redirect_to contur_databases_path, flash: {success: t("flash.db_created")}
+    else
+      flash[:danger] = t("flash.db_creation_error")
+      render "new"
+    end
+  end
+
   def edit
     @db = Contur::Database.find(params[:id])
   end
@@ -31,6 +46,18 @@ class Contur::DatabasesController < ApplicationController
 
   private
 
+  def create_params
+    params.require(:contur_database).permit( :url,
+                                             :vm_username,
+                                             :contur_type,
+                                             :github_branch,
+                                             :service_id,
+                                             :starts_at,
+                                             :ends_at,
+                                             :comment
+                                           )
+  end
+
   def update_params
     params.require(:contur_database).permit( :url,
                                              :vm_username,
@@ -38,7 +65,8 @@ class Contur::DatabasesController < ApplicationController
                                              :github_branch,
                                              :service_id,
                                              :starts_at,
-                                             :ends_at
+                                             :ends_at,
+                                             :comment
                                            )
   end
 end
