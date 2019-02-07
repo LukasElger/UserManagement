@@ -1,21 +1,20 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- */
-
 // Bootstrap
 @import "bootstrap";
 
-// Default styles
-@import "base/*";
+// // Default styles
+// @import "base/*";
+//
 
-// Partials - main css files
-@import "partials/*";
+// This directory contains re-usable UI components. For example
+// a dropdown you use throughout the site. A good rule of thumb
+// here is that components are parts of the UI you could
+// imagine using on another website.
+@import 'components/**/*';
+
+// Files in this directory are named to match up with routes or
+// controllers. They are to be used sparingly, and they are
+// basically special case styles for some arbitrary page. A
+// good rule of thumb for adding something to pages/ is that
+// you can never imagine using it on any other pages in the
+// app.
+@import 'pages/**/*';
