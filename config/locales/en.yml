@@ -24,6 +24,13 @@ en:
     logout: "Do you really want to log out?"
     denied: "Acces denied!"
 
+  tooltips:
+    general:
+      delete: "Delete"
+    users:
+      show: "Profile of"
+      edit: "Edit profile"
+
   views:
     pagination:
       first: "&laquo; First"

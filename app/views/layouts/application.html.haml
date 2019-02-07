@@ -17,7 +17,7 @@
       #page-content-wrapper
         %nav.navbar.navbar-expand-lg.navbar-light.bg-light
           .container-fluid
-            %button#sidebarCollapse.btn.btn-info{:type => "button"}
+            %button#sidebarCollapse.btn.btn-primary{:type => "button"}
               %i.fas.fa-bars.fa-2x
         - flash.each do |key, value|
           = content_tag :div, value, class: "alert alert-#{flash_error_key(key)} flash alert-dismissible fade in #{flash_error_key(key)}"

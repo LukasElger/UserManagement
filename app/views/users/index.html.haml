@@ -1,30 +1,31 @@
-.container
-  %h1= t("users.index.header")
+.container#users_index
+  %h1.header= t("users.index.header")
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
-  %table.table#SearchableTable
-    %thead.thead-dark
-      %tr
-        %th= User.human_attribute_name(:id)
-        %th= User.human_attribute_name(:name)
-        %th= User.human_attribute_name(:email)
-        %th= User.human_attribute_name(:account_active)
-        %th= t "actions.show"
-        %th= t "actions.edit"
-        %th= t "actions.delete"
-    %tbody
-      - @users.each do |user|
+  .table_container
+    %table.default.table_centered_elements#SearchableTable
+      %thead.thead-dark
         %tr
-          %td= user.id
-          %td= user.name
-          %td= user.email
-          %td= user.decorate.active_human
-          %td
-            = link_to user_path(user) do
-              %i.fas.fa-search
-          %td
-            = link_to edit_user_path(user) do
-              %i.fas.fa-edit
-          %td
-            = link_to user_path(user), method: :delete, data: {confirm: t("flash.delete")} do
-              %i.fas.fa-trash-alt
+          %th= User.human_attribute_name(:id)
+          %th= User.human_attribute_name(:name)
+          %th= User.human_attribute_name(:email)
+          %th= User.human_attribute_name(:account_active)
+          %th= t "actions.show"
+          %th= t "actions.edit"
+          %th= t "actions.delete"
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.id
+            %td= user.name
+            %td= user.email
+            %td= user.decorate.active_human
+            %td
+              = link_to user_path(user) do
+                %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.users.show") + " #{user.name}"}
+            %td
+              = link_to edit_user_path(user) do
+                %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.users.edit")}
+            %td
+              = link_to user_path(user), method: :delete, data: {confirm: t("flash.delete")} do
+                %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.general.delete")}
   = paginate @users

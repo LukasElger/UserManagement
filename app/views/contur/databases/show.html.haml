@@ -1,6 +1,6 @@
 .container
   %h1= t("contur/database.show.header")
-  %table.table
+  %table.default.table_centered_elements
     %tr
       %th= Contur::Database.human_attribute_name(:url)
       %td= @db.url

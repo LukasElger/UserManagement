@@ -1,7 +1,7 @@
 .container
   %h1= t("versions.id_header") + " #{@versions.first.item.name}"
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
-  %table.table#SearchableTable
+  %table.default.table_centered_elements#SearchableTable
     %thead.thead-dark
       %tr
         %th= PaperTrail::Version.human_attribute_name(:id)

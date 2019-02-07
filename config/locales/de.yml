@@ -24,6 +24,13 @@ de:
     logout: "Möchten Sie sich wirklich ausloggen?"
     denied: "Zugriff verweigert!"
 
+  tooltips:
+    general:
+      delete: "Löschen"
+    users:
+      show: "Profil von"
+      edit: "Profil bearbeiten"
+
   views:
     pagination:
       first: "&laquo; Erste"

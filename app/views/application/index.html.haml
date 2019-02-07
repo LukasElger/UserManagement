@@ -1,11 +1,13 @@
 - if !user_signed_in?
-  %h1= t "application.index.welcome"
-  = button_to t("actions.login"), login_path, method: :get, class: "btn btn-default"
+  .application_index.row
+    .col.align_center
+      %h1#header= t "application.index.welcome"
+      = button_to t("actions.login"), login_path, method: :get, class: "btn btn-primary", id: "button_to"
 - else
   - if current_user.admin?
-    %h1= t "application.index.header"
-    .container
-      %table.table
+    .container.application_index
+      %h1#header= t "application.index.header"
+      %table.default.table_centered_elements
         %thead.thead-dark
           %tr
             %th{:scope => "col"}= User.human_attribute_name(:id)
@@ -20,6 +22,6 @@
               %td= user.email
               %td
                 = link_to user_path(user) do
-                  %i.fas.fa-search
+                  %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.users.show") + " #{user.name}"}
   - else
     %h1= t "application.index.welcome"
