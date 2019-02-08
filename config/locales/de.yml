@@ -25,11 +25,14 @@ de:
     denied: "Zugriff verweigert!"
 
   tooltips:
-    general:
-      delete: "Löschen"
     users:
       show: "Profil von"
       edit: "Nutzer bearbeiten"
+      delete: "Nutzer löschen"
+    contur/database:
+      show: "Datenbank anzeigen"
+      edit: "Datenbank bearbeiten"
+      delete: "Datenbank löschen"
 
   views:
     pagination:

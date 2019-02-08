@@ -18,13 +18,13 @@
               %span.fas.fa-globe-europe{"data-target" => "#urlModal", "data-toggle" => "modal"}
             %td
               = link_to contur_database_path(db) do
-                %i.fas.fa-search
+                %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/database.show")}
             %td
               = link_to edit_contur_database_path(db) do
-                %i.fas.fa-edit
+                %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/database.edit")}
             %td
               = link_to contur_database_path(db), method: :delete, data: {confirm: t("flash.delete_db")} do
-                %i.fas.fa-trash-alt
+                %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/database.delete")}
             / Modal
             #urlModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
               .modal-dialog{:role => "document"}

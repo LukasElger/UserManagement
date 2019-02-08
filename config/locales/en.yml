@@ -25,11 +25,14 @@ en:
     denied: "Acces denied!"
 
   tooltips:
-    general:
-      delete: "Delete"
     users:
       show: "Profile of"
-      edit: "Edit user"
+      edit: "Edit User"
+      delete: "Delete user"
+    contur/database:
+      show: "Show database"
+      edit: "Edit database"
+      delete: "Delete database"
 
   views:
     pagination:
