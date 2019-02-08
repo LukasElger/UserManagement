@@ -1,0 +1,21 @@
+.container
+  %h1= t("versions.id_header") + " #{@versions.first.item.name}"
+  .table_container
+    %table.default.table_centered_elements
+      %thead.thead-dark
+        %tr
+          %th= PaperTrail::Version.human_attribute_name(:id)
+          %th= PaperTrail::Version.human_attribute_name(:name)
+          %th= t "versions.action"
+          %th= t "versions.created_at"
+      %tbody
+        - @versions.reverse.each do |version|
+          - version = VersionDecorator.decorate version
+          %tr
+            %td= version.item_id
+            %td= version.item.name
+            %td= version.event
+            %td= version.created_at
+
+  .row.justify-content-center.pagination_buttons
+    = paginate @versions

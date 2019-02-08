@@ -1,39 +1,42 @@
 .container
   %h1= t("contur/database.index.header")
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
-  %table.default.table_centered_elements#SearchableTable
-    %thead.thead-dark
-      %tr
-        %th= Contur::Database.human_attribute_name(:id)
-        %th= Contur::Database.human_attribute_name(:url)
-        %th= t "actions.show"
-        %th= t "actions.edit"
-        %th= t "actions.delete"
-    %tbody
-      - @dbs.each do |db|
+  .table_container
+    %table.default.table_centered_elements#SearchableTable
+      %thead.thead-dark
         %tr
-          %td= db.id
-          %td
-            %span.fas.fa-globe-europe{"data-target" => "#urlModal", "data-toggle" => "modal"}
-          %td
-            = link_to contur_database_path(db) do
-              %i.fas.fa-search
-          %td
-            = link_to edit_contur_database_path(db) do
-              %i.fas.fa-edit
-          %td
-            = link_to contur_database_path(db), method: :delete, data: {confirm: t("flash.delete_db")} do
-              %i.fas.fa-trash-alt
-          / Modal
-          #urlModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
-            .modal-dialog{:role => "document"}
-              .modal-content
-                .modal-header
-                  %h5#exampleModalLabel.modal-title= Contur::Database.human_attribute_name(:url)
-                  %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-                    %span{"aria-hidden" => "true"} ×
-                .modal-body
-                  = db.url
-                .modal-footer
-                  %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-  = paginate @dbs
+          %th= Contur::Database.human_attribute_name(:id)
+          %th= Contur::Database.human_attribute_name(:url)
+          %th= t "actions.show"
+          %th= t "actions.edit"
+          %th= t "actions.delete"
+      %tbody
+        - @dbs.each do |db|
+          %tr
+            %td= db.id
+            %td
+              %span.fas.fa-globe-europe{"data-target" => "#urlModal", "data-toggle" => "modal"}
+            %td
+              = link_to contur_database_path(db) do
+                %i.fas.fa-search
+            %td
+              = link_to edit_contur_database_path(db) do
+                %i.fas.fa-edit
+            %td
+              = link_to contur_database_path(db), method: :delete, data: {confirm: t("flash.delete_db")} do
+                %i.fas.fa-trash-alt
+            / Modal
+            #urlModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+              .modal-dialog{:role => "document"}
+                .modal-content
+                  .modal-header
+                    %h5#exampleModalLabel.modal-title= Contur::Database.human_attribute_name(:url)
+                    %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                      %span{"aria-hidden" => "true"} ×
+                  .modal-body
+                    = db.url
+                  .modal-footer
+                    %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
+
+  .row.justify-content-center.pagination_buttons
+    = paginate @dbs

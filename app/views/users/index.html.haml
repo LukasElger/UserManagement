@@ -28,4 +28,5 @@
             %td
               = link_to user_path(user), method: :delete, data: {confirm: t("flash.delete")} do
                 %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.general.delete")}
-  = paginate @users
+  .row.justify-content-center.pagination_buttons
+    = paginate @users
