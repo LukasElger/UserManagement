@@ -93,6 +93,7 @@ en:
     edit: "Edit profile"
     admin: "Administration"
     actions: "Actions"
+    active_users: "Active users"
 
   general:
     en: "English"

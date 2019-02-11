@@ -15,13 +15,19 @@
         %span.fas.fa-angle-down
       %ul#manageSubmenu.collapse.list-unstyled
         %li
+          = link_to active_users_path do
+            = t('sidebar.active_users')
+            %i.fas.fa-users
+        %li
           = link_to new_user_path do
             = t('sidebar.users_new')
-            %i.fas.fa-user-plus
+            %i.fas.fa-user
+            %i.fas.fa-plus
         %li
           = link_to new_contur_database_path(User) do
             = t('sidebar.databases_new')
             %i.fas.fa-database
+            %i.fas.fa-plus
     %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#listsSubmenu", id: "lists-data-toggle"}
         = t("sidebar.lists")

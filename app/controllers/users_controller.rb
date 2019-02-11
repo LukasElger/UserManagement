@@ -5,6 +5,33 @@ class UsersController < ApplicationController
     @users = User.order(:id).page(params[:page])
   end
 
+  def active
+    @users = User.order(:id)
+    @active = []
+    @inactive = []
+    @users.each do |user|
+      if user.account_active?
+        @active << user
+      else
+        @inactive << user
+      end
+    end
+  end
+
+  def set_account_active(user)
+    if user
+      u= User.get(user)
+      u.account_active = false
+    end
+  end
+
+  def remove_account_active(user)
+    if user
+      u= User.get(user)
+      u.account_active = false
+    end
+  end
+
   def new
     @user = User.new
   end

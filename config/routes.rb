@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users#, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root to: 'application#index'
+  get "users/active", to:"users#active", as: :active_users
   get "versions/:item_type(/:item_id)", to:"versions#index", as: :versions
   get "user_versions/:whodunnit", to:"versions#user_versions", as: :user_versions
 

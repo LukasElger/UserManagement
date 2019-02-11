@@ -13,6 +13,9 @@ ActiveAdmin.register Contur::Database do
   end
 
   filter :created_at
+  filter :id
+  filter :vm_username
+  filter :github_branch
   filter :contur_type, as: :select, collection: Contur::Database::ANPASSUNGEN
 
   form do |f|
