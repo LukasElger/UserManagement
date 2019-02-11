@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_15_072200) do
+ActiveRecord::Schema.define(version: 2019_02_11_120008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 2019_01_15_072200) do
     t.date "starts_at"
     t.date "ends_at"
     t.string "github_branch"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "contur_servers", force: :cascade do |t|
+    t.string "os_version"
+    t.string "ruby_version"
+    t.string "nginx_version"
+    t.string "postgres_version"
+    t.string "hostname"
+    t.string "admin_user"
+    t.string "access_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

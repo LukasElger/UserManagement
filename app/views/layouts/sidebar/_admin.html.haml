@@ -24,6 +24,11 @@
             %i.fas.fa-user
             %i.fas.fa-plus
         %li
+          = link_to new_contur_server_path do
+            = t('sidebar.servers_new')
+            %i.fas.fa-server
+            %i.fas.fa-plus
+        %li
           = link_to new_contur_database_path(User) do
             = t('sidebar.databases_new')
             %i.fas.fa-database
