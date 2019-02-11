@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   namespace :contur do
     resources :databases
+    resources :servers
   end
 
   devise_scope :user do
