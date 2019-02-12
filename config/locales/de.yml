@@ -33,6 +33,10 @@ de:
       show: "Datenbank anzeigen"
       edit: "Datenbank bearbeiten"
       delete: "Datenbank löschen"
+    contur/server:
+      show: "Server anzeigen"
+      edit: "Server bearbeiten"
+      delete: "Server löschen"
 
   views:
     pagination:
@@ -72,6 +76,16 @@ de:
       header: "Datenbank Informationen"
       footer: "Datenbank bearbeiten"
 
+  contur/server:
+    index:
+      header: "Alle Server"
+    edit:
+      header: "Server bearbeiten"
+      footer: "Server Löschen"
+    show:
+      header: "Server Informationen"
+      footer: "Server bearbeiten"
+
   application:
     index:
       welcome: "Willkommen!"
@@ -85,6 +99,8 @@ de:
     users: "Benutzer"
     databases_new: "Neue Datenbank"
     databases: "Datenbanken"
+    servers_new: "Neuer Server"
+    servers: "Server"
     versions: "Versionen"
     create_new: "Neuer Benutzer"
     lang: "Sprache"

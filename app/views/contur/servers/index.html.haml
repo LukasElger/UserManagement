@@ -1,0 +1,30 @@
+.container#servers_index
+  %h1.header= t("servers.index.header")
+  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
+  .table_container
+    %table.default.table_centered_elements#SearchableTable
+      %thead.thead-dark
+        %tr
+          %th= Contur::Server.human_attribute_name(:id)
+          %th= Contur::Server.human_attribute_name(:os_version)
+          %th= Contur::Server.human_attribute_name(:ruby_version)
+          %th= Contur::Server.human_attribute_name(:admin_user)
+          %th= Contur::Server.human_attribute_name(:access_type)
+          %th= t "actions.actions"
+      %tbody
+        - @servers.each do |server|
+          %tr
+            %td= server.id
+            %td= server.os_version
+            %td= server.ruby_version
+            %td= server.admin_user
+            %td= server.access_type
+            %td
+              = link_to contur_server_path(server) do
+                %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/server.show")}
+              = link_to edit_contur_server_path(server) do
+                %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/server.edit")}
+              = link_to contur_server_path(server), method: :delete, data: {confirm: t("flash.delete")} do
+                %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/server.delete")}
+  .row.justify-content-center.pagination_buttons
+    = paginate @servers

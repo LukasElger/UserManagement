@@ -1,0 +1,27 @@
+.container.col-sm-6
+  %h1= t("contur/server.edit.header")
+  = simple_form_for(@server) do |f|
+    .row.justify-content-center
+      .col-sm-6
+        = f.input :os_version, placeholder: Contur::Server.human_attribute_name(:os_version)
+        = f.input :ruby_version, placeholder: Contur::Server.human_attribute_name(:ruby_version)
+      .col-sm-6
+        = f.input :nginx_version, placeholder: Contur::Server.human_attribute_name(:nginx_version)
+        = f.input :postgres_version, placeholder: Contur::Server.human_attribute_name(:postgres_version)
+    .row.justify-content-center
+      .col-sm-6
+        = f.input :hostname, placeholder: Contur::Server.human_attribute_name(:hostname)
+      .col-sm-6
+        = f.input :admin_user, placeholder: Contur::Server.human_attribute_name(:admin_user)
+    .row.justify-content-center
+      .col-sm-6
+        = f.input :access_type, placeholder: Contur::Server.human_attribute_name(:access_type)
+    .row.justify-content-center
+      .col-sm-8
+        = f.submit t("actions.update"), class: 'form-control'
+  %h2= t("contur/server.edit.footer")
+  .row.justify-content-center
+    .col-sm-8
+      = button_to t("actions.delete"), contur_server_path(@server), method: :delete, class: 'form-control', id: "delete_server_button", data: {confirm: t("flash.delete_server")}
+      = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+  %br

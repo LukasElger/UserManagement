@@ -1,20 +1,20 @@
 class Contur::ServersController < ApplicationController
   def index
-    @dbs = Contur::Server.order(:id).page params[:page]
+    @servers = Contur::Server.order(:id).page params[:page]
   end
 
   def show
-    @db = Contur::Server.find(params[:id])
+    @server = Contur::Server.find(params[:id])
   end
 
   def new
-    @db = Contur::Server.new
+    @server = Contur::Server.new
   end
 
   def create
-    @db = Contur::Server.new(create_params)
+    @server = Contur::Server.new(create_params)
 
-    if @db.save
+    if @server.save
       redirect_to contur_servers_path, flash: {success: t("flash.server_created")}
     else
       flash[:danger] = t("flash.server_creation_error")
@@ -23,13 +23,13 @@ class Contur::ServersController < ApplicationController
   end
 
   def edit
-    @db = Contur::Server.find(params[:id])
+    @server = Contur::Server.find(params[:id])
   end
 
   def update
-    @db = Contur::Server.find(params[:id])
+    @server = Contur::Server.find(params[:id])
 
-    if @db.update_attributes(update_params)
+    if @server.update_attributes(update_params)
       redirect_to contur_servers_path, flash: {success: t("flash.server_update")}
     else
       render "edit"
@@ -37,8 +37,8 @@ class Contur::ServersController < ApplicationController
   end
 
   def destroy
-    @db = Contur::Server.find(params[:id])
-    @db.destroy
+    @server = Contur::Server.find(params[:id])
+    @server.destroy
 
     redirect_to contur_servers_path, flash: {success: t("flash.server_delete")}
   end
