@@ -22,6 +22,6 @@
   %h2= t("contur/server.edit.footer")
   .row.justify-content-center
     .col-sm-8
-      = button_to t("actions.delete"), contur_server_path(@server), method: :delete, class: 'form-control', id: "delete_server_button", data: {confirm: t("flash.delete_server")}
+      = button_to t("actions.delete"), contur_server_path(@server), method: :delete, class: 'form-control', id: "delete_server_button", data: {confirm: t("flash.contur/servers.delete")}
       = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
   %br

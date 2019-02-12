@@ -24,7 +24,7 @@
                 %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/server.show")}
               = link_to edit_contur_server_path(server) do
                 %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/server.edit")}
-              = link_to contur_server_path(server), method: :delete, data: {confirm: t("flash.delete")} do
+              = link_to contur_server_path(server), method: :delete, data: {confirm: t("flash.contur/servers.delete")} do
                 %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/server.delete")}
   .row.justify-content-center.pagination_buttons
     = paginate @servers

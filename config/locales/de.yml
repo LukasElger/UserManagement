@@ -9,108 +9,6 @@ de:
     back: "Zurück"
     search: "Suchen..."
 
-  flash:
-    db_created: "Datenbank wurde erfolgreich erstellt!"
-    db_creation_error: "Fehler bei der Erstellung der Datenbank. Bitte überprüfen Sie Ihre Eingaben!"
-    created: "Benutzer wurde erfolgreich erstellt!"
-    creation_error: "Fehler bei der Erstellung des Benutzers. Bitte überprüfen Sie Ihre Eingaben!"
-    profile_update: "Dein Profil wurde erfolgreich bearbeitet!"
-    user_update: "Der Benutzer wurde erfolgreich bearbeitet!"
-    db_update: "Die Datenbank wurde erfolgreich bearbeitet!"
-    user_delete: "Der Benutzer wurde erfolgreich gelöscht!"
-    db_delete: "Die Datenbank wurde erfolgreich gelöscht!"
-    delete: "Willst du diesen Account wirklich löschen?"
-    delete_db: "Willst du diese Datenbank wirklich löschen?"
-    logout: "Möchten Sie sich wirklich ausloggen?"
-    denied: "Zugriff verweigert!"
-
-  tooltips:
-    users:
-      show: "Profil von"
-      edit: "Nutzer bearbeiten"
-      delete: "Nutzer löschen"
-    contur/database:
-      show: "Datenbank anzeigen"
-      edit: "Datenbank bearbeiten"
-      delete: "Datenbank löschen"
-    contur/server:
-      show: "Server anzeigen"
-      edit: "Server bearbeiten"
-      delete: "Server löschen"
-
-  views:
-    pagination:
-      first: "&laquo; Erste"
-      last: "Letzte &raquo;"
-      previous: "&lsaquo; Zurück"
-      next: "Nächste &rsaquo;"
-
-  users:
-    index:
-      header: "Alle Benutzer"
-      create_new: "Neuen Benutzer erstellen"
-    new:
-      header: "Erstelle einen neuen Benutzer"
-    edit:
-      header: "Account Bearbeiten"
-      footer: "Diesen Account Löschen"
-    show:
-      header: "Profil von"
-      footer: "Diesen Account Bearbeiten"
-
-  versions:
-    id_header: "Alle Versionen von"
-    header: "Alle Versionen"
-    action: "Aktion"
-    versions: "Versionen"
-    versioning: "Erstellte Versionen"
-    created_at: "Erstellt am"
-
-  contur/database:
-    index:
-      header: "Alle Datenbanken"
-    edit:
-      header: "Datenbank bearbeiten"
-      footer: "Datenbank Löschen"
-    show:
-      header: "Datenbank Informationen"
-      footer: "Datenbank bearbeiten"
-
-  contur/server:
-    index:
-      header: "Alle Server"
-    edit:
-      header: "Server bearbeiten"
-      footer: "Server Löschen"
-    show:
-      header: "Server Informationen"
-      footer: "Server bearbeiten"
-
-  application:
-    index:
-      welcome: "Willkommen!"
-      header: "Zuletzt hinzugefügt"
-
-  sidebar:
-    manage: "Verwaltung"
-    home: "Start"
-    lists: "Kategorien"
-    users_new: "Neuer Benutzer"
-    users: "Benutzer"
-    databases_new: "Neue Datenbank"
-    databases: "Datenbanken"
-    servers_new: "Neuer Server"
-    servers: "Server"
-    versions: "Versionen"
-    create_new: "Neuer Benutzer"
-    lang: "Sprache"
-    logout: "Ausloggen"
-    info: "Info"
-    edit: "Profil Bearbeiten"
-    admin: "Administration"
-    actions: "Aktionen"
-    active_users: "Aktive Nutzer"
-
   general:
     en: "Englisch"
     de: "Deutsch"
@@ -120,16 +18,124 @@ de:
     active_true: "Ja"
     active_false: "Nein"
 
+  flash:
+    general:
+      logout: "Möchten Sie sich wirklich ausloggen?"
+      denied: "Zugriff verweigert!"
+    created:
+      one: "%{model} wurde erfolgreich erstellt."
+      other: "%{model} wurden erfolgreich erstellt."
+    creation_error:
+      one: "Fehler bei der Erstellung des %{model}. Bitte überprüfen Sie Ihre Eingaben!"
+      other: "Fehler bei der Erstellung der %{model}. Bitte überprüfen Sie Ihre Eingaben!"
+    update:
+      one: "%{model} wurde erfolgreich bearbeitet!"
+      other: "%{model} wurden erfolgreich bearbeitet!"
+    delete:
+      one: "Willst du diesen %{model} wirklich löschen?"
+      other: "Willst du diese %{model} wirklich löschen?"
+    deleted:
+      one: "Der %{model} wurde erfolgreich gelöscht!"
+      other: "Die %{model} wurde erfolgreich gelöscht!"
+    activated: "Benutzer wurde erfolgreich aktiviert!"
+    deactivated: "Benutzer wurde erfolgreich deaktiviert!"
+    de/activation_error: "Sie können sich nicht selbst de/aktivieren!"
+
+  tooltips:
+    show:
+      one: "%{model} anzeigen"
+      other: "%{model} anzeigen"
+    edit:
+      one: "%{model} bearbeiten"
+      other: "%{model} bearbeiten"
+    delete:
+      one: "%{model} löschen"
+      other: "%{model} löschen"
+    activate: "Aktivieren"
+    deactivate: "Deaktivieren"
+
+  sidebar:
+    home: "Start"
+    manage:
+      manage: "Verwaltung"
+      active_users: "Aktive Nutzer"
+      users_new: "Neuer Benutzer"
+      servers_new: "Neuer Server"
+      databases_new: "Neue Datenbank"
+    lists:
+      lists: "Kategorien"
+      users: "Benutzer"
+      versions: "Versionen"
+      servers: "Server"
+      databases: "Datenbanken"
+    account:
+      actions: "Aktionen"
+      info: "Info"
+      edit: "Profil Bearbeiten"
+      admin: "Administration"
+    lang: "Sprache"
+    logout: "Ausloggen"
+
+  views:
+    pagination:
+      first: "&laquo; Erste"
+      last: "Letzte &raquo;"
+      previous: "&lsaquo; Zurück"
+      next: "Nächste &rsaquo;"
+    application:
+      index:
+        welcome: "Willkommen!"
+        header: "Zuletzt hinzugefügt"
+    users:
+      index:
+        header: "Alle Benutzer"
+        create_new: "Neuen Benutzer erstellen"
+      new:
+        header: "Erstelle einen neuen Benutzer"
+      edit:
+        header: "Account Bearbeiten"
+        footer: "Diesen Account Löschen"
+      show:
+        header: "Profil von"
+        footer: "Diesen Account Bearbeiten"
+      active:
+        status: "Status"
+        active: "Aktiv"
+        inactive: "Inaktiv"
+    versions:
+      id_header: "Alle Versionen von"
+      header: "Alle Versionen"
+      action: "Aktion"
+      versions: "Versionen"
+      versioning: "Erstellte Versionen"
+      created_at: "Erstellt am"
+    contur/database:
+      index:
+        header: "Alle Datenbanken"
+      edit:
+        header: "Datenbank bearbeiten"
+        footer: "Datenbank Löschen"
+      show:
+        header: "Datenbank Informationen"
+        footer: "Datenbank bearbeiten"
+    contur/server:
+      index:
+        header: "Alle Server"
+      edit:
+        header: "Server bearbeiten"
+        footer: "Server Löschen"
+      show:
+        header: "Server Informationen"
+        footer: "Server bearbeiten"
+
   activerecord:
     models:
       user:
         one: "Benutzer"
         other: "Benutzer"
-
       paper_trail/version:
         one: "Version"
         other: "Versionen"
-
       contur/database:
         one: "Datenbank"
         other: "Datenbanken"
@@ -147,12 +153,8 @@ de:
         admin: "Admin"
         account_active: "Aktiv"
         remember_me: "Eingeloggt bleiben?"
-
-      paper_trail/version:
-        id: "ID"
-        name: "Name"
-
       contur/database:
+        id: "ID"
         url: "URL"
         vm_username: "VM-Benutzername"
         comment: "Kommentar"
@@ -163,3 +165,17 @@ de:
         github_branch: "Github-Branch"
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
+      contur/server:
+        id: "ID"
+        os_version: "OS-Version"
+        ruby_version: "Ruby-Version"
+        nginx_version: "NGINX-Version"
+        postgres_version: "Postgres-Version"
+        hostname: "Hostname"
+        admin_user: "Administrator"
+        access_type: "Zugriffsart"
+        created_at: "Erstellt am"
+        updated_at: "Bearbeitet am"
+      paper_trail/version:
+        id: "ID"
+        name: "Name"

@@ -6,11 +6,11 @@
   %ul.list-unstyled.components
     %li
       = link_to user_path(current_user) do
-        = t('sidebar.info')
+        = t('sidebar.actions.info')
         %i.fas.fa-info
     %li
       = link_to edit_profile_path(current_user) do
-        = t('sidebar.edit')
+        = t('sidebar.actions.edit')
         %i.fas.fa-edit
     %li
       = link_to destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")} do

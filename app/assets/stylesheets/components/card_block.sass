@@ -1,0 +1,16 @@
+.card_block
+  @extend .card !optional
+
+  .header
+    @extend .card-header !optional
+
+  ul.default_list
+    @extend .list-group, .list-group-flush !optional
+    li
+      @extend .list-group-item !optional
+      &:hover
+        background-color: #feffbe
+        cursor: pointer
+
+    li.selected_element
+      background-color: #feffbe

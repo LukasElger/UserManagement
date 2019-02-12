@@ -1,5 +1,5 @@
 .container#users_index
-  %h1.header= t("users.index.header")
+  %h1.header= t("views.users.index.header")
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   .table_container
     %table.default.table_centered_elements#SearchableTable
@@ -21,12 +21,12 @@
             %td= user.decorate.active_human
             %td
               = link_to user_path(user) do
-                %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.users.show") + " #{user.name}"}
+                %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: User.model_name.human, count: 1)}"}
             %td
               = link_to edit_user_path(user) do
-                %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.users.edit")}
+                %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.edit", model: User.model_name.human, count: 1)}"}
             %td
-              = link_to user_path(user), method: :delete, data: {confirm: t("flash.delete")} do
-                %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.users.delete")}
+              = link_to user_path(user), method: :delete, data: {confirm: "#{I18n.t("flash.delete", model: User.model_name.human, count: 1)}"} do
+                %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.delete", model: User.model_name.human, count: 1)}"}
   .row.justify-content-center.pagination_buttons
     = paginate @users

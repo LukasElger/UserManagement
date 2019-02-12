@@ -1,0 +1,19 @@
+%li
+  %dl.row
+    %dt.col-sm-4= User.human_attribute_name(:id)
+    %dd.col-sm-8#test
+      = user.id
+      = link_to toggle_active_path(user), method: :post do
+        =user.decorate.toggle_switch
+  %dl.row
+    %dt.col-sm-4= User.human_attribute_name(:name)
+    %dd.col-sm-8= user.name
+  %dl.row
+    %dt.col-sm-4= t("actions.show")
+    %dd.col-sm-8
+      = link_to user_path(user) do
+        %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: User.model_name.human, count: 1)}"}
+  %dl.row
+    %dt.col-sm-4= t("views.users.active.status")
+    %dd.col-sm-8
+      = user.decorate.active_bagde

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   root to: 'application#index'
   get "users/active", to:"users#active", as: :active_users
+  post "users/active/change/:id", to:"users#toggle_active", as: :toggle_active
   get "versions/:item_type(/:item_id)", to:"versions#index", as: :versions
   get "user_versions/:whodunnit", to:"versions#user_versions", as: :user_versions
 

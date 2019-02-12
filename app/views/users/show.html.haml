@@ -1,23 +1,30 @@
 .container#users_show
-  %h1.header= t("users.show.header") + " \"#{@user.name}\""
+  .card_block
+    %h1.header= t("views.users.show.header") + " \"#{@user.name}\""
+    %ul.default_list
+      %li
+        %dl.row
+          %dt.col-sm-3= User.human_attribute_name(:id)
+          %dd.col-sm-9=@user.id
+      %li
+        %dl.row
+          %dt.col-sm-3= User.human_attribute_name(:name)
+          %dd.col-sm-9=@user.name
+      %li
+        %dl.row
+          %dt.col-sm-3= User.human_attribute_name(:email)
+          %dd.col-sm-9=@user.email
+      %li
+        %dl.row
+          %dt.col-sm-3= User.human_attribute_name(:admin)
+          %dd.col-sm-9=@user.decorate.admin_human
+      %li
+        %dl.row
+          %dt.col-sm-3= User.human_attribute_name(:account_active)
+          %dd.col-sm-9=@user.decorate.active_human
   %br
-  .table_container
-    %table.default.table_centered_elements
-      %thead
-        %tr
-          %th= User.human_attribute_name(:id)
-          %th= User.human_attribute_name(:name)
-          %th= User.human_attribute_name(:email)
-          %th= User.human_attribute_name(:admin)
-          %th= User.human_attribute_name(:account_active)
-      %tbody
-        %tr
-          %td= @user.id
-          %td= @user.name
-          %td= @user.email
-          %td= @user.decorate.admin_human
-          %td= @user.decorate.active_human
-  %h2.footer= t "users.show.footer"
-  .container.col-sm-3
-    = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'form-control', id: "edit_user_button"
-    = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+  .row.justify-content-center
+    .col-sm-4
+      = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+    .col-sm-4
+      = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'form-control', id: "edit_user_button"

@@ -88,6 +88,18 @@ class UsersController < ApplicationController
     redirect_to users_path, flash: {success: t("flash.user_delete")}
   end
 
+  def toggle_active
+    @user = User.find(params[:id]).decorate
+    if @user == current_user
+      redirect_back(fallback_location: root_path, flash: {danger: I18n.t("flash.de/activation_error")})
+    else
+      @user.account_active = !@user.account_active
+      @user.save(validate: false)
+
+      redirect_back(fallback_location: root_path, flash: {success: @user.toggle_active_message})
+    end
+  end
+
   private
 
   def create_params
