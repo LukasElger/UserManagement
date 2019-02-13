@@ -6,8 +6,10 @@ RSpec.describe "versions/index", type: :view do
   before do
     allow(view).to receive_messages(current_user: user)
     allow(version).to receive_messages(item: user)
+    versions = [version]
+    versions = Kaminari.paginate_array(versions).page(1)
     assign(:users, [user])
-    assign(:versions, [version])
+    assign(:versions, versions)
   end
 
   describe "contains table with all versions of specified user" do
@@ -37,7 +39,7 @@ RSpec.describe "versions/index", type: :view do
     end
   end
 
-  describe "contains table with versions of all users" do
+  describe "contains table with versions of all users", focus: true do
     before do
       render
     end
