@@ -1,5 +1,5 @@
-.container
-  %h1= t("versions.id_header") + " #{@versions.first.item.name}"
+.container.index
+  %h1.header= t("versions.id_header") + " #{@versions.first.item.name}"
   .table_container
     %table.default.table_centered_elements
       %thead.thead-dark

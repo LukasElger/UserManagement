@@ -1,5 +1,5 @@
 .align_center
-  .col#login_form
+  .col.index
     %h1.header= t "devise.sessions.login"
     = simple_form_for(resource,as: resource_name, url: session_path(resource_name)) do |f|
       = f.input :email, placeholder: User.human_attribute_name(:email)

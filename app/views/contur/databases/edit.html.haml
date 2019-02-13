@@ -1,16 +1,16 @@
-.container.col-sm-4
-  %h1= t("contur/database.edit.header")
+.container.col-sm-4.index
+  %h1.header= t("contur/database.edit.header")
   = simple_form_for(@db) do |f|
     = f.input :url, autocomplete: "url", placeholder: Contur::Database.human_attribute_name(:url)
     = f.input :vm_username, autocomplete: "vm_username", placeholder: Contur::Database.human_attribute_name(:vm_username)
-    = f.input :contur_type, autocomplete: "contur_type", placeholder: Contur::Database.human_attribute_name(:contur_type)
+    = f.input :contur_type, as: :select, collection: Contur::Database::ANPASSUNGEN, autocomplete: "contur_type"
     = f.input :github_branch, autocomplete: "github_branch", placeholder: Contur::Database.human_attribute_name(:github_branch)
     = f.input :service_id, autocomplete: "service_id", placeholder: Contur::Database.human_attribute_name(:service_id)
     = f.input :starts_at, autocomplete: "starts_at", placeholder: Contur::Database.human_attribute_name(:starts_at)
     = f.input :ends_at, autocomplete: "ends_at", placeholder: Contur::Database.human_attribute_name(:ends_at)
     = f.input :comment, placeholder: Contur::Database.human_attribute_name(:comment)
     = f.submit t("actions.update"), class: 'form-control'
-  %h2= t("contur/database.edit.footer")
+  %h2.footer= t("contur/database.edit.footer")
   = button_to t("actions.delete"), contur_database_path(@db), method: :delete, class: 'form-control', id: "delete_db_button", data: {confirm: t("flash.contur/databases.delete")}
   = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
   %br

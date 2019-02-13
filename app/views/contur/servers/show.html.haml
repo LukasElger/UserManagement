@@ -1,29 +1,40 @@
-.container.show
-  %h1.header= t("contur/server.show.header")
-  %table.default.table_centered_elements
-    %tr
-      %th= Contur::Server.human_attribute_name(:os_version)
-      %td= @server.os_version
-    %tr
-      %th= Contur::Server.human_attribute_name(:ruby_version)
-      %td= @server.ruby_version
-    %tr
-      %th= Contur::Server.human_attribute_name(:nginx_version)
-      %td= @server.nginx_version
-    %tr
-      %th= Contur::Server.human_attribute_name(:postgres_version)
-      %td= @server.postgres_version
-    %tr
-      %th= Contur::Server.human_attribute_name(:hostname)
-      %td= @server.hostname
-    %tr
-      %th= Contur::Server.human_attribute_name(:admin_user)
-      %td= @server.admin_user
-    %tr
-      %th= Contur::Server.human_attribute_name(:access_type)
-      %td= @server.access_type
-
-  %h2.footer= t "contur/server.show.footer"
-  .container.col-sm-3
-    = button_to t('actions.edit'), edit_contur_server_path(@server), method: :get, class: 'form-control', id: 'edit_server_button'
-    = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: 'back_to_root_button'
+.container.index
+  .card_block
+    %h1.header= t("views.contur/servers.show.header")
+    %ul.default_list
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Server.human_attribute_name(:os_version)
+          %dd.col-sm-9= @server.os_version
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Server.human_attribute_name(:ruby_version)
+          %dd.col-sm-9= @server.ruby_version
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Server.human_attribute_name(:nginx_version)
+          %dd.col-sm-9= @server.nginx_version
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Server.human_attribute_name(:postgres_version)
+          %dd.col-sm-9= @server.postgres_version
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Server.human_attribute_name(:hostname)
+          %dd.col-sm-9= @server.hostname
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Server.human_attribute_name(:admin_user)
+          %dd.col-sm-9= @server.admin_user
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Server.human_attribute_name(:access_type)
+          %dd.col-sm-9= @server.access_type
+  %br
+  .row.justify-content-center
+    .col-sm-4
+      = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+    .col-sm-4
+      = button_to t('actions.edit'), edit_contur_server_path(@server), method: :get, class: 'form-control', id: 'edit_server_button'
+  %br
+  	

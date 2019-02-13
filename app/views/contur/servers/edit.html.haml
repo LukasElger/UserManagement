@@ -1,5 +1,5 @@
-.container.col-sm-6
-  %h1= t("contur/server.edit.header")
+.container.col-sm-6.index
+  %h1.header= t("contur/server.edit.header")
   = simple_form_for(@server) do |f|
     .row.justify-content-center
       .col-sm-6
@@ -19,7 +19,7 @@
     .row.justify-content-center
       .col-sm-8
         = f.submit t("actions.update"), class: 'form-control'
-  %h2= t("contur/server.edit.footer")
+  %h2.footer= t("contur/server.edit.footer")
   .row.justify-content-center
     .col-sm-8
       = button_to t("actions.delete"), contur_server_path(@server), method: :delete, class: 'form-control', id: "delete_server_button", data: {confirm: t("flash.contur/servers.delete")}

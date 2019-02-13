@@ -1,4 +1,4 @@
-.container.col-sm-4#new_user_form
+.container.col-sm-4.index
   %h1.header= t "views.users.new.header"
   = simple_form_for(@user, url: users_path) do |f|
     = f.input :name, placeholder: User.human_attribute_name(:name)

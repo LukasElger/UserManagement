@@ -1,5 +1,5 @@
-.container
-  %h1= t("contur/database.index.header")
+.container.index
+  %h1.header= t("views.contur/databases.index.header")
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   .table_container
     %table.default.table_centered_elements#SearchableTable
@@ -18,13 +18,13 @@
               %span.fas.fa-globe-europe{"data-target" => "#urlModal", "data-toggle" => "modal"}
             %td
               = link_to contur_database_path(db) do
-                %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/database.show")}
+                %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: Contur::Database.model_name.human, count: 1)}"}
             %td
               = link_to edit_contur_database_path(db) do
-                %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/database.edit")}
+                %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.edit", model: Contur::Database.model_name.human, count: 1)}"}
             %td
-              = link_to contur_database_path(db), method: :delete, data: {confirm: t("flash.contur/databases.delete")} do
-                %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", :title => t("tooltips.contur/database.delete")}
+              = link_to contur_database_path(db), method: :delete, data: {confirm:  "#{I18n.t("flash.delete", model: Contur::Database.model_name.human, count: 2)}"} do
+                %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.delete", model: Contur::Database.model_name.human, count: 1)}"}
             / Modal
             #urlModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
               .modal-dialog{:role => "document"}

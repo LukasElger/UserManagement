@@ -1,29 +1,39 @@
-.container
-  %h1= t("contur/database.show.header")
-  %table.default.table_centered_elements
-    %tr
-      %th= Contur::Database.human_attribute_name(:url)
-      %td= @db.url
-    %tr
-      %th= Contur::Database.human_attribute_name(:vm_username)
-      %td= @db.vm_username
-    %tr
-      %th= Contur::Database.human_attribute_name(:github_branch)
-      %td= @db.github_branch
-    %tr
-      %th= Contur::Database.human_attribute_name(:contur_type)
-      %td= @db.contur_type
-    %tr
-      %th= Contur::Database.human_attribute_name(:service_id)
-      %td= @db.service_id
-    %tr
-      %th= Contur::Database.human_attribute_name(:starts_at)
-      %td= @db.starts_at
-    %tr
-      %th= Contur::Database.human_attribute_name(:ends_at)
-      %td= @db.ends_at
-
-  %h2= t "contur/database.show.footer"
-  .container.col-sm-3
-    = button_to t('actions.edit'), edit_contur_database_path(@db), method: :get, class: 'form-control', id: 'edit_database_button'
-    = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: 'back_to_root_button'
+.container.index
+  .card_block
+    %h1.header= t("views.contur/databases.show.header")
+    %ul.default_list
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:url)
+          %dd.col-sm-9= @db.url
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:vm_username)
+          %dd.col-sm-9= @db.vm_username
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:github_branch)
+          %dd.col-sm-9= @db.github_branch
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:contur_type)
+          %dd.col-sm-9= @db.contur_type
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:service_id)
+          %dd.col-sm-9= @db.service_id
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:starts_at)
+          %dd.col-sm-9= @db.starts_at
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:ends_at)
+          %dd.col-sm-9= @db.ends_at
+  %br
+  .row.justify-content-center
+    .col-sm-4
+      = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+    .col-sm-4
+      = button_to t('actions.edit'), edit_contur_database_path(@db), method: :get, class: 'form-control', id: 'edit_database_button'
+  %br

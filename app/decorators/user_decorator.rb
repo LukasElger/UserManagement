@@ -36,9 +36,9 @@ class UserDecorator < ApplicationDecorator
 
   def toggle_active_message
     if model.account_active?
-      I18n.t("flash.deactivated")
-    else
       I18n.t("flash.activated")
+    else
+      I18n.t("flash.deactivated")
     end
   end
 end

@@ -1,4 +1,4 @@
-.container.col-sm-4#edit_user
+.container.col-sm-4.index
   %h1.header= t("views.users.edit.header")
   = simple_form_for(@user, url: update_profile_path, method: :patch) do |f|
     = f.input :email, autocomplete: "email", placeholder: User.human_attribute_name(:name)

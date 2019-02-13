@@ -1,5 +1,5 @@
-.container
-  %h1= t("versions.header")
+.container.index
+  %h1.header= t("versions.header")
   %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
   .table_container
     %table.default.table_centered_elements#SearchableTable

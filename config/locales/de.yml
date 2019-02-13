@@ -22,21 +22,27 @@ de:
     general:
       logout: "Möchten Sie sich wirklich ausloggen?"
       denied: "Zugriff verweigert!"
+
     created:
       one: "%{model} wurde erfolgreich erstellt."
       other: "%{model} wurden erfolgreich erstellt."
+
     creation_error:
       one: "Fehler bei der Erstellung des %{model}. Bitte überprüfen Sie Ihre Eingaben!"
       other: "Fehler bei der Erstellung der %{model}. Bitte überprüfen Sie Ihre Eingaben!"
+
     update:
       one: "%{model} wurde erfolgreich bearbeitet!"
       other: "%{model} wurden erfolgreich bearbeitet!"
+
     delete:
       one: "Willst du diesen %{model} wirklich löschen?"
       other: "Willst du diese %{model} wirklich löschen?"
+
     deleted:
       one: "Der %{model} wurde erfolgreich gelöscht!"
       other: "Die %{model} wurde erfolgreich gelöscht!"
+
     activated: "Benutzer wurde erfolgreich aktiviert!"
     deactivated: "Benutzer wurde erfolgreich deaktiviert!"
     de/activation_error: "Sie können sich nicht selbst de/aktivieren!"
@@ -45,34 +51,41 @@ de:
     show:
       one: "%{model} anzeigen"
       other: "%{model} anzeigen"
+
     edit:
       one: "%{model} bearbeiten"
       other: "%{model} bearbeiten"
+
     delete:
       one: "%{model} löschen"
       other: "%{model} löschen"
+
     activate: "Aktivieren"
     deactivate: "Deaktivieren"
 
   sidebar:
     home: "Start"
+
     manage:
       manage: "Verwaltung"
       active_users: "Aktive Nutzer"
       users_new: "Neuer Benutzer"
       servers_new: "Neuer Server"
       databases_new: "Neue Datenbank"
+
     lists:
       lists: "Kategorien"
       users: "Benutzer"
       versions: "Versionen"
       servers: "Server"
       databases: "Datenbanken"
+
     account:
       actions: "Aktionen"
       info: "Info"
       edit: "Profil Bearbeiten"
       admin: "Administration"
+
     lang: "Sprache"
     logout: "Ausloggen"
 
@@ -82,10 +95,12 @@ de:
       last: "Letzte &raquo;"
       previous: "&lsaquo; Zurück"
       next: "Nächste &rsaquo;"
+
     application:
       index:
         welcome: "Willkommen!"
         header: "Zuletzt hinzugefügt"
+
     users:
       index:
         header: "Alle Benutzer"
@@ -102,6 +117,7 @@ de:
         status: "Status"
         active: "Aktiv"
         inactive: "Inaktiv"
+
     versions:
       id_header: "Alle Versionen von"
       header: "Alle Versionen"
@@ -109,7 +125,8 @@ de:
       versions: "Versionen"
       versioning: "Erstellte Versionen"
       created_at: "Erstellt am"
-    contur/database:
+
+    contur/databases:
       index:
         header: "Alle Datenbanken"
       edit:
@@ -118,6 +135,7 @@ de:
       show:
         header: "Datenbank Informationen"
         footer: "Datenbank bearbeiten"
+
     contur/server:
       index:
         header: "Alle Server"
@@ -153,6 +171,7 @@ de:
         admin: "Admin"
         account_active: "Aktiv"
         remember_me: "Eingeloggt bleiben?"
+
       contur/database:
         id: "ID"
         url: "URL"
@@ -165,6 +184,7 @@ de:
         github_branch: "Github-Branch"
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
+
       contur/server:
         id: "ID"
         os_version: "OS-Version"
@@ -176,6 +196,7 @@ de:
         access_type: "Zugriffsart"
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
+
       paper_trail/version:
         id: "ID"
         name: "Name"

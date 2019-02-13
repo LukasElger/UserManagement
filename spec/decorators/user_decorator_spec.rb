@@ -89,7 +89,7 @@ RSpec.describe UserDecorator do
         subject.account_active = true
       end
       it {
-        expect(subject.toggle_active_message).to include("deaktiviert")
+        expect(subject.toggle_active_message).to include("aktiviert")
       }
     end
 
@@ -98,7 +98,7 @@ RSpec.describe UserDecorator do
         subject.account_active = false
       end
       it {
-        expect(subject.toggle_active_message).to include("aktiviert")
+        expect(subject.toggle_active_message).to include("deaktiviert")
       }
     end
   end

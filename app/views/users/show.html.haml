@@ -1,27 +1,27 @@
-.container#users_show
+.container.index
   .card_block
     %h1.header= t("views.users.show.header") + " \"#{@user.name}\""
     %ul.default_list
       %li
         %dl.row
           %dt.col-sm-3= User.human_attribute_name(:id)
-          %dd.col-sm-9=@user.id
+          %dd.col-sm-9= @user.id
       %li
         %dl.row
           %dt.col-sm-3= User.human_attribute_name(:name)
-          %dd.col-sm-9=@user.name
+          %dd.col-sm-9= @user.name
       %li
         %dl.row
           %dt.col-sm-3= User.human_attribute_name(:email)
-          %dd.col-sm-9=@user.email
+          %dd.col-sm-9= @user.email
       %li
         %dl.row
           %dt.col-sm-3= User.human_attribute_name(:admin)
-          %dd.col-sm-9=@user.decorate.admin_human
+          %dd.col-sm-9= @user.decorate.admin_human
       %li
         %dl.row
           %dt.col-sm-3= User.human_attribute_name(:account_active)
-          %dd.col-sm-9=@user.decorate.active_human
+          %dd.col-sm-9= @user.decorate.active_human
   %br
   .row.justify-content-center
     .col-sm-4

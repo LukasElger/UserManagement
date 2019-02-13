@@ -1,9 +1,9 @@
-.container.col-sm-4#new_database_form
+.container.col-sm-4.index
   %h1.header= t "users.new.header"
   = simple_form_for(@db, url: contur_databases_path) do |f|
     = f.input :url, placeholder: Contur::Database.human_attribute_name(:url)
     = f.input :vm_username, placeholder: Contur::Database.human_attribute_name(:vm_username)
-    = f.input :contur_type, placeholder: Contur::Database.human_attribute_name(:contur_type)
+    = f.input :contur_type, as: :select, collection: Contur::Database::ANPASSUNGEN
     = f.input :github_branch, placeholder: Contur::Database.human_attribute_name(:github_branch)
     = f.input :service_id, placeholder: Contur::Database.human_attribute_name(:service_id)
     = f.input :starts_at, placeholder: Contur::Database.human_attribute_name(:starts_at)
@@ -12,4 +12,3 @@
     = f.submit t("actions.create"), class: 'form-control'
   = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
   %br
-  	
