@@ -14,17 +14,16 @@ RSpec.describe "versions/user_versions", type: :view do
   end
   describe "contains table with all versions done by specified user" do
     it "page header content" do
-      expect(rendered).to have_selector('h1', text: I18n.t("versions.header"))
-      expect(rendered).to have_selector('input', id: 'SearchInput')
+      expect(rendered).to have_selector('h1', text: I18n.t("views.versions.header"))
     end
   end
 
   it "table head content" do
-    expect(rendered).to have_selector('table', class: 'table', id: 'SearchableTable')
+    expect(rendered).to have_selector('table', class: 'default')
     expect(rendered).to have_selector('th', text: User.human_attribute_name(:id))
     expect(rendered).to have_selector('th', text: User.human_attribute_name(:name))
-    expect(rendered).to have_selector('th', text: I18n.t("versions.action"))
-    expect(rendered).to have_selector('th', text: I18n.t("versions.created_at"))
+    expect(rendered).to have_selector('th', text: I18n.t("views.versions.action"))
+    expect(rendered).to have_selector('th', text: I18n.t("views.versions.created_at"))
   end
 
   it "table body content" do

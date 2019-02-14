@@ -6,8 +6,8 @@
       %tr
         %th= User.human_attribute_name(:id)
         %th= User.human_attribute_name(:name)
-        %th= I18n.t("versions.action")
-        %th= I18n.t("versions.created_at")
+        %th= I18n.t("views.versions.action")
+        %th= I18n.t("views.versions.created_at")
     %tbody
       - @versions.reverse.each do |version|
         - version = VersionDecorator.decorate version
