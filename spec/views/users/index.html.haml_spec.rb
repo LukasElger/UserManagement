@@ -11,12 +11,12 @@ RSpec.describe "users/index", type: :view do
 
   describe "contains table with all users" do
     it "page header content" do
-      expect(rendered).to have_selector('h1', text: I18n.t("users.index.header"))
+      expect(rendered).to have_selector('h1', text: I18n.t("views.users.index.header"))
       expect(rendered).to have_selector('input', id: 'SearchInput')
     end
 
     it "table head content" do
-      expect(rendered).to have_selector('table', class: 'table', id: 'SearchableTable')
+      expect(rendered).to have_selector('table', class: 'default', id: 'SearchableTable')
       expect(rendered).to have_selector('th', text: User.human_attribute_name(:id))
       expect(rendered).to have_selector('th', text: User.human_attribute_name(:name))
       expect(rendered).to have_selector('th', text: User.human_attribute_name(:email))

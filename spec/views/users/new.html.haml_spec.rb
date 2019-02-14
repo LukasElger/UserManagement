@@ -8,7 +8,7 @@ RSpec.describe "users/new", type: :view do
 
   describe "contains a creation form for a user" do
     it "header" do
-      expect(rendered).to have_selector('h1', text: I18n.t("users.new.header"))
+      expect(rendered).to have_selector('h1', text: I18n.t("views.users.new.header"))
       expect(rendered).to have_selector('form', class: 'simple_form new_user')
     end
     it "new form content" do

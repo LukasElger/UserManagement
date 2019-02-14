@@ -116,7 +116,6 @@ en:
         footer: "Delete this account"
       show:
         header: "Profile of"
-        footer: "Edit this account"
       active:
         status: "Status"
 
@@ -138,7 +137,6 @@ en:
         footer: "Delete database"
       show:
         header: "Database information"
-        footer: "Edit database"
 
     contur/servers:
       new:

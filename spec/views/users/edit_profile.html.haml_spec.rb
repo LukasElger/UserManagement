@@ -8,7 +8,7 @@ RSpec.describe "users/edit_profile", type: :view do
 
   describe "contains a edit form for the profile" do
     it "header" do
-      expect(rendered).to have_selector('h1', text: I18n.t("users.edit.header"))
+      expect(rendered).to have_selector('h1', text: I18n.t("views.users.edit.header"))
       expect(rendered).to have_selector('form', class: 'simple_form edit_user')
     end
     it "edit form content" do
@@ -23,7 +23,7 @@ RSpec.describe "users/edit_profile", type: :view do
     end
 
     it "contains footer / buttons" do
-      expect(rendered).to have_selector('h2', text: I18n.t("users.edit.footer"))
+      expect(rendered).to have_selector('h2', text: I18n.t("views.users.edit.footer"))
       expect(rendered).to have_css("input#delete_user_button")
       expect(rendered).to have_css("input#back_to_root_button")
     end

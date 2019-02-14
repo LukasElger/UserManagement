@@ -117,7 +117,6 @@ de:
         footer: "Diesen Account Löschen"
       show:
         header: "Profil von"
-        footer: "Diesen Account Bearbeiten"
       active:
         status: "Status"
 
@@ -139,7 +138,6 @@ de:
         footer: "Datenbank Löschen"
       show:
         header: "Datenbank Informationen"
-        footer: "Datenbank bearbeiten"
 
     contur/servers:
       new:
