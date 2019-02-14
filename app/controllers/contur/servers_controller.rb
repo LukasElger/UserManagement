@@ -15,9 +15,9 @@ class Contur::ServersController < ApplicationController
     @server = Contur::Server.new(create_params)
 
     if @server.save
-      redirect_to contur_servers_path, flash: {success: t("flash.server_created")}
+      redirect_to contur_servers_path, flash: {success: I18n.t("flash.created", model: Contur::Server.model_name.human, count: 1)}
     else
-      flash[:danger] = t("flash.server_creation_error")
+      flash[:danger] = I18n.t("flash.creation_error", model: Contur::Server.model_name.human, count: 1)
       render "new"
     end
   end
@@ -30,7 +30,7 @@ class Contur::ServersController < ApplicationController
     @server = Contur::Server.find(params[:id])
 
     if @server.update_attributes(update_params)
-      redirect_to contur_servers_path, flash: {success: t("flash.server_update")}
+      redirect_to contur_servers_path, flash: {success: I18n.t("flash.update", model: Contur::Server.model_name.human, count: 1)}
     else
       render "edit"
     end
@@ -40,7 +40,7 @@ class Contur::ServersController < ApplicationController
     @server = Contur::Server.find(params[:id])
     @server.destroy
 
-    redirect_to contur_servers_path, flash: {success: t("flash.server_delete")}
+    redirect_to contur_servers_path, flash: {success: I18n.t("flash.deleted", model: Contur::Server.model_name.human, count: 1)}
   end
 
   private

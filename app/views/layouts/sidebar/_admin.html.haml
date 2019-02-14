@@ -1,77 +1,77 @@
 %nav#sidebar
   .row
     .sidebar-header
-      %h3 UserManagement
+      %h3= I18n.t("general.title")
     #dismiss
       %i.fas.fa-arrow-left
   %ul.list-unstyled.components
     %li
       = link_to root_path do
-        = t('sidebar.home')
+        = I18n.t("sidebar.home")
         %i.fas.fa-home
     %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#manageSubmenu", id: "lists-data-toggle"}
-        = t("sidebar.manage.manage")
+        = I18n.t("sidebar.manage.manage")
         %span.fas.fa-angle-down
       %ul#manageSubmenu.collapse.list-unstyled
         %li
           = link_to active_users_path do
-            = t('sidebar.manage.active_users')
+            = I18n.t("sidebar.manage.active_users")
             %i.fas.fa-users
         %li
           = link_to new_user_path do
-            = t('sidebar.manage.users_new')
+            = I18n.t("sidebar.manage.users_new")
             %i.fas.fa-user
             %i.fas.fa-plus
         %li
           = link_to new_contur_server_path do
-            = t('sidebar.manage.servers_new')
+            = I18n.t("sidebar.manage.servers_new")
             %i.fas.fa-server
             %i.fas.fa-plus
         %li
           = link_to new_contur_database_path(User) do
-            = t('sidebar.manage.databases_new')
+            = I18n.t("sidebar.manage.databases_new")
             %i.fas.fa-database
             %i.fas.fa-plus
     %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#listsSubmenu", id: "lists-data-toggle"}
-        = t("sidebar.lists.lists")
+        = I18n.t("sidebar.lists.lists")
         %span.fas.fa-angle-down
       %ul#listsSubmenu.collapse.list-unstyled
         %li
           = link_to users_path do
-            = t('sidebar.lists.users')
+            = I18n.t("sidebar.lists.users")
             %i.fas.fa-user
         %li
           = link_to versions_path(User) do
-            = t('sidebar.lists.versions')
+            = I18n.t("sidebar.lists.versions")
             %i.fas.fa-code-branch
         %li
           = link_to contur_servers_path do
-            = t('sidebar.lists.servers')
+            = I18n.t("sidebar.lists.servers")
             %i.fas.fa-server
         %li
           = link_to contur_databases_path do
-            = t('sidebar.lists.databases')
+            = I18n.t("sidebar.lists.databases")
             %i.fas.fa-database
     %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#accSubmenu", id: "acc-data-toggle"}
-        = t("sidebar.account.actions")
+        = I18n.t("sidebar.account.actions")
         %span.fas.fa-angle-down
       %ul#accSubmenu.collapse.list-unstyled
         %li
           = link_to user_path(current_user) do
-            = t('sidebar.account.info')
+            = I18n.t("sidebar.account.info")
             %i.fas.fa-info
         %li
           = link_to edit_profile_path(current_user) do
-            = t('sidebar.account.edit')
+            = I18n.t("sidebar.account.edit")
             %i.fas.fa-edit
         %li
           = link_to admin_root_path do
-            = t('sidebar.account.admin')
+            = I18n.t("sidebar.account.admin")
             %i.fas.fa-toolbox
     %li
-      = link_to destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")} do
-        = t('sidebar.logout')
+      = link_to destroy_user_session_path, method: :delete, data: {confirm: I18n.t("flash.general.logout")} do
+        = I18n.t("sidebar.logout")
         %i.fas.fa-sign-out-alt

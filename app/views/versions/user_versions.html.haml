@@ -1,13 +1,13 @@
 .container
-  %h1= t("versions.header")
-  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => t("actions.search"), :type => "text"}/
+  %h1= I18n.t("views.versions.header")
+  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => I18n.t("actions.search"), :type => "text"}/
   %table.default.table_centered_elements#SearchableTable
     %thead.thead-dark
       %tr
         %th= User.human_attribute_name(:id)
         %th= User.human_attribute_name(:name)
-        %th= t "versions.action"
-        %th= t "versions.created_at"
+        %th= I18n.t("versions.action")
+        %th= I18n.t("versions.created_at")
     %tbody
       - @versions.reverse.each do |version|
         - version = VersionDecorator.decorate version

@@ -4,16 +4,16 @@
     %link{:crossorigin => "anonymous", :href => "https://use.fontawesome.com/releases/v5.6.3/css/all.css", :integrity => "sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/", :rel => "stylesheet"}/
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}
-    %title UserManagement
+    %title= I18n.t("general.title")
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track": "reload"
+    = javascript_include_tag "application", "data-turbolinks-track": "reload"
 
   .overlay
   %body
     -if user_signed_in?
-      = render 'layouts/sidebar'
+      = render "layouts/sidebar"
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
         .container-fluid
           %button#sidebarCollapse.btn.btn-light{:type => "button"}

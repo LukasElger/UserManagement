@@ -1,6 +1,6 @@
-.container.index
+.container.index.max
   .card_block
-    %h1.header= t("views.users.show.header") + " \"#{@user.name}\""
+    %h1.header= I18n.t("views.users.show.header") + " \"#{@user.name}\""
     %ul.default_list
       %li
         %dl.row
@@ -25,6 +25,6 @@
   %br
   .row.justify-content-center
     .col-sm-4
-      = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+      = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
     .col-sm-4
-      = button_to t('actions.edit'), edit_user_path(@user), method: :get, class: 'form-control', id: "edit_user_button"
+      = button_to t("actions.edit"), edit_user_path(@user), method: :get, class: "form-control", id: "edit_user_button"

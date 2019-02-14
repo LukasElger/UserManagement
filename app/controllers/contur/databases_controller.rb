@@ -16,9 +16,9 @@ class Contur::DatabasesController < ApplicationController
     @db = Contur::Database.new(create_params)
 
     if @db.save
-      redirect_to contur_databases_path, flash: {success: t("flash.db_created")}
+      redirect_to contur_databases_path, flash: {success: I18n.t("flash.created", model: Contur::Database.model_name.human, count: 1)}
     else
-      flash[:danger] = t("flash.db_creation_error")
+      flash[:danger] = I18n.t("flash.creation_error", model: Contur::Database.model_name.human, count: 2)
       render "new"
     end
   end
@@ -31,7 +31,7 @@ class Contur::DatabasesController < ApplicationController
     @db = Contur::Database.find(params[:id])
 
     if @db.update_attributes(update_params)
-      redirect_to contur_databases_path, flash: {success: t("flash.db_update")}
+      redirect_to contur_databases_path, flash: {success: I18n.t("flash.update", model: Contur::Database.model_name.human, count: 1)}
     else
       render "edit"
     end
@@ -41,7 +41,7 @@ class Contur::DatabasesController < ApplicationController
     @db = Contur::Database.find(params[:id])
     @db.destroy
 
-    redirect_to contur_databases_path, flash: {success: t("flash.db_delete")}
+    redirect_to contur_databases_path, flash: {success: I18n.t("flash.deleted", model: Contur::Database.model_name.human, count: 1)}
   end
 
   private

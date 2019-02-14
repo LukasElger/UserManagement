@@ -4,25 +4,25 @@ class UserDecorator < ApplicationDecorator
 
   def admin_human
     if model.admin?
-      I18n.t("general.admin_true")
+      I18n.t("decorators.user.admin_true")
     else
-      I18n.t("general.admin_false")
+      I18n.t("decorators.user.admin_false")
     end
   end
 
   def active_human
     if model.account_active?
-      I18n.t("general.active_true")
+      I18n.t("decorators.user.active_true")
     else
-      I18n.t("general.active_false")
+      I18n.t("decorators.user.active_false")
     end
   end
 
   def active_badge
     if model.account_active?
-      h.content_tag(:span, I18n.t("views.users.active.active"), class: "badge badge-success")
+      h.content_tag(:span, I18n.t("decorators.user.active"), class: "badge badge-success")
     else
-      h.content_tag(:span, I18n.t("views.users.active.inactive"), class: "badge badge-danger")
+      h.content_tag(:span, I18n.t("decorators.user.inactive"), class: "badge badge-danger")
     end
   end
 

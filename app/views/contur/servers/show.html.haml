@@ -1,6 +1,6 @@
-.container.index
+.container.index.max
   .card_block
-    %h1.header= t("views.contur/servers.show.header")
+    %h1.header= I18n.t("views.contur/servers.show.header")
     %ul.default_list
       %li
         %dl.row
@@ -33,8 +33,7 @@
   %br
   .row.justify-content-center
     .col-sm-4
-      = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+      = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
     .col-sm-4
-      = button_to t('actions.edit'), edit_contur_server_path(@server), method: :get, class: 'form-control', id: 'edit_server_button'
+      = button_to t("actions.edit"), edit_contur_server_path(@server), method: :get, class: "form-control", id: "edit_server_button"
   %br
-  	

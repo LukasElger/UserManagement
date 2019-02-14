@@ -7,32 +7,91 @@ en:
     update: "Confirm"
     delete: "Delete"
     back: "Back"
-    search: "search..."
+    search: "Search..."
+  general:
+    en: "English"
+    de: "German"
+    title: "UserManagement"
 
   flash:
-    db_created: "Database has been created successfully!"
-    db_creation_error: "An error occured while creating the Database. Please check your data!"
-    created: "User has been created successfully!"
-    creation_error: "An error occured while creating the user. Please check your data!"
-    profile_update: "Profile has been edited successfully!"
-    user_update: "User has been edited successfully!"
-    db_update: "Database has been edited successfully!"
-    user_delete: "User has been deleted successfully!"
-    db_delete: "Database has been deleted successfully!"
-    delete: "Do you really want to delete this account?"
-    delete_db: "Do you really want to delete this database?"
-    logout: "Do you really want to log out?"
-    denied: "Acces denied!"
+    general:
+      logout: "Do you really want to log out?"
+      denied: "Access denied!"
+
+    created:
+      one: "%{model} has been created successfully!"
+      other: "%{model}s has been created successfully!"
+
+    creation_error:
+      one: "An error occured while creating the %{model}. Please check your data!"
+      other: "An error occured while creating the %{model}s. Please check your data!"
+
+    update:
+      one: "%{model} has been edited successfully!"
+      other: "%{model}s has been edited successfully!"
+
+    delete:
+      one: "Do you really want to delete this %{model}?"
+      other: "Do you really want to delete these %{model}s?"
+
+    deleted:
+      one: "%{model} has been deleted successfully!"
+      other: "%{model}s has been deleted successfully!"
+
+    activated: "Benutzer wurde erfolgreich aktiviert!"
+    deactivated: "Benutzer wurde erfolgreich deaktiviert!"
+    de/activation_error: "Sie können sich nicht selbst de/aktivieren!"
 
   tooltips:
-    users:
-      show: "Profile of"
-      edit: "Edit User"
-      delete: "Delete user"
-    contur/database:
-      show: "Show database"
-      edit: "Edit database"
-      delete: "Delete database"
+    show:
+      one: "Show %{model}"
+      other: "Show %{model}s"
+
+    edit:
+      one: "Edit %{model}"
+      other: "Edit %{model}s"
+
+    delete:
+      one: "Delete %{model}"
+      other: "Delete %{model}s"
+
+    activate: "Activare"
+    deactivate: "Deactivare"
+
+  decorators:
+    user:
+      admin_true: "Yes"
+      admin_false: "No"
+      active_true: "Yes"
+      active_false: "No"
+      active: "Active"
+      inactive: "Inactive"
+
+  sidebar:
+    home: "Home"
+
+    manage:
+      manage: "Management"
+      active_users: "Active users"
+      users_new: "New User"
+      servers_new: "New Server"
+      databases_new: "New Database"
+
+    lists:
+      lists: "Categories"
+      users: "Users"
+      versions: "Versions"
+      servers: "Servers"
+      databases: "Databases"
+
+    account:
+      actions: "Actions"
+      info: "Info"
+      edit: "Edit profile"
+      admin: "Administration"
+
+    lang: "Language"
+    logout: "Log out"
 
   views:
     pagination:
@@ -41,79 +100,66 @@ en:
       previous: "&lsaquo; Previous"
       next: "Next &rsaquo;"
 
-  users:
-    index:
-      header: "All users"
-      create_new: "Create new user"
-    new:
-      header: "Create a new user"
-    edit:
-      header: "Edit account"
-      footer: "Delete this account"
-    show:
-      header: "Profile of"
-      footer: "Edit this account"
+    application:
+      index:
+        welcome: "Welcome!"
+        header: "Recently added"
 
-  versions:
-    id_header: "All Versions of"
-    header: "All Versions"
-    action: "Action"
-    versions: "Versions"
-    versioning: "Created versions"
-    created_at: "Created at"
+    users:
+      index:
+        header: "All users"
+        create_new: "Create new user"
+      new:
+        header: "Create a new user"
+      edit:
+        header: "Edit account"
+        footer: "Delete this account"
+      show:
+        header: "Profile of"
+        footer: "Edit this account"
+      active:
+        status: "Status"
 
-  contur/database:
-    index:
-      header: "All databases"
-    edit:
-      header: "Edit database"
-      footer: "Delete database"
-    show:
-      header: "Database information"
-      footer: "Edit database"
+    versions:
+      id_header: "All Versions of"
+      header: "All Versions"
+      action: "Action"
+      versions: "Versions"
+      versioning: "Created versions"
+      created_at: "Created at"
 
-  application:
-    index:
-      welcome: "Welcome!"
-      header: "Recently added"
+    contur/databases:
+      new:
+        header: "Create new database"
+      index:
+        header: "All databases"
+      edit:
+        header: "Edit database"
+        footer: "Delete database"
+      show:
+        header: "Database information"
+        footer: "Edit database"
 
-  sidebar:
-    manage: "Management"
-    home: "Home"
-    lists: "Categories"
-    users_new: "New User"
-    users: "Users"
-    databases_new: "New Database"
-    databases: "Databases"
-    versions: "Versions"
-    create_new: "New USer"
-    lang: "Language"
-    logout: "Log out"
-    info: "Info"
-    edit: "Edit profile"
-    admin: "Administration"
-    actions: "Actions"
-    active_users: "Active users"
-
-  general:
-    en: "English"
-    de: "German"
-    title: "UserManagement"
-    admin_true: "Yes"
-    admin_false: "No"
-    active_true: "Yes"
-    active_false: "No"
+    contur/servers:
+      new:
+        header: "Create new server"
+      index:
+        header: "All servers"
+      edit:
+        header: "Edit server"
+        footer: "Delete server"
+      show:
+        header: "Server information"
+        footer: "Edit server"
 
   activerecord:
     models:
       user:
         one: "User"
         other: "Users"
-
       paper_trail/version:
         one: "Version"
         other: "Versions"
-
       contur/database:
         one: "Database"
         other: "Databases"
@@ -132,11 +178,8 @@ en:
         account_active: "Active"
         remember_me: "Remember me?"
 
-      paper_trail/version:
-        id: "ID"
-        name: "Name"
-
       contur/database:
+        id: "ID"
         url: "URL"
         vm_username: "VM-Username"
         comment: "Comment"
@@ -147,3 +190,19 @@ en:
         github_branch: "Github-Branch"
         created_at: "Created at"
         updated_at: "Updated at"
+
+      contur/server:
+        id: "ID"
+        os_version: "OS-Version"
+        ruby_version: "Ruby-Version"
+        nginx_version: "NGINX-Version"
+        postgres_version: "Postgres-Version"
+        hostname: "Hostname"
+        admin_user: "Administrator"
+        access_type: "Access-Type"
+        created_at: "Created at"
+        updated_at: "Updated at"
+
+      paper_trail/version:
+        id: "ID"
+        name: "Name"

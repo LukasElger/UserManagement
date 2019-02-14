@@ -5,4 +5,4 @@
       = f.input :email, placeholder: User.human_attribute_name(:email)
       = f.input :password, placeholder: User.human_attribute_name(:password)
       = f.input :remember_me, as: :boolean
-      = f.submit t("actions.login"), class: "form-control"
+      = f.submit I18n.t("actions.login"), class: "form-control"

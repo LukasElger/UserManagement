@@ -10,6 +10,6 @@
         = f.input :admin, as: :boolean
       .col.items_centered
         = f.input :account_active, as: :boolean
-    = f.submit t("actions.create"), class: 'form-control'
-  = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+    = f.submit I18n.t("actions.create"), class: "form-control"
+  = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
   %br

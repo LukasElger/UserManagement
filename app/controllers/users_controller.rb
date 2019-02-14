@@ -40,9 +40,9 @@ class UsersController < ApplicationController
     @user = User.new(create_params)
 
     if @user.save
-      redirect_to users_path, flash: {success: t("flash.created")}
+      redirect_to users_path, flash: {success: I18n.t("flash.created", model: User.model_name.human, count: 1)}
     else
-      flash[:danger] = t("flash.creation_error")
+      flash[:danger] = I18n.t("flash.creation_error", model: User.model_name.human, count: 1)
       render "new"
     end
   end
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
     if @user.update_with_password(update_profile_params)
       set_locale
-      redirect_to root_path, flash: {success: t("flash.profile_update")}
+      redirect_to root_path, flash: {success: I18n.t("flash.update", model: User.model_name.human, count: 1)}
     else
       render "edit_profile"
     end
@@ -75,7 +75,7 @@ class UsersController < ApplicationController
 
     if @user.update_user_data(account_update_params)
       set_locale
-      redirect_to users_path, flash: {success: t("flash.user_update")}
+      redirect_to users_path, flash: {success: I18n.t("flash.update", model: User.model_name.human, count: 1)}
     else
       render "edit"
     end
@@ -85,7 +85,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to users_path, flash: {success: t("flash.user_delete")}
+    redirect_to users_path, flash: {success: I18n.t("flash.deleted", model: User.model_name.human, count: 1)}
   end
 
   def toggle_active

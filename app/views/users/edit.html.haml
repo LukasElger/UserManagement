@@ -1,5 +1,5 @@
 .container.col-sm-4.index
-  %h1.header= t("views.users.edit.header")
+  %h1.header= I18n.t("views.users.edit.header")
   = simple_form_for(@user) do |f|
     = f.input :email, autocomplete: "email", placeholder: User.human_attribute_name(:name)
     = f.input :password, placeholder: User.human_attribute_name(:password)
@@ -9,8 +9,8 @@
         = f.input :admin, as: :boolean
       .col.items_centered
         = f.input :account_active, as: :boolean
-    = f.submit t("actions.update"), class: 'form-control'
-  %h2.footer= t("users.edit.footer")
-  = button_to t("actions.delete"), user_path(@user), method: :delete, class: 'form-control', id: "delete_user_button", data: {confirm: t("flash.users.delete")}
-  = button_to t("actions.back"), :back, method: :get, class: 'form-control', id: "back_to_root_button"
+    = f.submit I18n.t("actions.update"), class: "form-control"
+  %h2.footer= I18n.t("views.users.edit.footer")
+  = button_to I18n.t("actions.delete"), user_path(@user), method: :delete, class: "form-control", id: "delete_user_button", data: {confirm: I18n.t("flash.delete", model: User.model_name.human, count: 1)}
+  = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
   %br

@@ -2,17 +2,17 @@
   #dismiss
     %i.fas.fa-arrow-left
   .sidebar-header
-    %h3 UserManagement
+    %h3= I18n.t("general.title")
   %ul.list-unstyled.components
     %li
       = link_to user_path(current_user) do
-        = t('sidebar.actions.info')
+        = I18n.t("sidebar.actions.info")
         %i.fas.fa-info
     %li
       = link_to edit_profile_path(current_user) do
-        = t('sidebar.actions.edit')
+        = I18n.t("sidebar.actions.edit")
         %i.fas.fa-edit
     %li
-      = link_to destroy_user_session_path, method: :delete, data: {confirm: t("flash.logout")} do
-        = t('sidebar.logout')
+      = link_to destroy_user_session_path, method: :delete, data: {confirm: I18n.t("flash.general.logout")} do
+        = I18n.t("sidebar.logout")
         %i.fas.fa-sign-out-alt

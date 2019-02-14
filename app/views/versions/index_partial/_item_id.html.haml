@@ -1,13 +1,13 @@
 .container.index
-  %h1.header= t("versions.id_header") + " #{@versions.first.item.name}"
+  %h1.header= I18n.t("views.versions.id_header") + " #{@versions.first.item.name}"
   .table_container
     %table.default.table_centered_elements
       %thead.thead-dark
         %tr
           %th= PaperTrail::Version.human_attribute_name(:id)
           %th= PaperTrail::Version.human_attribute_name(:name)
-          %th= t "versions.action"
-          %th= t "versions.created_at"
+          %th= I18n.t("views.versions.action")
+          %th= I18n.t("views.versions.created_at")
       %tbody
         - @versions.reverse.each do |version|
           - version = VersionDecorator.decorate version
