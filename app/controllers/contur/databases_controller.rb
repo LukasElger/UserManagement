@@ -1,7 +1,11 @@
 class Contur::DatabasesController < ApplicationController
 
   def index
-    @dbs = Contur::Database.order(:id).page params[:page]
+    if params[:query]
+      @dbs = Contur::Database.search(params[:query]).page params[:page]
+    else
+      @dbs = Contur::Database.order(:id).page params[:page]
+    end
   end
 
   def show

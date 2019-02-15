@@ -12,11 +12,10 @@ RSpec.describe "contur/databases/index", type: :view do
   describe "contains table with all databases" do
     it "page header content" do
       expect(rendered).to have_selector('h1', text: I18n.t("views.contur/databases.index.header"))
-      expect(rendered).to have_selector('input', id: 'SearchInput')
     end
 
     it "table head content" do
-      expect(rendered).to have_selector('table', class: 'default', id: 'SearchableTable')
+      expect(rendered).to have_selector('table', class: 'default')
       expect(rendered).to have_selector('th', text: Contur::Database.human_attribute_name(:id))
       expect(rendered).to have_selector('th', text: Contur::Database.human_attribute_name(:url))
       expect(rendered).to have_selector('th', text: I18n.t("actions.show"))

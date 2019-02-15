@@ -8,6 +8,9 @@ en:
     delete: "Delete"
     back: "Back"
     search: "Search..."
+    filter: "Filter"
+    reset_filter: "Reset filter"
+
   general:
     en: "English"
     de: "German"

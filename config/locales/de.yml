@@ -9,6 +9,8 @@ de:
     delete: "Löschen"
     back: "Zurück"
     search: "Suchen..."
+    filter: "Filtern"
+    reset_filter: "Filter zurücksetzen"
 
   general:
     en: "Englisch"
