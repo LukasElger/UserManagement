@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_admin!, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :require_admin!, only: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
     @users = User.order(:id).page(params[:page])
@@ -98,6 +98,15 @@ class UsersController < ApplicationController
 
       redirect_back(fallback_location: root_path, flash: {success: @user.toggle_active_message})
     end
+  end
+
+  def toggle_admin
+    @user = User.find(params[:id]).decorate
+
+    @user.admin = !@user.admin
+    @user.save(validate: false)
+
+    redirect_back(fallback_location: root_path, flash: {success: @user.toggle_admin_message})
   end
 
   private

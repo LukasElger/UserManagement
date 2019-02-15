@@ -38,9 +38,13 @@ en:
       one: "%{model} has been deleted successfully!"
       other: "%{model}s has been deleted successfully!"
 
-    activated: "Benutzer wurde erfolgreich aktiviert!"
-    deactivated: "Benutzer wurde erfolgreich deaktiviert!"
-    de/activation_error: "Sie können sich nicht selbst de/aktivieren!"
+    status:
+      activated: "User has been activated successfully!"
+      deactivated: "User has been deactivated successfully!"
+      de/activation_error: "You can't de/activate yourself!"
+    admin:
+      activated: "User is now an Admin!"
+      deactivated: "User is no longer an Admin!"
 
   tooltips:
     show:
@@ -116,6 +120,8 @@ en:
         footer: "Delete this account"
       show:
         header: "Profile of"
+        self:
+          header: "Dein Profil"
       active:
         status: "Status"
 

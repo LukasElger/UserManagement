@@ -1,0 +1,28 @@
+%h1.header= I18n.t("views.users.show.header") + " \"#{user.name}\""
+%ul.default_list
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:id)
+      %dd.col-sm-9= user.id
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:name)
+      %dd.col-sm-9= user.name
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:email)
+      %dd.col-sm-9= user.email
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:admin)
+      %dd.col-sm-9
+        = user.decorate.admin_human
+        = link_to toggle_admin_path(user), method: :post do
+          = user.decorate.toggle_admin_switch
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:account_active)
+      %dd.col-sm-9
+        = user.decorate.active_human
+        = link_to toggle_active_path(user), method: :post do
+          = user.decorate.toggle_active_switch

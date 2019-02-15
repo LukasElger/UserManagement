@@ -1,0 +1,22 @@
+%h1.header= I18n.t("views.users.show.self.header")
+%ul.default_list
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:id)
+      %dd.col-sm-9= user.id
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:name)
+      %dd.col-sm-9= user.name
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:email)
+      %dd.col-sm-9= user.email
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:admin)
+      %dd.col-sm-9= user.decorate.admin_human
+  %li
+    %dl.row
+      %dt.col-sm-3= User.human_attribute_name(:account_active)
+      %dd.col-sm-9= user.decorate.active_human

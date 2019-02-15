@@ -1,30 +1,18 @@
 .container.index.max
   .card_block
-    %h1.header= I18n.t("views.users.show.header") + " \"#{@user.name}\""
-    %ul.default_list
-      %li
-        %dl.row
-          %dt.col-sm-3= User.human_attribute_name(:id)
-          %dd.col-sm-9= @user.id
-      %li
-        %dl.row
-          %dt.col-sm-3= User.human_attribute_name(:name)
-          %dd.col-sm-9= @user.name
-      %li
-        %dl.row
-          %dt.col-sm-3= User.human_attribute_name(:email)
-          %dd.col-sm-9= @user.email
-      %li
-        %dl.row
-          %dt.col-sm-3= User.human_attribute_name(:admin)
-          %dd.col-sm-9= @user.decorate.admin_human
-      %li
-        %dl.row
-          %dt.col-sm-3= User.human_attribute_name(:account_active)
-          %dd.col-sm-9= @user.decorate.active_human
+    -if current_user.admin?
+      -if current_user == @user
+        = render partial: "users/partials/show_as_admin_current", locals: {user: @user}
+      -else
+        = render partial: "users/partials/show_as_admin", locals: {user: @user}
+    -else
+      = render partial: "users/partials/show_as_default", locals: {user: @user}
   %br
   .row.justify-content-center
     .col-sm-4
       = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
     .col-sm-4
-      = button_to t("actions.edit"), edit_user_path(@user), method: :get, class: "form-control", id: "edit_user_button"
+      -if current_user.admin?
+        = button_to t("actions.edit"), edit_user_path(@user), method: :get, class: "form-control", id: "edit_user_button"
+      -else
+        = button_to t("actions.edit"), edit_profile_path(current_user), method: :get, class: "form-control", id: "edit_user_button"

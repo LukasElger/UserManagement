@@ -40,9 +40,13 @@ de:
       one: "Der %{model} wurde erfolgreich gelöscht!"
       other: "Die %{model} wurde erfolgreich gelöscht!"
 
-    activated: "Benutzer wurde erfolgreich aktiviert!"
-    deactivated: "Benutzer wurde erfolgreich deaktiviert!"
-    de/activation_error: "Sie können sich nicht selbst de/aktivieren!"
+    status:
+      activated: "Benutzer wurde erfolgreich aktiviert!"
+      deactivated: "Benutzer wurde erfolgreich deaktiviert!"
+      de/activation_error: "Sie können sich nicht selbst de/aktivieren!"
+    admin:
+      activated: "Benutzer ist nun ein Admin!"
+      deactivated: "Benutzer ist kein Admin mehr!"
 
   tooltips:
     show:
@@ -66,8 +70,6 @@ de:
       admin_false: "Nein"
       active_true: "Ja"
       active_false: "Nein"
-      active: "Aktiv"
-      inactive: "Inaktiv"
 
   sidebar:
     home: "Start"
@@ -118,8 +120,12 @@ de:
         footer: "Diesen Account Löschen"
       show:
         header: "Profil von"
+        self:
+          header: "Dein Profil"
       active:
         status: "Status"
+        active: "Aktiv"
+        inactive: "Inaktiv"
 
     versions:
       id_header: "Alle Versionen von"

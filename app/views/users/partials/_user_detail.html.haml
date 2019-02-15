@@ -1,10 +1,10 @@
 %li
   %dl.row
     %dt.col-sm-4= User.human_attribute_name(:id)
-    %dd.col-sm-8#test
+    %dd.col-sm-8
       = user.id
       = link_to toggle_active_path(user), method: :post do
-        =user.decorate.toggle_switch
+        =user.decorate.toggle_active_switch
   %dl.row
     %dt.col-sm-4= User.human_attribute_name(:name)
     %dd.col-sm-8= user.name

@@ -7,7 +7,5 @@
     = f.input :current_password, placeholder: User.human_attribute_name(:current_password)
     = f.input :locale, collection: [[I18n.t("general.de"), :de], [I18n.t("general.en"), :en]]
     = f.submit I18n.t("actions.update"), class: "form-control"
-  %h2.footer= I18n.t("views.users.edit.footer")
-  = button_to I18n.t("actions.delete"), user_path(@user), method: :delete, class: "form-control", id: "delete_user_button", data: {confirm: I18n.t("flash.delete", model: User.model_name.human, count: 1)}
   = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
   %br

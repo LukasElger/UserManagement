@@ -21,11 +21,5 @@ RSpec.describe "users/edit_profile", type: :view do
         assert_select "input[type='submit']"
       end
     end
-
-    it "contains footer / buttons" do
-      expect(rendered).to have_selector('h2', text: I18n.t("views.users.edit.footer"))
-      expect(rendered).to have_css("input#delete_user_button")
-      expect(rendered).to have_css("input#back_to_root_button")
-    end
   end
 end

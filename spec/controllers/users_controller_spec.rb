@@ -141,7 +141,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "assings success flash" do
         post_action
-        is_expected.to set_flash[:success].to(I18n.t("flash.created"))
+        is_expected.to set_flash[:success].to(I18n.t("flash.created", model: User.model_name.human, count: 1))
       end
 
       it "assigns @user" do
@@ -189,7 +189,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "assings success flash" do
         update_action
-        is_expected.to set_flash[:success].to(I18n.t("flash.user_update"))
+        is_expected.to set_flash[:success].to(I18n.t("flash.update", model: User.model_name.human, count: 1))
       end
 
       it "assigns @user" do
@@ -231,7 +231,7 @@ RSpec.describe UsersController, type: :controller do
 
       it "assings success flash" do
         update_action
-        is_expected.to set_flash[:success].to(I18n.t("flash.profile_update"))
+        is_expected.to set_flash[:success].to(I18n.t("flash.update", model: User.model_name.human, count: 1))
       end
 
       it "assigns @user" do
