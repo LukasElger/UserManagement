@@ -22,7 +22,7 @@ RSpec.describe "layouts/application", type: :view do
     it "renders top nav" do
       expect(rendered).to have_selector('nav', class: 'navbar navbar-expand-lg navbar-light bg-light')
       expect(rendered).to have_selector('div', class: 'container-fluid')
-      expect(rendered).to have_selector('button', id: 'sidebarCollapse', class: 'btn btn-light')
+      expect(rendered).to have_selector('div', id: 'sidebarCollapse')
       expect(rendered).to have_selector('i', class: 'fas fa-bars fa-2x')
     end
 
@@ -65,7 +65,7 @@ RSpec.describe "layouts/application", type: :view do
     it "renders top nav" do
       expect(rendered).to have_selector('nav', class: 'navbar navbar-expand-lg navbar-light bg-light')
       expect(rendered).to have_selector('div', class: 'container-fluid')
-      expect(rendered).to have_selector('button', id: 'sidebarCollapse', class: 'btn btn-light')
+      expect(rendered).to have_selector('div', id: 'sidebarCollapse')
       expect(rendered).to have_selector('i', class: 'fas fa-bars fa-2x')
     end
 

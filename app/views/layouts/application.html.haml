@@ -16,8 +16,8 @@
       = render "layouts/sidebar"
       %nav.navbar.navbar-expand-lg.navbar-light.bg-light
         .container-fluid
-          %button#sidebarCollapse.btn.btn-light{:type => "button"}
-            %i.fas.fa-bars.fa-2x
+          #sidebarCollapse
+            %i.fas.fa-bars.fa-2x{:style => "cursor: pointer"}
           = link_to root_path do
             %i.fas.fa-home.fa-2x
       - flash.each do |key, value|

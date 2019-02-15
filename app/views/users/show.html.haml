@@ -13,6 +13,9 @@
       = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
     .col-sm-4
       -if current_user.admin?
-        = button_to t("actions.edit"), edit_user_path(@user), method: :get, class: "form-control", id: "edit_user_button"
+        -if current_user == @user
+          = button_to t("actions.edit"), edit_profile_path, method: :get, class: "form-control", id: "edit_profile_button"
+        -else
+          = button_to t("actions.edit"), edit_user_path(@user), method: :get, class: "form-control", id: "edit_user_button"
       -else
-        = button_to t("actions.edit"), edit_profile_path(current_user), method: :get, class: "form-control", id: "edit_user_button"
+        = button_to t("actions.edit"), edit_profile_path, method: :get, class: "form-control", id: "edit_profile_button"
