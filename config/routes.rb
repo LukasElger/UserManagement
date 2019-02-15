@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :users
-  get 'edit_profile/:id', to: 'users#edit_profile', as: :edit_profile
-  patch 'update_profile/:id', to: 'users#update_profile', as: :update_profile
+  get 'edit_profile', to: 'users#edit_profile', as: :edit_profile
+  patch 'update_profile', to: 'users#update_profile', as: :update_profile
 end

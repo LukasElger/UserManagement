@@ -63,22 +63,40 @@ RSpec.describe UserDecorator do
     end
   end
 
-  describe "toggle_switch" do
-    context "is active" do
+  describe "toggle_switches" do
+    context "account is active" do
       before do
         subject.account_active = true
       end
       it {
-        expect(subject.toggle_switch).to include("fa-toggle-on", "Deaktivieren")
+        expect(subject.toggle_active_switch).to include("fa-toggle-on", "Deaktivieren")
       }
     end
 
-    context "is not active" do
+    context "account is not active" do
       before do
         subject.account_active = false
       end
       it {
-        expect(subject.toggle_switch).to include("fa-toggle-off", "Aktivieren")
+        expect(subject.toggle_active_switch).to include("fa-toggle-off", "Aktivieren")
+      }
+    end
+
+    context "admin is active" do
+      before do
+        subject.admin = true
+      end
+      it {
+        expect(subject.toggle_admin_switch).to include("fa-toggle-on", "Deaktivieren")
+      }
+    end
+
+    context "admin is not active" do
+      before do
+        subject.admin = false
+      end
+      it {
+        expect(subject.toggle_admin_switch).to include("fa-toggle-off", "Aktivieren")
       }
     end
   end

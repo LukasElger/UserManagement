@@ -2,7 +2,9 @@ require "rails_helper"
 
 RSpec.describe "users/show", type: :view do
   let(:user) { FactoryBot.create(:user) }
+  let(:admin) { FactoryBot.create(:user, admin: true) }
   before do
+    allow(view).to receive_messages(current_user: admin)
     assign(:user, user)
     render
   end

@@ -2,19 +2,15 @@ require 'rails_helper'
 
 RSpec.describe VersionsController, type: :controller do
   let(:user) { FactoryBot.create(:user) }
-  let(:version) { PaperTrail::Version.new }
   before do
-    allow(view).to receive_messages(current_user: user)
-    allow(version).to receive_messages(item: user)
-    versions = [version]
-    versions = Kaminari.paginate_array(versions).page(1)
-    assign(:users, [user])
-    assign(:versions, versions)
+    allow(controller).to receive_messages(current_user: user)
   end
 
   describe "#index" do
+    let(:versions) { double }
     before do
       allow(PaperTrail::Version).to receive(:where).with(item_type: "User") { versions }
+      allow(versions).to receive_messages(page: versions)
     end
 
     it "assigns @versions" do

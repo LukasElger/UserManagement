@@ -27,7 +27,7 @@ RSpec.describe "versions/index", type: :view do
     end
 
     it "table body content" do
-      expect(rendered).to have_selector("td", text: "#{version.item.id}")
+      expect(rendered).to have_selector("td", text: "#{version.item_id}")
       expect(rendered).to have_selector("td", text: "#{version.item.name}")
       expect(rendered).to have_selector("td", text: "#{version.event}")
       expect(rendered).to have_selector("td", text: "#{version.created_at}")
@@ -53,7 +53,7 @@ RSpec.describe "versions/index", type: :view do
     end
 
     it "table body content" do
-      expect(rendered).to have_selector("td", text: "#{version.item.id}")
+      expect(rendered).to have_selector("td", text: "#{version.item_id}")
       expect(rendered).to have_selector("td", text: "#{version.item.name}")
       expect(rendered).to have_selector("td", text: "#{version.event}")
       expect(rendered).to have_selector("td", text: "#{version.created_at}")
