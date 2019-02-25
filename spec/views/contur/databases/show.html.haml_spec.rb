@@ -25,7 +25,7 @@ RSpec.describe "contur/databases/show", type: :view do
       expect(rendered).to have_selector('dd', text: "#{db.vm_username}")
       expect(rendered).to have_selector('dd', text: "#{db.github_branch}")
       expect(rendered).to have_selector('dd', text: "#{db.contur_type}")
-      expect(rendered).to have_selector('dd', text: "#{db.server_id}")
+      expect(rendered).to have_selector('dd', text: "#{db.server.hostname}")
       expect(rendered).to have_selector('dd', text: "#{db.starts_at}")
       expect(rendered).to have_selector('dd', text: "#{db.ends_at}")
     end

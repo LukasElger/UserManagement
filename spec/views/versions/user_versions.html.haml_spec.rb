@@ -14,7 +14,6 @@ RSpec.describe "versions/user_versions", type: :view do
   end
   describe "contains table with all versions done by specified user" do
     it "page header content" do
-      puts rendered
       expect(rendered).to have_selector('h1', text: I18n.t("views.versions.header"))
     end
   end
