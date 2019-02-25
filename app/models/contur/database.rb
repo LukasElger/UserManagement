@@ -21,7 +21,7 @@ class Contur::Database < ApplicationRecord
   def self.search(query)
     scope = all
     if query[:id].present?
-      scope = scope.url_search(query[:id])
+      scope = scope.id_search(query[:id])
     end
 
     if query[:url].present?
@@ -29,26 +29,26 @@ class Contur::Database < ApplicationRecord
     end
 
     if query[:vm_username].present?
-      scope = scope.url_search(query[:vm_username])
+      scope = scope.vm_search(query[:vm_username])
     end
 
     if query[:github_branch].present?
-      scope = scope.url_search(query[:github_branch])
+      scope = scope.git_search(query[:github_branch])
     end
 
     if query[:service_id].present?
-      scope = scope.url_search(query[:service_id])
+      scope = scope.service_search(query[:service_id])
     end
 
     if query[:contur_type].present?
-      scope = scope.url_search(query[:contur_type])
+      scope = scope.type_search(query[:contur_type])
     end
 
     scope
   end
 
   def self.id_search(query)
-    where("id ILIKE :id", id: "%#{query}%")
+    where("id = :id", id: query)
   end
 
   def self.url_search(query)

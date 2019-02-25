@@ -2,7 +2,11 @@ class UsersController < ApplicationController
   before_action :require_admin!, only: [:index, :new, :create, :edit, :update, :destroy]
 
   def index
-    @users = User.order(:id).page(params[:page])
+    if params[:query]
+      @users = User.search(params[:query]).page params[:page]
+    else
+      @users = User.order(:id).page(params[:page])
+    end
   end
 
   def active

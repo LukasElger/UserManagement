@@ -13,10 +13,6 @@ class User < ApplicationRecord
     self.update_attributes(params)
   end
 
-  def self.search(value)
-    where("LOWER(name) ILIKE  '#{value.downcase}%'")
-  end
-
    def active_for_authentication?
       # Uncomment the below debug statement to view the properties of the returned self model values.
       # logger.debug self.to_yaml
@@ -26,5 +22,42 @@ class User < ApplicationRecord
 
   def inactive_message
     account_active? ? super : :inactive
+  end
+
+  def self.search(query)
+    scope = all
+    if query[:id].present?
+      scope = scope.id_search(query[:id])
+    end
+
+    if query[:name].present?
+      scope = scope.name_search(query[:name])
+    end
+
+    if query[:email].present?
+      scope = scope.email_search(query[:email])
+    end
+
+    if query[:account_active].present?
+      scope = scope.active_search(query[:account_active])
+    end
+
+    scope
+  end
+
+  def self.id_search(query)
+    where("id = :id", id: query)
+  end
+
+  def self.name_search(query)
+    where("name ILIKE :name", name: "%#{query}%")
+  end
+
+  def self.email_search(query)
+    where("email ILIKE :email", email: "%#{query}%")
+  end
+
+  def self.active_search(query)
+    where("account_active = :account_active", account_active: query)
   end
 end

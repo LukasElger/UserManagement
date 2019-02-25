@@ -3,7 +3,10 @@
   %p{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#filters", id: "filters-data-toggle"}
     %i.fas.fa-filter{:style => "cursor: pointer"}
       = I18n.t("actions.filter")
-  = render partial: "contur/databases/partials/filter"
+  -if params[:query]
+    = render partial: "contur/databases/partials/showed_filter"
+  -else
+    = render partial: "contur/databases/partials/hidden_filter"
   .table_container
     %table.default.table_centered_elements
       %thead.thead-dark

@@ -1,0 +1,20 @@
+#filters.collapse.form-group.show
+  = simple_form_for :query, method: :get do |f|
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :id, label: User.human_attribute_name(:id), required: false, input_html: {value: form_search_value(params[:query], :id)}
+      .col-sm-4
+        = f.input :name, label: User.human_attribute_name(:name), required: false, input_html: {value: form_search_value(params[:query], :name)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :email, label: User.human_attribute_name(:email), required: false, input_html: {value: form_search_value(params[:query], :email)}
+      .col-sm-4
+        = f.input :account_active, label: User.human_attribute_name(:account_active), as: :select, collection: [["", ""], [I18n.t("decorators.user.active_true"), "true"], [I18n.t("decorators.user.active_false"), "false"]], required: false, selected: form_search_value(params[:query], :account_active)
+    .row.justify-content-center
+      .col-sm-8
+        %hr
+    .row.justify-content-center
+      .col-sm-4
+        = f.submit I18n.t("actions.filter"), class: "form-control"
+      .col-sm-4{style: "text-align: center"}
+        = link_to I18n.t("actions.reset_filter"), users_path, method: :get, class: "form-control"

@@ -1,6 +1,10 @@
 class Contur::ServersController < ApplicationController
   def index
-    @servers = Contur::Server.order(:id).page params[:page]
+    if params[:query]
+      @servers = Contur::Server.search(params[:query]).page params[:page]
+    else
+      @servers = Contur::Server.order(:id).page params[:page]
+    end
   end
 
   def show

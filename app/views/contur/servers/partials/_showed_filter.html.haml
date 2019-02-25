@@ -1,0 +1,26 @@
+#filters.collapse.form-group.show
+  = simple_form_for :query, method: :get do |f|
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :os_version, label: Contur::Server.human_attribute_name(:os_version), required: false, input_html: {value: form_search_value(params[:query], :os_version)}
+      .col-sm-4
+        = f.input :ruby_version, label: Contur::Server.human_attribute_name(:ruby_version), required: false, input_html: {value: form_search_value(params[:query], :ruby_version)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :nginx_version, label: Contur::Server.human_attribute_name(:nginx_version), required: false, input_html: {value: form_search_value(params[:query], :nginx_version)}
+      .col-sm-4
+        = f.input :postgres_version, label: Contur::Server.human_attribute_name(:postgres_version), required: false, input_html: {value: form_search_value(params[:query], :postgres_version)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :hostname, label: Contur::Server.human_attribute_name(:hostname), required: false, input_html: {value: form_search_value(params[:query], :hostname)}
+      .col-sm-4
+        = f.input :admin_user, label: Contur::Server.human_attribute_name(:admin_user), required: false, input_html: {value: form_search_value(params[:query], :admin_user)}
+    .row.justify-content-center
+      .col-sm-8
+        = f.input :access_type, label: Contur::Server.human_attribute_name(:access_type), required: false, input_html: {value: form_search_value(params[:query], :access_type)}
+        %hr
+    .row.justify-content-center
+      .col-sm-4
+        = f.submit I18n.t("actions.filter"), class: "form-control"
+      .col-sm-4{style: "text-align: center"}
+        = link_to I18n.t("actions.reset_filter"), contur_servers_path, method: :get, class: "form-control"

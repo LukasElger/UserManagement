@@ -34,6 +34,14 @@ class UserDecorator < ApplicationDecorator
     end
   end
 
+  def active_mark
+    if model.account_active?
+      h.content_tag(:i,"", class: "fas fa-check")
+    else
+      h.content_tag(:i,"", class: "fas fa-times")
+    end
+  end
+
   def active_badge
     if model.account_active?
       h.content_tag(:span, I18n.t("views.users.active.active"), class: "badge badge-success")

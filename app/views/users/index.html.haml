@@ -1,8 +1,14 @@
 .container.index
   %h1.header= I18n.t("views.users.index.header")
-  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => I18n.t("actions.search"), :type => "text"}/
+  %p{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#filters", id: "filters-data-toggle"}
+    %i.fas.fa-filter{:style => "cursor: pointer"}
+      = I18n.t("actions.filter")
+  -if params[:query]
+    = render partial: "users/partials/showed_filter"
+  -else
+    = render partial: "users/partials/hidden_filter"
   .table_container
-    %table.default.table_centered_elements#SearchableTable
+    %table.default.table_centered_elements
       %thead.thead-dark
         %tr
           %th= User.human_attribute_name(:id)
@@ -18,7 +24,8 @@
             %td= user.id
             %td= user.name
             %td= user.email
-            %td= user.decorate.active_human
+            %td
+              = user.decorate.active_mark
             %td
               = link_to user_path(user) do
                 %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: User.model_name.human, count: 1)}"}

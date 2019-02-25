@@ -1,0 +1,25 @@
+#filters.collapse.form-group
+  = simple_form_for :query, method: :get do |f|
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :id, label: Contur::Database.human_attribute_name(:id), required: false, input_html: {value: form_search_value(params[:query], :id)}
+      .col-sm-4
+        = f.input :service_id, label: Contur::Database.human_attribute_name(:service_id), required: false, input_html: {value: form_search_value(params[:query], :service_id)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :vm_username, label: Contur::Database.human_attribute_name(:vm_username), required: false, input_html: {value: form_search_value(params[:query], :vm_username)}
+      .col-sm-4
+        = f.input :github_branch, label: Contur::Database.human_attribute_name(:github_branch), required: false, input_html: {value: form_search_value(params[:query], :github_branch)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :url, label: Contur::Database.human_attribute_name(:url), required: false, input_html: {value: form_search_value(params[:query], :url)}
+      .col-sm-4
+        = f.input :contur_type, label: Contur::Database.human_attribute_name(:contur_type), as: :select, collection: Contur::Database::ANPASSUNGEN, include_blank: true, required: false, selected: form_search_value(params[:query], :contur_type)
+    .row.justify-content-center
+      .col-sm-8
+        %hr
+    .row.justify-content-center
+      .col-sm-4
+        = f.submit I18n.t("actions.filter"), class: "form-control"
+      .col-sm-4{style: "text-align: center"}
+        = link_to I18n.t("actions.reset_filter"), contur_databases_path, method: :get, class: "form-control"

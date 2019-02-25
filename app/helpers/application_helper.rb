@@ -9,4 +9,8 @@ module ApplicationHelper
       key
     end
   end
+
+  def form_search_value(param_values, attribute)
+    param_values[attribute] if param_values.present?
+  end
 end
