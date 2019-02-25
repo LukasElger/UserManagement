@@ -16,7 +16,7 @@ RSpec.describe "contur/databases/new", type: :view do
         assert_select "input[name='contur_database[url]']"
         assert_select "input[name='contur_database[vm_username]']"
         assert_select "input[name='contur_database[github_branch]']"
-        assert_select "input[name='contur_database[service_id]']"
+        assert_select "input[name='contur_database[server_id]']"
         assert_select "input[type='submit']"
       end
     end

@@ -10,6 +10,7 @@ class Contur::DatabasesController < ApplicationController
 
   def show
     @db = Contur::Database.find(params[:id])
+    @server = Contur::Server.find(@db.server_id)
   end
 
   def new
@@ -55,7 +56,7 @@ class Contur::DatabasesController < ApplicationController
                                              :vm_username,
                                              :contur_type,
                                              :github_branch,
-                                             :service_id,
+                                             :server_id,
                                              :starts_at,
                                              :ends_at,
                                              :comment
@@ -67,7 +68,7 @@ class Contur::DatabasesController < ApplicationController
                                              :vm_username,
                                              :contur_type,
                                              :github_branch,
-                                             :service_id,
+                                             :server_id,
                                              :starts_at,
                                              :ends_at,
                                              :comment

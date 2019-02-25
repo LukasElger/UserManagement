@@ -4,7 +4,7 @@ FactoryBot.define do
     sequence(:github_branch) { |n| "Branch_#{n}" }
     vm_username { "VM-Username" }
     contur_type { Contur::Database::CONTUR }
-    service_id { "Service-ID" }
+    server_id { "Service-ID" }
     comment { "Comment of Contur_Database" }
     starts_at { Date.new(2018,12,12) }
     ends_at { Date.new(2018,12,12) }

@@ -1,5 +1,6 @@
 en:
   actions:
+    actions: "Actions"
     login: "Login"
     show: "Show"
     create: "Create"
@@ -71,8 +72,6 @@ en:
       admin_false: "No"
       active_true: "Yes"
       active_false: "No"
-      active: "Active"
-      inactive: "Inactive"
 
   sidebar:
     home: "Home"
@@ -127,6 +126,8 @@ en:
           header: "Dein Profil"
       active:
         status: "Status"
+        active: "Active"
+        inactive: "Inactive"
 
     versions:
       id_header: "All Versions of"
@@ -156,8 +157,10 @@ en:
         header: "Edit server"
         footer: "Delete server"
       show:
-        header: "Server information"
+        header: "Server '%{model}'"
         footer: "Edit server"
+        dbs: "Show databases"
+        dbs_header: "Databases"
 
   activerecord:
     models:
@@ -191,7 +194,7 @@ en:
         vm_username: "VM-Username"
         comment: "Comment"
         contur_type: "Adjustment"
-        service_id: "Service-ID"
+        server_id: "Server"
         starts_at: "Valid from"
         ends_at: "Expires at"
         github_branch: "Github-Branch"

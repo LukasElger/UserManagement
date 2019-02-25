@@ -20,8 +20,8 @@
           %dd.col-sm-9= @db.contur_type
       %li
         %dl.row
-          %dt.col-sm-3= Contur::Database.human_attribute_name(:service_id)
-          %dd.col-sm-9= @db.service_id
+          %dt.col-sm-3= Contur::Database.human_attribute_name(:server_id)
+          %dd.col-sm-9= link_to @server.hostname, contur_server_path(@server), method: :get
       %li
         %dl.row
           %dt.col-sm-3= Contur::Database.human_attribute_name(:starts_at)

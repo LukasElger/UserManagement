@@ -13,6 +13,7 @@
         %tr
           %th= Contur::Database.human_attribute_name(:id)
           %th= Contur::Database.human_attribute_name(:url)
+          %th= Contur::Database.human_attribute_name(:server_id)
           %th= t "actions.show"
           %th= t "actions.edit"
           %th= t "actions.delete"
@@ -22,6 +23,10 @@
             %td= db.id
             %td
               %span.fas.fa-globe-europe{"data-target" => "#urlModal", "data-toggle" => "modal"}
+            %td
+              %span.fas.fa-server
+              - server = Contur::Server.find(db.server_id)
+              = link_to server.hostname, contur_server_path(server), method: :get
             %td
               = link_to contur_database_path(db) do
                 %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: Contur::Database.model_name.human, count: 1)}"}

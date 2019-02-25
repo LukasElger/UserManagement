@@ -1,6 +1,6 @@
 ActiveAdmin.register Contur::Database do
   permit_params :url, :vm_username, :github_branch, :contur_type,
-                :service_id, :starts_at, :ends_at, :comment
+                :server_id, :starts_at, :ends_at, :comment
 
   index do
     selectable_column
@@ -24,7 +24,7 @@ ActiveAdmin.register Contur::Database do
       f.input :vm_username
       f.input :github_branch
       f.input :contur_type
-      f.input :service_id
+      f.input :server, as: :select, collection: Contur::Server.order(:hostname).decorate
       f.input :starts_at
       f.input :ends_at
       f.input :comment
@@ -38,7 +38,7 @@ ActiveAdmin.register Contur::Database do
       row :vm_username
       row :github_branch
       row :contur_type
-      row :service_id
+      row :server
       row :starts_at
       row :ends_at
       row :comment

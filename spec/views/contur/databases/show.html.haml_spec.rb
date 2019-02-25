@@ -15,7 +15,7 @@ RSpec.describe "contur/databases/show", type: :view do
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:vm_username))
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:github_branch))
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:contur_type))
-      expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:service_id))
+      expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:server_id))
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:starts_at))
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:ends_at))
     end
@@ -25,7 +25,7 @@ RSpec.describe "contur/databases/show", type: :view do
       expect(rendered).to have_selector('dd', text: "#{db.vm_username}")
       expect(rendered).to have_selector('dd', text: "#{db.github_branch}")
       expect(rendered).to have_selector('dd', text: "#{db.contur_type}")
-      expect(rendered).to have_selector('dd', text: "#{db.service_id}")
+      expect(rendered).to have_selector('dd', text: "#{db.server_id}")
       expect(rendered).to have_selector('dd', text: "#{db.starts_at}")
       expect(rendered).to have_selector('dd', text: "#{db.ends_at}")
     end

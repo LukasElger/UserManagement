@@ -4,7 +4,7 @@
       .col-sm-4
         = f.input :id, label: Contur::Database.human_attribute_name(:id), required: false, input_html: {value: form_search_value(params[:query], :id)}
       .col-sm-4
-        = f.input :service_id, label: Contur::Database.human_attribute_name(:service_id), required: false, input_html: {value: form_search_value(params[:query], :service_id)}
+        = f.input :server_id, label: Contur::Database.human_attribute_name(:server_id), as: :select, collection: Contur::Server.order(:hostname).decorate, include_blank: true, required: false, selected: form_search_value(params[:query], :server_id)
     .row.justify-content-center
       .col-sm-4
         = f.input :vm_username, label: Contur::Database.human_attribute_name(:vm_username), required: false, input_html: {value: form_search_value(params[:query], :vm_username)}

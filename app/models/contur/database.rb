@@ -11,6 +11,10 @@ class Contur::Database < ApplicationRecord
     KITA
   ]
 
+  belongs_to :server,
+    class_name: "Contur::Server",
+    foreign_key: :server_id
+
   validates :vm_username, :contur_type, :starts_at, presence: true
 
   validates :contur_type, inclusion: { in: ANPASSUNGEN }
@@ -36,8 +40,8 @@ class Contur::Database < ApplicationRecord
       scope = scope.git_search(query[:github_branch])
     end
 
-    if query[:service_id].present?
-      scope = scope.service_search(query[:service_id])
+    if query[:server_id].present?
+      scope = scope.server_search(query[:server_id])
     end
 
     if query[:contur_type].present?
@@ -63,8 +67,8 @@ class Contur::Database < ApplicationRecord
     where("github_branch ILIKE :github_branch", github_branch: "%#{query}%")
   end
 
-  def self.service_search(query)
-    where("service_id ILIKE :service_id", service_id: "%#{query}%")
+  def self.server_search(query)
+    where("server_id = :server_id", server_id: query)
   end
 
   def self.type_search(query)

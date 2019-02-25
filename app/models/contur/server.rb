@@ -1,10 +1,10 @@
 class Contur::Server < ApplicationRecord
   validates :os_version, :hostname, :admin_user, :access_type, presence: true
 
-  # has_many :databases,
-  #   class_name: "Contur::Database",
-  #   foreign_key: :server_id,
-  #   dependent: :destroy
+  has_many :databases,
+    class_name: "Contur::Database",
+    foreign_key: :server_id,
+    dependent: :destroy
 
   def self.search(query)
     scope = all

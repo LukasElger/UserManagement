@@ -5,7 +5,7 @@
     = f.input :vm_username, placeholder: Contur::Database.human_attribute_name(:vm_username)
     = f.input :contur_type, as: :select, collection: Contur::Database::ANPASSUNGEN
     = f.input :github_branch, placeholder: Contur::Database.human_attribute_name(:github_branch)
-    = f.input :service_id, placeholder: Contur::Database.human_attribute_name(:service_id)
+    = f.association :server, as: :select, collection: Contur::Server.order(:hostname).decorate
     = f.input :starts_at, placeholder: Contur::Database.human_attribute_name(:starts_at)
     = f.input :ends_at, placeholder: Contur::Database.human_attribute_name(:ends_at)
     = f.input :comment, placeholder: Contur::Database.human_attribute_name(:comment)

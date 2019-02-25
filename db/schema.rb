@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_120008) do
+ActiveRecord::Schema.define(version: 2019_02_25_080422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 2019_02_11_120008) do
     t.string "vm_username"
     t.text "comment"
     t.string "contur_type"
-    t.integer "service_id"
     t.date "starts_at"
     t.date "ends_at"
     t.string "github_branch"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "server_id"
   end
 
   create_table "contur_servers", force: :cascade do |t|

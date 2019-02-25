@@ -157,8 +157,10 @@ de:
         header: "Server bearbeiten"
         footer: "Server Löschen"
       show:
-        header: "Server Informationen"
+        header: "Server '%{model}'"
         footer: "Server bearbeiten"
+        dbs: "Datenbanken anzeigen"
+        dbs_header: "Datenbanken"
 
   activerecord:
     models:
@@ -192,7 +194,7 @@ de:
         vm_username: "VM-Benutzername"
         comment: "Kommentar"
         contur_type: "Anpassung"
-        service_id: "Service-ID"
+        server_id: "Server"
         starts_at: "Gültig vom"
         ends_at: "Gültig bis"
         github_branch: "Github-Branch"
