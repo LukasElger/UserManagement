@@ -173,6 +173,9 @@ en:
       contur/database:
         one: "Database"
         other: "Databases"
+      contur/server:
+        one: "Server"
+        other: "Server"
 
     attributes:
       user:
