@@ -212,6 +212,7 @@ de:
         access_type: "Zugriffsart"
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
+        database_id: "Datenbank"
 
       paper_trail/version:
         id: "ID"

@@ -5,4 +5,7 @@ class Contur::DatabaseDecorator < ApplicationDecorator
     model.server.hostname if model.server
   end
 
+  def to_label
+    "#{vm_username} - #{server_name}"
+  end
 end

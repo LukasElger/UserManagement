@@ -1,23 +1,30 @@
-#filters.collapse.form-group.show
+#filters.collapse.form-group
   = simple_form_for :query, method: :get do |f|
     .row.justify-content-center
       .col-sm-4
+        = f.input :id, label: Contur::Server.human_attribute_name(:id), required: false, input_html: {value: form_search_value(params[:query], :id)}
+      .col-sm-4
         = f.input :os_version, label: Contur::Server.human_attribute_name(:os_version), required: false, input_html: {value: form_search_value(params[:query], :os_version)}
+    .row.justify-content-center
       .col-sm-4
         = f.input :ruby_version, label: Contur::Server.human_attribute_name(:ruby_version), required: false, input_html: {value: form_search_value(params[:query], :ruby_version)}
-    .row.justify-content-center
       .col-sm-4
         = f.input :nginx_version, label: Contur::Server.human_attribute_name(:nginx_version), required: false, input_html: {value: form_search_value(params[:query], :nginx_version)}
+    .row.justify-content-center
       .col-sm-4
         = f.input :postgres_version, label: Contur::Server.human_attribute_name(:postgres_version), required: false, input_html: {value: form_search_value(params[:query], :postgres_version)}
-    .row.justify-content-center
       .col-sm-4
         = f.input :hostname, label: Contur::Server.human_attribute_name(:hostname), required: false, input_html: {value: form_search_value(params[:query], :hostname)}
+    .row.justify-content-center
       .col-sm-4
         = f.input :admin_user, label: Contur::Server.human_attribute_name(:admin_user), required: false, input_html: {value: form_search_value(params[:query], :admin_user)}
+      .col-sm-4
+        = f.input :access_type, label: Contur::Server.human_attribute_name(:access_type), as: :select, collection: Contur::Server::ACCESS, include_blank: true, required: false, selected: form_search_value(params[:query], :access_type)
     .row.justify-content-center
       .col-sm-8
-        = f.input :access_type, label: Contur::Server.human_attribute_name(:access_type), required: false, input_html: {value: form_search_value(params[:query], :access_type)}
+        = f.input :database_id, label: I18n.t("activerecord.attributes.contur/server.database_id"), as: :select, collection: Contur::Database.all.decorate, include_blank: true, required: false, selected: form_search_value(params[:query], :access_type)
+    .row.justify-content-center
+      .col-sm-8
         %hr
     .row.justify-content-center
       .col-sm-4

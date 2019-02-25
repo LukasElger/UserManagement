@@ -1,4 +1,16 @@
 class Contur::Server < ApplicationRecord
+  EXTERN = "Extern".freeze
+  RZ = "RZ".freeze
+  VPN = "VPN".freeze
+  SSH = "SSH".freeze
+
+  ACCESS = [
+    EXTERN,
+    RZ,
+    VPN,
+    SSH
+  ]
+
   validates :os_version, :hostname, :admin_user, :access_type, presence: true
 
   has_many :databases,
@@ -40,6 +52,10 @@ class Contur::Server < ApplicationRecord
       scope = scope.access_search(query[:access_type])
     end
 
+    if query[:database_id].present?
+      scope = scope.database_search(query[:database_id])
+    end
+
     scope
   end
 
@@ -73,5 +89,9 @@ class Contur::Server < ApplicationRecord
 
   def self.access_search(query)
     where("access_type ILIKE :access_type", access_type: "%#{query}%")
+  end
+
+  def self.database_search(query)
+    joins(:databases).where("contur_databases.id = ?", query)
   end
 end

@@ -212,6 +212,7 @@ en:
         access_type: "Access-Type"
         created_at: "Created at"
         updated_at: "Updated at"
+        database_id: "Datenbank"
 
       paper_trail/version:
         id: "ID"
