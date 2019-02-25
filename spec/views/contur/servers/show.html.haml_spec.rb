@@ -31,7 +31,7 @@ RSpec.describe "contur/servers/show", type: :view do
     end
 
     it "contains header / footer / buttons" do
-      expect(rendered).to have_selector('h1', text: I18n.t("views.contur/servers.show.header"))
+      expect(rendered).to have_selector('h1', text: "#{I18n.t("views.contur/servers.show.header", model: server.hostname)}")
       expect(rendered).to have_css("input#edit_server_button")
       expect(rendered).to have_css("input#back_to_root_button")
     end

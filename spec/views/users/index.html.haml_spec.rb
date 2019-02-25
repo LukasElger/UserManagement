@@ -12,11 +12,10 @@ RSpec.describe "users/index", type: :view do
   describe "contains table with all users" do
     it "page header content" do
       expect(rendered).to have_selector('h1', text: I18n.t("views.users.index.header"))
-      expect(rendered).to have_selector('input', id: 'SearchInput')
     end
 
     it "table head content" do
-      expect(rendered).to have_selector('table', class: 'default', id: 'SearchableTable')
+      expect(rendered).to have_selector('table', class: 'default')
       expect(rendered).to have_selector('th', text: User.human_attribute_name(:id))
       expect(rendered).to have_selector('th', text: User.human_attribute_name(:name))
       expect(rendered).to have_selector('th', text: User.human_attribute_name(:email))
@@ -30,7 +29,7 @@ RSpec.describe "users/index", type: :view do
       expect(rendered).to have_selector('td', text: "#{user.id}")
       expect(rendered).to have_selector('td', text: "#{user.name}")
       expect(rendered).to have_selector('td', text: "#{user.email}")
-      expect(rendered).to have_selector('td', text: "#{user.decorate.active_human}")
+      expect(rendered).to have_selector('i', class: 'fas fa-times')
       expect(rendered).to have_selector('i', class: 'fas fa-search')
       expect(rendered).to have_selector('i', class: 'fas fa-edit')
       expect(rendered).to have_selector('i', class: 'fas fa-trash-alt')

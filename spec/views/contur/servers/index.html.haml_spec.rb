@@ -12,11 +12,10 @@ RSpec.describe "contur/servers/index", type: :view do
   describe "contains table with all servers" do
     it "page header content" do
       expect(rendered).to have_selector('h1', text: I18n.t("views.contur/servers.index.header"))
-      expect(rendered).to have_selector('input', id: 'SearchInput')
     end
 
     it "table head content" do
-      expect(rendered).to have_selector('table', class: 'default', id: 'SearchableTable')
+      expect(rendered).to have_selector('table', class: 'default')
       expect(rendered).to have_selector('th', text: Contur::Server.human_attribute_name(:id))
       expect(rendered).to have_selector('th', text: Contur::Server.human_attribute_name(:os_version))
       expect(rendered).to have_selector('th', text: Contur::Server.human_attribute_name(:ruby_version))

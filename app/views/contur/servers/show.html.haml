@@ -39,7 +39,7 @@
   .card_block#dbs_card_block.collapse
     %h1.header= I18n.t("views.contur/servers.show.dbs_header")
     %ul.default_list
-      - @dbs.each do |db|
+      - @server.databases.each do |db|
         %li
           %dl.row
             %dt.col-sm-3= Contur::Database.human_attribute_name(:vm_username)

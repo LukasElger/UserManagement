@@ -9,7 +9,6 @@ class Contur::ServersController < ApplicationController
 
   def show
     @server = Contur::Server.find(params[:id])
-    @dbs = @server.databases
   end
 
   def new
