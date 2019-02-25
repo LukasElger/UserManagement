@@ -15,8 +15,12 @@ ActiveAdmin.register Contur::Server do
   end
 
   filter :id
+  filter :os_version
+  filter :ruby_version
+  filter :nginx_version
+  filter :postgres_version
   filter :admin_user
-  filter :access_type
+  filter :access_type, as: :select, collection: Contur::Server::ACCESS
 
   form do |f|
     f.inputs do
@@ -25,7 +29,7 @@ ActiveAdmin.register Contur::Server do
       f.input :nginx_version
       f.input :postgres_version
       f.input :admin_user
-      f.input :access_type
+      f.input :access_type, as: :select, collection: Contur::Server::ACCESS
     end
     f.actions
   end

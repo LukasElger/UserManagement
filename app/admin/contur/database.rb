@@ -5,6 +5,7 @@ ActiveAdmin.register Contur::Database do
   index do
     selectable_column
     id_column
+    column :server
     column :vm_username
     column :github_branch
     column :contur_type
@@ -12,11 +13,12 @@ ActiveAdmin.register Contur::Database do
     actions
   end
 
-  filter :created_at
   filter :id
+  filter :server, as: :select, collection:Contur::Server.order(:hostname).decorate
   filter :vm_username
   filter :github_branch
   filter :contur_type, as: :select, collection: Contur::Database::ANPASSUNGEN
+  filter :created_at
 
   form do |f|
     f.inputs do
