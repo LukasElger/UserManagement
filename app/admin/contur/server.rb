@@ -42,6 +42,11 @@ ActiveAdmin.register Contur::Server do
       row :postgres_version
       row :admin_user
       row :access_type
+      row :databases do |c|
+        c.databases.map do |db|
+          link_to db.vm_username, admin_contur_database_path(db)
+        end.join(" ").html_safe
+      end
       row :created_at
       row :updated_at
     end
