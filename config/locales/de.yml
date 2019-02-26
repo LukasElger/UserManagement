@@ -97,6 +97,7 @@ de:
       admin: "Administration"
 
     lang: "Sprache"
+    login_as: "Einloggen als"
     logout: "Ausloggen"
 
   views:

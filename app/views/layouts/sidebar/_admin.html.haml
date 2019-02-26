@@ -72,6 +72,27 @@
             = I18n.t("sidebar.account.admin")
             %i.fas.fa-toolbox
     %li
+      = link_to '#', data: {toggle: "modal", target: "#switchModal"} do
+        = I18n.t("sidebar.login_as")
+        %i.fas.fa-sign-in-alt
+
+    %li
       = link_to destroy_user_session_path, method: :delete, data: {confirm: I18n.t("flash.general.logout")} do
         = I18n.t("sidebar.logout")
         %i.fas.fa-sign-out-alt
+
+
+/ Modal
+#switchModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog{:role => "document"}
+    .modal-content
+      .modal-header
+        %h5#exampleModalLabel.modal-title Benutzer wechseln
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+      .modal-body
+        = simple_form_for :new_session, url: switch_user_path do |f|
+          = f.input :id, as: :select, collection: User.order(:name).decorate
+          = f.submit I18n.t("actions.login"), class: "form-control", data: {confirm: I18n.t("flash.general.logout")}
+      .modal-footer
+        %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
