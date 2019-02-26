@@ -26,6 +26,11 @@ RSpec.describe "contur/servers/index", type: :view do
 
     it "table body content" do
       expect(rendered).to have_selector('td', text: "#{server.id}")
+      expect(rendered).to have_selector('td', text: "#{server.hostname}")
+      expect(rendered).to have_selector('td', text: "#{server.admin_user}")
+      expect(rendered).to have_selector('td', text: "#{server.os_version}")
+      expect(rendered).to have_selector('td', text: "#{server.ruby_version}")
+      expect(rendered).to have_selector('td', text: "#{server.access_type}")
       expect(rendered).to have_selector('i', class: 'fas fa-search')
       expect(rendered).to have_selector('i', class: 'fas fa-edit')
       expect(rendered).to have_selector('i', class: 'fas fa-trash-alt')

@@ -6,7 +6,7 @@ RSpec.describe "contur/servers/edit", type: :view do
     render
   end
 
-  describe "contains a edit form for a server" do
+  describe "contains an edit form for a server" do
     it "header" do
       expect(rendered).to have_selector('h1', text: I18n.t("views.contur/servers.edit.header"))
       expect(rendered).to have_selector('form', class: 'simple_form edit_contur_server')
@@ -14,8 +14,11 @@ RSpec.describe "contur/servers/edit", type: :view do
     it "edit form content" do
       assert_select "form" do
         assert_select "input[name='contur_server[os_version]']"
+        assert_select "input[name='contur_server[ruby_version]']"
         assert_select "input[name='contur_server[nginx_version]']"
+        assert_select "input[name='contur_server[postgres_version]']"
         assert_select "input[name='contur_server[hostname]']"
+        assert_select "input[name='contur_server[admin_user]']"
         assert_select "input[name='contur_server[access_type]']"
         assert_select "input[type='submit']"
       end

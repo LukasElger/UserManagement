@@ -7,10 +7,14 @@ RSpec.describe "contur/databases/show", type: :view do
     render
   end
 
-  describe "contains table with listed database" do
+  describe "contains a table with listed database" do
+
+    it "contains header and card_block" do
+      expect(rendered).to have_selector('div', class: 'card_block')
+      expect(rendered).to have_selector('h1', text: I18n.t("views.contur/databases.show.header"))
+    end
 
     it "card_block headers" do
-      expect(rendered).to have_selector('div', class: 'card_block')
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:url))
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:vm_username))
       expect(rendered).to have_selector('dt', text: Contur::Database.human_attribute_name(:github_branch))
@@ -30,8 +34,7 @@ RSpec.describe "contur/databases/show", type: :view do
       expect(rendered).to have_selector('dd', text: "#{db.ends_at}")
     end
 
-    it "contains header / footer / buttons" do
-      expect(rendered).to have_selector('h1', text: I18n.t("views.contur/databases.show.header"))
+    it "contains buttons" do
       expect(rendered).to have_css("input#edit_database_button")
       expect(rendered).to have_css("input#back_to_root_button")
     end

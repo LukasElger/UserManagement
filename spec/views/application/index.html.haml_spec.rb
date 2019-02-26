@@ -26,12 +26,7 @@ RSpec.describe "application/index", type: :view do
     end
 
     it "contains table with recent users" do
-      expect(rendered).to have_selector('table')
-      expect(rendered).to have_css("tr#user_#{user.id}")
-      expect(rendered).to have_selector('td', text: "#{user.id}")
-      expect(rendered).to have_selector('td', text: "#{user.name}")
-      expect(rendered).to have_selector('td', text: "#{user.email}")
-      expect(rendered).to have_selector('i', class: 'fas fa-search')
+        expect(rendered).to have_selector('h1', text: '//TODO new dashboard')
     end
   end
 

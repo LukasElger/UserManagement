@@ -6,7 +6,7 @@ RSpec.describe "contur/databases/edit", type: :view do
     render
   end
 
-  describe "contains a edit form for a database" do
+  describe "contains an edit form for a database" do
     it "header" do
       expect(rendered).to have_selector('h1', text: I18n.t("views.contur/databases.edit.header"))
       expect(rendered).to have_selector('form', class: 'simple_form edit_contur_database')
@@ -15,8 +15,10 @@ RSpec.describe "contur/databases/edit", type: :view do
       assert_select "form" do
         assert_select "input[name='contur_database[url]']"
         assert_select "input[name='contur_database[vm_username]']"
+        assert_select "select[name='contur_database[contur_type]']"
         assert_select "input[name='contur_database[github_branch]']"
         assert_select "select[name='contur_database[server_id]']"
+        assert_select "textarea[name='contur_database[comment]']"
         assert_select "input[type='submit']"
       end
     end

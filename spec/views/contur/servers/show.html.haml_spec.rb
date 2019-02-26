@@ -9,8 +9,12 @@ RSpec.describe "contur/servers/show", type: :view do
 
   describe "contains table with listed server" do
 
-    it "card_block headers" do
+    it "contains header and card_block" do
       expect(rendered).to have_selector('div', class: 'card_block')
+      expect(rendered).to have_selector('h1', text: "#{I18n.t("views.contur/servers.show.header", model: server.hostname)}")
+    end
+
+    it "card_block headers" do
       expect(rendered).to have_selector('dt', text: Contur::Server.human_attribute_name(:os_version))
       expect(rendered).to have_selector('dt', text: Contur::Server.human_attribute_name(:ruby_version))
       expect(rendered).to have_selector('dt', text: Contur::Server.human_attribute_name(:nginx_version))
@@ -31,7 +35,6 @@ RSpec.describe "contur/servers/show", type: :view do
     end
 
     it "contains header / footer / buttons" do
-      expect(rendered).to have_selector('h1', text: "#{I18n.t("views.contur/servers.show.header", model: server.hostname)}")
       expect(rendered).to have_css("input#edit_server_button")
       expect(rendered).to have_css("input#back_to_root_button")
     end

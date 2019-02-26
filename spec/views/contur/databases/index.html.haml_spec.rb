@@ -17,6 +17,8 @@ RSpec.describe "contur/databases/index", type: :view do
     it "table head content" do
       expect(rendered).to have_selector('table', class: 'default')
       expect(rendered).to have_selector('th', text: Contur::Database.human_attribute_name(:id))
+      expect(rendered).to have_selector('th', text: Contur::Database.human_attribute_name(:vm_username))
+      expect(rendered).to have_selector('th', text: Contur::Database.human_attribute_name(:server_id))
       expect(rendered).to have_selector('th', text: Contur::Database.human_attribute_name(:url))
       expect(rendered).to have_selector('th', text: I18n.t("actions.show"))
       expect(rendered).to have_selector('th', text: I18n.t("actions.edit"))
@@ -25,22 +27,12 @@ RSpec.describe "contur/databases/index", type: :view do
 
     it "table body content" do
       expect(rendered).to have_selector('td', text: "#{db.id}")
-      expect(rendered).to have_selector('span', class: 'fas fa-globe-europe')
+      expect(rendered).to have_selector('td', text: "#{db.vm_username}")
+      expect(rendered).to have_selector('td', text: "#{db.server_id}") 
+      expect(rendered).to have_selector('span', class: 'fas fa-globe')
       expect(rendered).to have_selector('i', class: 'fas fa-search')
       expect(rendered).to have_selector('i', class: 'fas fa-edit')
       expect(rendered).to have_selector('i', class: 'fas fa-trash-alt')
-    end
-
-    it "urlmodal content" do
-      expect(rendered).to have_selector('div', id:'urlModal', class: 'modal fade')
-      expect(rendered).to have_selector('div', class: 'modal-dialog')
-      expect(rendered).to have_selector('div', class: 'modal-content')
-      expect(rendered).to have_selector('div', class: 'modal-header')
-      expect(rendered).to have_selector('h5', id:'exampleModalLabel', class: 'modal-title')
-      expect(rendered).to have_selector('button', class: 'close')
-      expect(rendered).to have_selector('div', class: 'modal-body')
-      expect(rendered).to have_selector('div', class: 'modal-footer')
-      expect(rendered).to have_selector('button', class: 'btn btn-secondary')
     end
   end
 end
