@@ -87,6 +87,7 @@ de:
       lists: "Kategorien"
       users: "Benutzer"
       versions: "Versionen"
+      customers: "Kunden"
       servers: "Server"
       databases: "Datenbanken"
 
@@ -177,6 +178,9 @@ de:
       contur/server:
         one: "Server"
         other: "Server"
+      contur/customer:
+        one: "Kunde"
+        other: "Kunden"
 
     attributes:
       user:
@@ -217,6 +221,20 @@ de:
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
         database_id: "Datenbank"
+
+      contur/customer:
+        id: "ID"
+        name: "Name"
+        email: "E-Mail"
+        comment: "Kommentar"
+        tanss_number: "TANSS_Nummer"
+        street: "Straße"
+        city: "Stadt"
+        zip_code: "PLZ"
+        phone_number: "Telefon-Nummer"
+        fax: "FAX"
+        created_at: "Erstellt am"
+        updated_at: "Bearbeitet am"
 
       paper_trail/version:
         id: "ID"

@@ -37,4 +37,31 @@ ActiveAdmin.register Contur::Customer do
     end
     f.actions
   end
+
+  show do
+    attributes_table do
+      row :name
+      row :email
+      row :phone_number
+      row :fax
+      row :zip_code
+      row :city
+      row :street
+      row :tanss_number
+      row :comment
+      row :server do |c|
+        c.server.map do |s|
+          link_to s.hostname, admin_contur_server_path(s)
+        end.join(" ").html_safe
+      end
+      row :databases do |c|
+        c.databases.map do |db|
+          link_to db.vm_username, admin_contur_database_path(db)
+        end.join(" ").html_safe
+      end
+      row :created_at
+      row :updated_at
+    end
+    active_admin_comments
+  end
 end

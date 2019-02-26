@@ -43,9 +43,9 @@
             = I18n.t("sidebar.lists.users")
             %i.fas.fa-user
         %li
-          = link_to versions_path(User) do
-            = I18n.t("sidebar.lists.versions")
-            %i.fas.fa-code-branch
+          = link_to contur_customers_path do
+            = I18n.t("sidebar.lists.customers")
+            %i.fas.fa-user-tie
         %li
           = link_to contur_servers_path do
             = I18n.t("sidebar.lists.servers")
@@ -54,6 +54,10 @@
           = link_to contur_databases_path do
             = I18n.t("sidebar.lists.databases")
             %i.fas.fa-database
+        %li
+          = link_to versions_path(User) do
+            = I18n.t("sidebar.lists.versions")
+            %i.fas.fa-code-branch
     %li
       %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#accSubmenu", id: "acc-data-toggle"}
         = I18n.t("sidebar.account.actions")

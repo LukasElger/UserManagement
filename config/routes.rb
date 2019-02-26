@@ -10,8 +10,9 @@ Rails.application.routes.draw do
   post "users/admin/change/:id", to:"users#toggle_admin", as: :toggle_admin
 
   namespace :contur do
-    resources :databases
+    resources :customers
     resources :servers
+    resources :databases
   end
 
   devise_scope :user do

@@ -1,6 +1,6 @@
 ActiveAdmin.register Contur::Server do
   permit_params :os_version, :ruby_version, :nginx_version, :postgres_version,
-                :admin_user, :access_type
+                :admin_user, :access_type, :customer_id
 
   index do
     selectable_column
@@ -30,6 +30,7 @@ ActiveAdmin.register Contur::Server do
       f.input :postgres_version
       f.input :admin_user
       f.input :access_type, as: :select, collection: Contur::Server::ACCESS
+      f.input :customer, as: :select, collection: Contur::Customer.order(:name).decorate
     end
     f.actions
   end
@@ -42,6 +43,7 @@ ActiveAdmin.register Contur::Server do
       row :postgres_version
       row :admin_user
       row :access_type
+      row :customer
       row :databases do |c|
         c.databases.map do |db|
           link_to db.vm_username, admin_contur_database_path(db)
@@ -50,5 +52,6 @@ ActiveAdmin.register Contur::Server do
       row :created_at
       row :updated_at
     end
+    active_admin_comments
   end
 end

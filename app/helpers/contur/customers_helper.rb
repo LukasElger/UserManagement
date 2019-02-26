@@ -1,0 +1,2 @@
+module Contur::CustomersHelper
+end
