@@ -54,14 +54,8 @@ class UsersController < ApplicationController
   def switch_user
     sign_out current_user
     @user = User.find(params[:new_session][:id])
-    temp_activate(@user)
     sign_in @user
     redirect_to root_path
-  end
-
-  def temp_activate(user)
-    user.account_active = true
-    user.save
   end
 
   def show

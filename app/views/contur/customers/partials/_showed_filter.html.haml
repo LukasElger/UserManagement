@@ -1,0 +1,28 @@
+#filters.collapse.form-group.show
+  = simple_form_for :query, method: :get do |f|
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :id, label: Contur::Customer.human_attribute_name(:id), required: false, input_html: {value: form_search_value(params[:query], :id)}
+      .col-sm-4
+        = f.input :name, label: Contur::Customer.human_attribute_name(:name), required: false, input_html: {value: form_search_value(params[:query], :name)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :email, label: Contur::Customer.human_attribute_name(:email), required: false, input_html: {value: form_search_value(params[:query], :email)}
+      .col-sm-4
+        = f.input :phone_number, label: Contur::Customer.human_attribute_name(:phone_number), required: false, input_html: {value: form_search_value(params[:query], :phone_number)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :zip_code, label: Contur::Customer.human_attribute_name(:zip_code), required: false, input_html: {value: form_search_value(params[:query], :zip_code)}
+      .col-sm-4
+        = f.input :street, label: Contur::Customer.human_attribute_name(:street), required: false, input_html: {value: form_search_value(params[:query], :street)}
+    .row.justify-content-center
+      .col-sm-8
+        = f.input :tanss_number, label: Contur::Customer.human_attribute_name(:tanss_number), required: false, input_html: {value: form_search_value(params[:query], :tanss_number)}
+    .row.justify-content-center
+      .col-sm-8
+        %hr
+    .row.justify-content-center
+      .col-sm-4
+        = f.submit I18n.t("actions.filter"), class: "form-control"
+      .col-sm-4{style: "text-align: center"}
+        = link_to I18n.t("actions.reset_filter"), contur_customers_path, method: :get, class: "form-control"

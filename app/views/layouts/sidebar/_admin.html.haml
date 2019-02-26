@@ -21,6 +21,11 @@
         %li
           = link_to new_user_path do
             = I18n.t("sidebar.manage.users_new")
+            %i.fas.fa-user-shield
+            %i.fas.fa-plus
+        %li
+          = link_to new_contur_customer_path do
+            = I18n.t("sidebar.manage.customers_new")
             %i.fas.fa-user
             %i.fas.fa-plus
         %li
@@ -41,11 +46,11 @@
         %li
           = link_to users_path do
             = I18n.t("sidebar.lists.users")
-            %i.fas.fa-user
+            %i.fas.fa-user-shield
         %li
           = link_to contur_customers_path do
             = I18n.t("sidebar.lists.customers")
-            %i.fas.fa-user-tie
+            %i.fas.fa-user
         %li
           = link_to contur_servers_path do
             = I18n.t("sidebar.lists.servers")

@@ -80,16 +80,17 @@ de:
       manage: "Verwaltung"
       active_users: "Aktive Nutzer"
       users_new: "Neuer Benutzer"
+      customers_new: "Neuer Kunde"
       servers_new: "Neuer Server"
       databases_new: "Neue Datenbank"
 
     lists:
       lists: "Kategorien"
       users: "Benutzer"
-      versions: "Versionen"
       customers: "Kunden"
       servers: "Server"
       databases: "Datenbanken"
+      versions: "Versionen"
 
     account:
       actions: "Aktionen"
@@ -139,16 +140,17 @@ de:
       versioning: "Erstellte Versionen"
       created_at: "Erstellt am"
 
-    contur/databases:
+    contur/customers:
       new:
-        header: "Neue Datenbank erstellen"
+        header: "Neuen Kunden erstellen"
       index:
-        header: "Alle Datenbanken"
+        header: "Alle Kunden"
       edit:
-        header: "Datenbank bearbeiten"
-        footer: "Datenbank Löschen"
+        header: "Kunden bearbeiten"
+        footer: "Kunden Löschen"
       show:
-        header: "Datenbank Informationen"
+        header: "Kunde '%{model}'"
+        footer: "Kunden bearbeiten"
 
     contur/servers:
       new:
@@ -161,8 +163,18 @@ de:
       show:
         header: "Server '%{model}'"
         footer: "Server bearbeiten"
-        dbs: "Datenbanken anzeigen"
-        dbs_header: "Datenbanken"
+        dbs: "Alle Datenbanken"
+
+    contur/databases:
+      new:
+        header: "Neue Datenbank erstellen"
+      index:
+        header: "Alle Datenbanken"
+      edit:
+        header: "Datenbank bearbeiten"
+        footer: "Datenbank Löschen"
+      show:
+        header: "Datenbank Informationen"
 
   activerecord:
     models:

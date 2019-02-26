@@ -14,8 +14,12 @@
           %tr
             %td= version.item_id
             %td= version.item.name
-            %td= version.event
-            %td= version.created_at
+            %td
+              %span.fas.fa-location-arrow
+              = version.event
+            %td
+              %span.fas.fa-calendar-plus
+              = version.created_at
 
   .row.justify-content-center.pagination_buttons
     = paginate @versions

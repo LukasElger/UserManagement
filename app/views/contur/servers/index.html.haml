@@ -12,19 +12,29 @@
       %thead.thead-dark
         %tr
           %th= Contur::Server.human_attribute_name(:id)
+          %th= Contur::Server.human_attribute_name(:hostname)
+          %th= Contur::Server.human_attribute_name(:admin_user)
           %th= Contur::Server.human_attribute_name(:os_version)
           %th= Contur::Server.human_attribute_name(:ruby_version)
-          %th= Contur::Server.human_attribute_name(:admin_user)
           %th= Contur::Server.human_attribute_name(:access_type)
           %th= t "actions.actions"
       %tbody
         - @servers.each do |server|
           %tr
             %td= server.id
-            %td= server.os_version
-            %td= server.ruby_version
-            %td= server.admin_user
-            %td= server.access_type
+            %td= server.hostname
+            %td
+              %span.fas.fa-tools
+              = server.admin_user
+            %td
+              %span.fas.fa-cloud-download-alt
+              = server.os_version
+            %td
+              %span.fas.fa-cloud-download-alt
+              = server.ruby_version
+            %td
+              %span.fas.fa-ethernet
+              = server.access_type
             %td
               = link_to contur_server_path(server) do
                 %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: Contur::Server.model_name.human, count: 1)}"}

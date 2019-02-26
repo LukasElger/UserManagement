@@ -12,8 +12,9 @@
       %thead.thead-dark
         %tr
           %th= Contur::Database.human_attribute_name(:id)
-          %th= Contur::Database.human_attribute_name(:url)
+          %th= Contur::Database.human_attribute_name(:vm_username)
           %th= Contur::Database.human_attribute_name(:server_id)
+          %th= Contur::Database.human_attribute_name(:url)
           %th= t "actions.show"
           %th= t "actions.edit"
           %th= t "actions.delete"
@@ -21,12 +22,14 @@
         - @dbs.each do |db|
           %tr
             %td= db.id
-            %td
-              %span.fas.fa-globe-europe{"data-target" => "#urlModal", "data-toggle" => "modal"}
+            %td= db.vm_username
             %td
               %span.fas.fa-server
               - server = Contur::Server.find(db.server_id)
               = link_to server.hostname, contur_server_path(server), method: :get
+            %td
+              %span.fas.fa-globe
+              = db.url
             %td
               = link_to contur_database_path(db) do
                 %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: Contur::Database.model_name.human, count: 1)}"}
@@ -36,18 +39,5 @@
             %td
               = link_to contur_database_path(db), method: :delete, data: {confirm:  "#{I18n.t("flash.delete", model: Contur::Database.model_name.human, count: 2)}"} do
                 %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.delete", model: Contur::Database.model_name.human, count: 1)}"}
-            / Modal
-            #urlModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "exampleModalLabel", :role => "dialog", :tabindex => "-1"}
-              .modal-dialog{:role => "document"}
-                .modal-content
-                  .modal-header
-                    %h5#exampleModalLabel.modal-title= Contur::Database.human_attribute_name(:url)
-                    %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-                      %span{"aria-hidden" => "true"} ×
-                  .modal-body
-                    = db.url
-                  .modal-footer
-                    %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
-
   .row.justify-content-center.pagination_buttons
     = paginate @dbs

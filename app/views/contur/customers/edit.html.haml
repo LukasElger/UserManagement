@@ -1,0 +1,17 @@
+.container.col-sm-4.index
+  %h1.header= I18n.t("views.contur/customers.edit.header")
+  = simple_form_for(@cr) do |f|
+    = f.input :name, placeholder: Contur::Customer.human_attribute_name(:name)
+    = f.input :email, placeholder: Contur::Customer.human_attribute_name(:email)
+    = f.input :phone_number, placeholder: Contur::Customer.human_attribute_name(:phone_number)
+    = f.input :fax, placeholder: Contur::Customer.human_attribute_name(:fax)
+    = f.input :zip_code, placeholder: Contur::Customer.human_attribute_name(:zip_code)
+    = f.input :city, placeholder: Contur::Customer.human_attribute_name(:city)
+    = f.input :street, placeholder: Contur::Customer.human_attribute_name(:street)
+    = f.input :tanss_number, placeholder: Contur::Customer.human_attribute_name(:tanss_number)
+    = f.input :comment, placeholder: Contur::Customer.human_attribute_name(:comment)
+    = f.submit I18n.t("actions.update"), class: "form-control"
+  %h2.footer= I18n.t("views.contur/customers.edit.footer")
+  = button_to I18n.t("actions.delete"), contur_customer_path(@cr), method: :delete, class: "form-control", id: "delete_cr_button", data: {confirm: I18n.t("flash.delete", model: Contur::Customer.model_name.human, count: 1)}
+  = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
+  %br

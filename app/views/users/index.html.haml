@@ -23,7 +23,9 @@
           %tr
             %td= user.id
             %td= user.name
-            %td= user.email
+            %td
+              %span.fas.fa-envelope
+              = user.email
             %td
               = user.decorate.active_mark
             %td

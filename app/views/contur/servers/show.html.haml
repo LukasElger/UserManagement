@@ -34,23 +34,9 @@
         %dl.row
           %dt.col-sm-3= I18n.t("views.contur/servers.show.dbs")
           %dd.col-sm-9
-            %span.fas.fa-eye.float-right{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#dbs_card_block", id: "lists-data-toggle"}
-  %br#dbs_card_block.collapse
-  .card_block#dbs_card_block.collapse
-    %h1.header= I18n.t("views.contur/servers.show.dbs_header")
-    %ul.default_list
-      - @server.databases.each do |db|
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Database.human_attribute_name(:vm_username)
-            %dd.col-sm-9
-              = db.vm_username
-              = link_to contur_database_path(db) do
-                %i.fas.fa-eye.float-right
-
-          %dl.row
-            %dt.col-sm-3= Contur::Database.human_attribute_name(:url)
-            %dd.col-sm-9= db.url
+            -@server.databases.each do |db|
+              -database=Contur::Database.find(db.id)
+              =link_to db.vm_username, contur_database_path(database)
   %br
   .row.justify-content-center
     .col-sm-4

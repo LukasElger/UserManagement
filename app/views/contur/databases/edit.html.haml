@@ -11,6 +11,6 @@
     = f.input :comment, placeholder: Contur::Database.human_attribute_name(:comment)
     = f.submit I18n.t("actions.update"), class: "form-control"
   %h2.footer= I18n.t("views.contur/databases.edit.footer")
-  = button_to I18n.t("actions.delete"), contur_database_path(@db), method: :delete, class: "form-control", id: "delete_db_button", data: {confirm: I18n.t("flash.contur/databases.delete")}
+  = button_to I18n.t("actions.delete"), contur_database_path(@db), method: :delete, class: "form-control", id: "delete_db_button", data: {confirm: I18n.t("flash.delete", model: Contur::Database.model_name.human, count: 1)}
   = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
   %br

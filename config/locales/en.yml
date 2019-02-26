@@ -80,16 +80,17 @@ en:
       manage: "Management"
       active_users: "Active users"
       users_new: "New User"
-      customer: "Customers"
+      customers_new: "New Customer"
       servers_new: "New Server"
       databases_new: "New Database"
 
     lists:
       lists: "Categories"
       users: "Users"
-      versions: "Versions"
+      customers: "Customers"
       servers: "Servers"
       databases: "Databases"
+      versions: "Versions"
 
     account:
       actions: "Actions"
@@ -132,23 +133,24 @@ en:
         inactive: "Inactive"
 
     versions:
-      id_header: "All Versions of"
-      header: "All Versions"
+      id_header: "All versions of"
+      header: "All versions"
       action: "Action"
       versions: "Versions"
       versioning: "Created versions"
       created_at: "Created at"
 
-    contur/databases:
+    contur/customers:
       new:
-        header: "Create new database"
+        header: "Create new customer"
       index:
-        header: "All databases"
+        header: "All customers"
       edit:
-        header: "Edit database"
-        footer: "Delete database"
+        header: "Edit customer"
+        footer: "Delete customer"
       show:
-        header: "Database information"
+        header: "Customer '%{model}'"
+        footer: "Edit customer"
 
     contur/servers:
       new:
@@ -161,8 +163,18 @@ en:
       show:
         header: "Server '%{model}'"
         footer: "Edit server"
-        dbs: "Show databases"
-        dbs_header: "Databases"
+        dbs: "All databases"
+
+    contur/databases:
+      new:
+        header: "Create new database"
+      index:
+        header: "All databases"
+      edit:
+        header: "Edit database"
+        footer: "Delete database"
+      show:
+        header: "Database information"
 
   activerecord:
     models:
