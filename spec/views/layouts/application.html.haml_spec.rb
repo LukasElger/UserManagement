@@ -47,6 +47,12 @@ RSpec.describe "layouts/application", type: :view do
       expect(rendered).to have_selector('i', class: 'fas fa-toolbox')
       expect(rendered).to have_selector('i', class: 'fas fa-sign-out-alt')
     end
+
+    it "renders modal" do
+      expect(rendered).to have_selector('div', id: 'switchModal')
+      expect(rendered).to have_selector('form', class: 'simple_form new_session')
+      expect(rendered).to have_selector('select', id: 'new_session_id')
+    end
   end
 
   describe "page content when logged in as !admin" do
