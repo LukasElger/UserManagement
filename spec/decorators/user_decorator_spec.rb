@@ -23,6 +23,26 @@ RSpec.describe UserDecorator do
     end
   end
 
+  describe "toggle_admin_message" do
+    context "is admin" do
+      before do
+        subject.admin = true
+      end
+      it {
+        expect(subject.toggle_admin_message).to eq("Benutzer ist nun ein Admin!")
+      }
+    end
+
+    context "is not admin" do
+      before do
+        subject.admin = false
+      end
+      it {
+        expect(subject.toggle_admin_message).to eq("Benutzer ist kein Admin mehr!")
+      }
+    end
+  end
+
   describe "active_human" do
     context "is active" do
       before do
@@ -43,6 +63,26 @@ RSpec.describe UserDecorator do
     end
   end
 
+  describe "active_mark" do
+    context "is active" do
+      before do
+        subject.account_active = true
+      end
+      it {
+        expect(subject.active_mark).to include("fa-check")
+      }
+    end
+
+    context "is not active" do
+      before do
+        subject.account_active = false
+      end
+      it {
+        expect(subject.active_mark).to include("fa-times")
+      }
+    end
+  end
+
   describe "active_badge" do
     context "is active" do
       before do
@@ -59,6 +99,26 @@ RSpec.describe UserDecorator do
       end
       it {
         expect(subject.active_badge).to include("badge-danger")
+      }
+    end
+  end
+
+  describe "toggle_active_message" do
+    context "is active" do
+      before do
+        subject.account_active = true
+      end
+      it {
+        expect(subject.toggle_active_message).to include("aktiviert")
+      }
+    end
+
+    context "is not active" do
+      before do
+        subject.account_active = false
+      end
+      it {
+        expect(subject.toggle_active_message).to include("deaktiviert")
       }
     end
   end
@@ -97,26 +157,6 @@ RSpec.describe UserDecorator do
       end
       it {
         expect(subject.toggle_admin_switch).to include("fa-toggle-off", "Aktivieren")
-      }
-    end
-  end
-
-  describe "toggle_active_message" do
-    context "is active" do
-      before do
-        subject.account_active = true
-      end
-      it {
-        expect(subject.toggle_active_message).to include("aktiviert")
-      }
-    end
-
-    context "is not active" do
-      before do
-        subject.account_active = false
-      end
-      it {
-        expect(subject.toggle_active_message).to include("deaktiviert")
       }
     end
   end

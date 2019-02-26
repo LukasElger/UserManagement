@@ -7,5 +7,6 @@ FactoryBot.define do
     hostname { "Test" }
     admin_user { "Admin" }
     access_type { "Test" }
+    customer { |c| c.association(:contur_customer) }
   end
 end
