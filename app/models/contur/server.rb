@@ -18,6 +18,10 @@ class Contur::Server < ApplicationRecord
     foreign_key: :server_id,
     dependent: :destroy
 
+  belongs_to :customer,
+    class_name: "Contur::Customer",
+    foreign_key: :customer_id
+    
   def self.search(query)
     scope = all
     if query[:id].present?
