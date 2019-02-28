@@ -1,30 +1,42 @@
 .container.index
   %h1.header= I18n.t("views.versions.header")
-  %input#SearchInput{:onkeyup => "SearchFunction()", :placeholder => I18n.t("actions.search"), :type => "text"}/
   .table_container
-    %table.default.table_centered_elements#SearchableTable
+    %table.default.table_centered_elements
       %thead.thead-dark
         %tr
           %th= PaperTrail::Version.human_attribute_name(:id)
-          %th= PaperTrail::Version.human_attribute_name(:name)
+          %th= I18n.t("views.versions.altered")
+          %th= I18n.t("views.versions.offender")
           %th= I18n.t("views.versions.action")
+          %th= I18n.t("views.versions.alterations")
           %th= I18n.t("views.versions.created_at")
           %th= I18n.t("views.versions.versions")
       %tbody
-        - @versions.reverse.each do |version|
+        - @versions.each do |version|
           - version = VersionDecorator.decorate version
           %tr
-            %td= version.item_id
-            %td= version.item.name
+            %td= version.id
+            %td
+              -if version.item
+                =link_to version.item.name, user_path(version.item)
+            %td
+              -if version.whodunnit
+                - offender = User.find(version.whodunnit)
+                =link_to offender.name, user_path(offender)
+              -else
+                Console
             %td
               %span.fas.fa-location-arrow
               = version.event
+            %td
+              %span.fas.fa-pencil-alt
+              = version.changes
             %td
               %span.fas.fa-calendar-plus
               = version.created_at
             %td
               = link_to versions_path(User, version.item_id) do
-                %i.fas.fa-code-branch
+                %i.fas.fa-code-branch{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.versions", model: version.item.name)}"}
 
   .row.justify-content-center.pagination_buttons
     = paginate @versions

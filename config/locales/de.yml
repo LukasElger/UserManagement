@@ -63,6 +63,7 @@ de:
       one: "%{model} löschen"
       other: "%{model} löschen"
 
+    versions: "Alle Versionen von %{model}"
     activate: "Aktivieren"
     deactivate: "Deaktivieren"
 
@@ -108,11 +109,13 @@ de:
       last: "Letzte &raquo;"
       previous: "&lsaquo; Zurück"
       next: "Nächste &rsaquo;"
+      truncate: "&hellip;"
 
     application:
       index:
         welcome: "Willkommen!"
-        header: "Zuletzt hinzugefügt"
+        user_header: "Zuletzt hinzugefügt"
+        server_header: "Aktuelle Server"
 
     users:
       index:
@@ -135,6 +138,9 @@ de:
     versions:
       id_header: "Alle Versionen von"
       header: "Alle Versionen"
+      altered: "Geändert"
+      alterations: "Änderungen"
+      offender: "Geändert von"
       action: "Aktion"
       versions: "Versionen"
       versioning: "Erstellte Versionen"

@@ -28,7 +28,6 @@ RSpec.describe "contur/databases/index", type: :view do
     it "table body content" do
       expect(rendered).to have_selector('td', text: "#{db.id}")
       expect(rendered).to have_selector('td', text: "#{db.vm_username}")
-      expect(rendered).to have_selector('td', text: "#{db.server_id}") 
       expect(rendered).to have_selector('span', class: 'fas fa-globe')
       expect(rendered).to have_selector('i', class: 'fas fa-search')
       expect(rendered).to have_selector('i', class: 'fas fa-edit')

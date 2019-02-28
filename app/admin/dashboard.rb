@@ -19,11 +19,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Info" do
           para "Welcome to ActiveAdmin."
         end
-        panel "Test" do
-          para "Welcome to ActiveAdmin."
-        end
       end
     end
-    
   end
 end

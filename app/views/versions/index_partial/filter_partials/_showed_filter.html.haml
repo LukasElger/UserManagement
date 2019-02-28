@@ -1,0 +1,18 @@
+#filters.collapse.form-group.show
+  = simple_form_for :query, method: :get do |f|
+    .row.justify-content-center
+      .col-sm-8
+        = f.input :id, label: Contur::Server.human_attribute_name(:id), required: false, input_html: {value: form_search_value(params[:query], :id)}
+    .row.justify-content-center
+      .col-sm-4
+        = f.input :event, label: Contur::Server.human_attribute_name(:event), as: :select, collection: ["Test"], include_blank: true, required: false, selected: form_search_value(params[:query], :event)
+      .col-sm-4
+        = f.input :created_at, label: Contur::Server.human_attribute_name(:created_at), as: :date, required: false, input_html: {value: form_search_value(params[:query], :created_at)}
+    .row.justify-content-center
+      .col-sm-8
+        %hr
+    .row.justify-content-center
+      .col-sm-4
+        = f.submit I18n.t("actions.filter"), class: "form-control"
+      .col-sm-4{style: "text-align: center"}
+        = link_to I18n.t("actions.reset_filter"), versions_path, method: :get, class: "form-control"

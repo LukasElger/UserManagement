@@ -37,6 +37,7 @@ RSpec.describe "layouts/application", type: :view do
       expect(rendered).to have_selector('i', class: 'fas fa-home')
       expect(rendered).to have_selector('a', id: 'lists-data-toggle')
       expect(rendered).to have_selector('ul', id: 'listsSubmenu', class: 'collapse list-unstyled')
+      expect(rendered).to have_selector('i', class: 'fas fa-user-shield')
       expect(rendered).to have_selector('i', class: 'fas fa-user')
       expect(rendered).to have_selector('i', class: 'fas fa-code-branch')
       expect(rendered).to have_selector('i', class: 'fas fa-database')
@@ -45,6 +46,7 @@ RSpec.describe "layouts/application", type: :view do
       expect(rendered).to have_selector('i', class: 'fas fa-info')
       expect(rendered).to have_selector('i', class: 'fas fa-edit')
       expect(rendered).to have_selector('i', class: 'fas fa-toolbox')
+      expect(rendered).to have_selector('i', class: 'fas fa-sign-in-alt')
       expect(rendered).to have_selector('i', class: 'fas fa-sign-out-alt')
     end
 

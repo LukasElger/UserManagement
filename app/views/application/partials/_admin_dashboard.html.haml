@@ -1,0 +1,84 @@
+%h1.centered= I18n.t("views.application.index.welcome")
+%hr
+%br
+.row.justify-content-center
+  .col-sm-5
+    .card_block
+      %h1.header.centered
+        = I18n.t("views.application.index.user_header")
+      %ul.default_list
+        .table_container
+          %table.default.table_centered_elements
+            %thead.thead-dark
+              %tr
+                %th= User.human_attribute_name(:name)
+                %th= User.human_attribute_name(:email)
+                %th= User.human_attribute_name(:account_active)
+                %th= t "actions.show"
+                %th= t "actions.edit"
+                %th= t "actions.delete"
+            %tbody
+              - @users = User.order(:id).first(5)
+              - @users.each do |user|
+                %tr
+                  %td= user.name
+                  %td
+                    %span.fas.fa-envelope
+                    = user.email
+                  %td
+                    = user.decorate.active_mark
+                  %td
+                    = link_to user_path(user) do
+                      %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: User.model_name.human, count: 1)}"}
+                  %td
+                    = link_to edit_user_path(user) do
+                      %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.edit", model: User.model_name.human, count: 1)}"}
+                  %td
+                    = link_to user_path(user), method: :delete, data: {confirm: "#{I18n.t("flash.delete", model: User.model_name.human, count: 1)}"} do
+                      %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.delete", model: User.model_name.human, count: 1)}"}
+        -# = link_to users_path do
+        %li.centered{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: User.model_name.human, count: 1)}"}
+          %i.fas.fa-eye
+
+  .col-sm-5
+    .card_block
+      %h1.header.centered
+        = I18n.t("views.application.index.server_header")
+      %ul.default_list
+        .table_container
+          %table.default.table_centered_elements
+            %thead.thead-dark
+              %tr
+                %th= Contur::Server.human_attribute_name(:hostname)
+                %th= Contur::Server.human_attribute_name(:admin_user)
+                %th= Contur::Server.human_attribute_name(:os_version)
+                %th= Contur::Server.human_attribute_name(:ruby_version)
+                %th= Contur::Server.human_attribute_name(:access_type)
+                %th= t "actions.actions"
+            %tbody
+              - @servers = Contur::Server.order(:id).first(5)
+              - @servers.each do |server|
+                %tr
+                  %td= server.hostname
+                  %td
+                    %span.fas.fa-tools
+                    = server.admin_user
+                  %td
+                    %span.fas.fa-cloud-download-alt
+                    = server.os_version
+                  %td
+                    %span.fas.fa-cloud-download-alt
+                    = server.ruby_version
+                  %td
+                    %span.fas.fa-ethernet
+                    = server.access_type
+                  %td
+                    = link_to contur_server_path(server) do
+                      %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: Contur::Server.model_name.human, count: 1)}"}
+                    = link_to edit_contur_server_path(server) do
+                      %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.edit", model: Contur::Server.model_name.human, count: 1)}"}
+                    = link_to contur_server_path(server), method: :delete, data: {confirm: I18n.t("flash.delete", model: Contur::Server.model_name.human, count: 1)} do
+                      %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.delete", model: Contur::Server.model_name.human, count: 1)}"}
+        = link_to contur_servers_path do
+          %li.centered{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: Contur::Server.model_name.human, count: 1)}"}
+            %i.fas.fa-eye

@@ -5,18 +5,27 @@
       %thead.thead-dark
         %tr
           %th= PaperTrail::Version.human_attribute_name(:id)
-          %th= PaperTrail::Version.human_attribute_name(:name)
+          %th= I18n.t("views.versions.offender")
           %th= I18n.t("views.versions.action")
+          %th= I18n.t("views.versions.alterations")
           %th= I18n.t("views.versions.created_at")
       %tbody
-        - @versions.reverse.each do |version|
+        - @versions.each do |version|
           - version = VersionDecorator.decorate version
           %tr
             %td= version.item_id
-            %td= version.item.name
+            %td
+              -if version.whodunnit
+                - offender = User.find(version.whodunnit)
+                =link_to offender.name, user_path(offender)
+              -else
+                Console
             %td
               %span.fas.fa-location-arrow
               = version.event
+            %td
+              %span.fas.fa-pencil-alt
+              = version.changes
             %td
               %span.fas.fa-calendar-plus
               = version.created_at
