@@ -8,7 +8,7 @@
           %span{"aria-hidden" => "true"} ×
       .modal-body
         = simple_form_for :new_session, url: switch_user_path do |f|
-          = f.input :id, as: :select, collection: User.where("account_active = true").order(:name).decorate
+          = f.input :id, as: :select, collection: User.where("account_active = true").order(:name).decorate, label: User.model_name.human
           = f.submit I18n.t("actions.login"), class: "form-control", data: {confirm: I18n.t("flash.general.logout")}
       .modal-footer
         %button.btn.btn-secondary{"data-dismiss" => "modal", :type => "button"} Close
