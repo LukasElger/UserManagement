@@ -36,6 +36,8 @@ class Contur::ServersController < ApplicationController
     if @server.update_attributes(update_params)
       redirect_to contur_servers_path, flash: {success: I18n.t("flash.update", model: Contur::Server.model_name.human, count: 1)}
     else
+      @server.valid?
+      puts @server.errors.inspect
       render "edit"
     end
   end
@@ -56,7 +58,10 @@ class Contur::ServersController < ApplicationController
                                            :postgres_version,
                                            :hostname,
                                            :admin_user,
-                                           :access_type
+                                           :access_type,
+                                           :ip_address,
+                                           :ssh_password,
+                                           :customer_id
                                            )
   end
 
@@ -67,7 +72,10 @@ class Contur::ServersController < ApplicationController
                                            :postgres_version,
                                            :hostname,
                                            :admin_user,
-                                           :access_type
+                                           :access_type,
+                                           :ip_address,
+                                           :ssh_password,
+                                           :customer_id
                                            )
   end
 end

@@ -2,41 +2,65 @@
   .card_block
     %h1.header= "#{I18n.t("views.contur/servers.show.header", model: @server.hostname)}"
     %ul.default_list
-      %li
-        %dl.row
-          %dt.col-sm-3= Contur::Server.human_attribute_name(:os_version)
-          %dd.col-sm-9= @server.os_version
-      %li
-        %dl.row
-          %dt.col-sm-3= Contur::Server.human_attribute_name(:ruby_version)
-          %dd.col-sm-9= @server.ruby_version
-      %li
-        %dl.row
-          %dt.col-sm-3= Contur::Server.human_attribute_name(:nginx_version)
-          %dd.col-sm-9= @server.nginx_version
-      %li
-        %dl.row
-          %dt.col-sm-3= Contur::Server.human_attribute_name(:postgres_version)
-          %dd.col-sm-9= @server.postgres_version
-      %li
-        %dl.row
-          %dt.col-sm-3= Contur::Server.human_attribute_name(:hostname)
-          %dd.col-sm-9= @server.hostname
-      %li
-        %dl.row
-          %dt.col-sm-3= Contur::Server.human_attribute_name(:admin_user)
-          %dd.col-sm-9= @server.admin_user
-      %li
-        %dl.row
-          %dt.col-sm-3= Contur::Server.human_attribute_name(:access_type)
-          %dd.col-sm-9= @server.access_type
-      %li
-        %dl.row
-          %dt.col-sm-3= I18n.t("views.contur/servers.show.dbs")
-          %dd.col-sm-9
-            -@server.databases.each do |db|
-              -database=Contur::Database.find(db.id)
-              =link_to db.vm_username, contur_database_path(database)
+      -if @server.os_version.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:os_version)
+            %dd.col-sm-9= @server.os_version
+      -if @server.ruby_version.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:ruby_version)
+            %dd.col-sm-9= @server.ruby_version
+      -if @server.nginx_version.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:nginx_version)
+            %dd.col-sm-9= @server.nginx_version
+      -if @server.postgres_version.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:postgres_version)
+            %dd.col-sm-9= @server.postgres_version
+      -if @server.hostname.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:hostname)
+            %dd.col-sm-9= @server.hostname
+      -if @server.admin_user.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:admin_user)
+            %dd.col-sm-9= @server.admin_user
+      -if @server.access_type.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:access_type)
+            %dd.col-sm-9= @server.access_type
+      -if @server.ip_address.present?&&@server.ssh_password.present?
+        %li
+          %dl.row
+            %dt.col-sm-5= I18n.t("views.contur/servers.ssh_access")
+            %dd.col-sm-7
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:ip_address)
+            %dd.col-sm-9= @server.ip_address
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:ssh_password)
+            %dd.col-sm-9= @server.ssh_password
+      -if @server.customer_id.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:customer)
+            %dd.col-sm-9
+              -cs = Contur::Customer.find(@server.customer_id)
+              =link_to cs.name, contur_customer_path(cs)
+      -if @server.databases.any?
+        %li
+          %dl.row
+            %dt.col-sm-3= I18n.t("views.contur/servers.show.dbs")
+            %dd.col-sm-9
+              -@server.databases.each do |db|
+                -database = Contur::Database.find(db.id)
+                =link_to db.vm_username, contur_database_path(database)
   %br
   .row.justify-content-center
     .col-sm-4

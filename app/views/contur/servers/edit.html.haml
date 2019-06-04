@@ -1,5 +1,6 @@
 .container.col-sm-6.index
-  %h1.header= I18n.t("views.contur/servers.edit.header")
+  %h1.centered= I18n.t("views.contur/servers.edit.edit")
+  %hr
   = simple_form_for(@server) do |f|
     .row.justify-content-center
       .col-sm-6
@@ -15,13 +16,22 @@
         = f.input :admin_user, placeholder: Contur::Server.human_attribute_name(:admin_user)
     .row.justify-content-center
       .col-sm-6
-        = f.input :access_type, placeholder: Contur::Server.human_attribute_name(:access_type)
+        = f.input :access_type, placeholder: Contur::Server.human_attribute_name(:access_type), as: :select, collection: Contur::Server::ACCESS
+      .col-sm-6
+        = f.association :customer, as: :select, collection: Contur::Customer.order(:name)
+    %h2.centered= I18n.t("views.contur/servers.ssh_access")
+    %hr
+    .row.justify-content-center
+      .col-sm-6
+        = f.input :ip_address, placeholder: Contur::Server.human_attribute_name(:ip_address)
+      .col-sm-6
+        = f.input :ssh_password, placeholder: Contur::Server.human_attribute_name(:ssh_password)
+    %hr
     .row.justify-content-center
       .col-sm-8
         = f.submit I18n.t("actions.update"), class: "form-control"
-  %h2.footer= I18n.t("views.contur/servers.edit.footer")
   .row.justify-content-center
     .col-sm-8
-      = button_to I18n.t("actions.delete"), contur_server_path(@server), method: :delete, class: "form-control", id: "delete_server_button", data: {confirm: I18n.t("flash.delete", model: Contur::Server.model_name.human, count: 1)}
+      = button_to I18n.t("views.contur/servers.edit.delete"), contur_server_path(@server), method: :delete, class: "form-control", id: "delete_server_button", data: {confirm: I18n.t("flash.delete", model: Contur::Server.model_name.human, count: 1)}
       = button_to I18n.t("actions.back"), :back, method: :get, class: "form-control", id: "back_to_root_button"
   %br

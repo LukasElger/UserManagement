@@ -164,8 +164,8 @@ en:
       index:
         header: "All servers"
       edit:
-        header: "Edit server"
-        footer: "Delete server"
+        edit: "Edit server"
+        delete: "Delete server"
       show:
         header: "Server '%{model}'"
         footer: "Edit server"
@@ -239,6 +239,8 @@ en:
         created_at: "Created at"
         updated_at: "Updated at"
         database_id: "Datenbank"
+        ip_address: "IP-Address"
+        ssh_password: "Password"
 
       contur/customer:
         id: "ID"

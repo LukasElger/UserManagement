@@ -159,13 +159,14 @@ de:
         footer: "Kunden bearbeiten"
 
     contur/servers:
+      ssh_access: "SSH-Zugangsdaten"
       new:
         header: "Neuen Server erstellen"
       index:
         header: "Alle Server"
       edit:
-        header: "Server bearbeiten"
-        footer: "Server Löschen"
+        edit: "Server bearbeiten"
+        delete: "Server Löschen"
       show:
         header: "Server '%{model}'"
         footer: "Server bearbeiten"
@@ -239,6 +240,9 @@ de:
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
         database_id: "Datenbank"
+        customer: "Kunde"
+        ip_address: "IP-Adresse"
+        ssh_password: "Passwort"
 
       contur/customer:
         id: "ID"
