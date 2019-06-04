@@ -19,13 +19,21 @@
         = f.input :access_type, placeholder: Contur::Server.human_attribute_name(:access_type), as: :select, collection: Contur::Server::ACCESS
       .col-sm-6
         = f.association :customer, as: :select, collection: Contur::Customer.order(:name)
+    .row.justify-content-center
+      .col-sm-12
+        = f.input :comment, placeholder: Contur::Server.human_attribute_name(:comment)
     %h2.centered= I18n.t("views.contur/servers.ssh_access")
     %hr
     .row.justify-content-center
-      .col-sm-6
+      .col-sm-4
         = f.input :ip_address, placeholder: Contur::Server.human_attribute_name(:ip_address)
-      .col-sm-6
+      .col-sm-4
+        = f.input :ssh_port, placeholder: Contur::Server.human_attribute_name(:ssh_port)
+      .col-sm-4
         = f.input :ssh_password, placeholder: Contur::Server.human_attribute_name(:ssh_password)
+    .row.justify-content-center
+      .col-sm-12
+        = f.input :rz_access, as: :boolean, hint: "Nur Zugriff über die IP des Rechenzentrums möglich"
     %hr
     .row.justify-content-center
       .col-sm-8

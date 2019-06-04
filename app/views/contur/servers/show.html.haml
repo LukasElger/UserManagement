@@ -37,15 +37,6 @@
           %dl.row
             %dt.col-sm-3= Contur::Server.human_attribute_name(:access_type)
             %dd.col-sm-9= @server.access_type
-      -if @server.ip_address.present?&&@server.ssh_password.present?
-        %li
-          %dl.row
-            %dt.col-sm-5= I18n.t("views.contur/servers.ssh_access")
-            %dd.col-sm-7
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:ip_address)
-            %dd.col-sm-9= @server.ip_address
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:ssh_password)
-            %dd.col-sm-9= @server.ssh_password
       -if @server.customer_id.present?
         %li
           %dl.row
@@ -61,6 +52,25 @@
               -@server.databases.each do |db|
                 -database = Contur::Database.find(db.id)
                 =link_to db.vm_username, contur_database_path(database)
+      -if @server.comment.present?
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:comment)
+            %dd.col-sm-9= @server.comment
+  -if @server.ip_address.present?||@server.ssh_password.present?||@server.rz_access
+    .card_block
+      %h1.header= "#{I18n.t("views.contur/servers.ssh_access", model: @server.hostname)}"
+      %ul.default_list
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:ip_address)
+            %dd.col-sm-9= @server.ip_address
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:ssh_password)
+            %dd.col-sm-9= @server.ssh_password
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:ssh_port)
+            %dd.col-sm-9= @server.ssh_port
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:rz_access)
+            %dd.col-sm-9= @server.rz_access
   %br
   .row.justify-content-center
     .col-sm-4

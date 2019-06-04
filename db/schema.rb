@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_081113) do
+ActiveRecord::Schema.define(version: 2019_06_04_121152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_081113) do
     t.string "ssh_password"
     t.text "comment"
     t.boolean "rz_access", default: false
+    t.string "ssh_port", default: "22"
   end
 
   create_table "users", force: :cascade do |t|

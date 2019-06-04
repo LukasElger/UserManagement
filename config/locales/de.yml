@@ -243,6 +243,9 @@ de:
         customer: "Kunde"
         ip_address: "IP-Adresse"
         ssh_password: "Passwort"
+        ssh_port: "Port"
+        comment: "Bemerkungen"
+        rz_access: "RZ-Tunnel"
 
       contur/customer:
         id: "ID"

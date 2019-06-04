@@ -61,7 +61,10 @@ class Contur::ServersController < ApplicationController
                                            :access_type,
                                            :ip_address,
                                            :ssh_password,
-                                           :customer_id
+                                           :ssh_port,
+                                           :customer_id,
+                                           :comment,
+                                           :rz_access
                                            )
   end
 
@@ -75,7 +78,10 @@ class Contur::ServersController < ApplicationController
                                            :access_type,
                                            :ip_address,
                                            :ssh_password,
-                                           :customer_id
+                                           :ssh_port,
+                                           :customer_id,
+                                           :comment,
+                                           :rz_access
                                            )
   end
 end

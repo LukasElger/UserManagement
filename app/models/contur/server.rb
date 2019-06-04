@@ -2,13 +2,19 @@ class Contur::Server < ApplicationRecord
   EXTERN = "Extern".freeze
   RZ = "RZ".freeze
   VPN = "VPN".freeze
-  SSH = "SSH".freeze
 
   ACCESS = [
     EXTERN,
     RZ,
-    VPN,
-    SSH
+    VPN
+  ]
+
+  OS_VERSION = [
+    "12.04",
+    "14.04",
+    "16.04",
+    "18.04",
+    "20.04"
   ]
 
   validates :os_version, :hostname, :admin_user, :access_type, presence: true
