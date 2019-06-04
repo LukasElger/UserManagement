@@ -18,7 +18,7 @@
                 %th= t "actions.edit"
                 %th= t "actions.delete"
             %tbody
-              - @users = User.order(:id).first(5)
+              - @users = User.order(:id).reverse.first(5)
               - @users.each do |user|
                 %tr
                   %td= user.name
@@ -56,7 +56,7 @@
                 %th= Contur::Server.human_attribute_name(:access_type)
                 %th= t "actions.actions"
             %tbody
-              - @servers = Contur::Server.order(:id).first(5)
+              - @servers = Contur::Server.order(:id).reverse.first(5)
               - @servers.each do |server|
                 %tr
                   %td= server.hostname
