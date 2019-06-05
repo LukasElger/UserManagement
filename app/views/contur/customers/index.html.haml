@@ -18,38 +18,35 @@
           %th= Contur::Customer.human_attribute_name(:zip_code)
           %th= Contur::Customer.human_attribute_name(:street)
           %th= Contur::Customer.human_attribute_name(:tanss_number)
-          %th= t "actions.show"
-          %th= t "actions.edit"
-          %th= t "actions.delete"
+          %th= t "actions.actions"
       %tbody
-        - @cs.each do |cr|
+        - @cs.decorate.each do |cr|
           %tr
             %td= cr.id
-            %td= cr.name
-            %td
+            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.name if cr.name}"}
+              = cr.n_a_attribute(:name)
+            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.email if cr.email}"}
               %span.fas.fa-envelope
-              = cr.email
-            %td
+              = cr.n_a_attribute(:email)
+            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.phone_number if cr.phone_number}"}
               %span.fas.fa-phone
-              = cr.phone_number
-            %td
+              = cr.n_a_attribute(:phone_number)
+            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.zip_code if cr.zip_code}"}
               %span.fas.fa-map-pin
-              = cr.zip_code
-            %td
+              = cr.n_a_attribute(:zip_code)
+            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.street if cr.street}"}
               %span.fas.fa-map-marker-alt
-              = cr.street
-            %td
+              = cr.n_a_attribute(:street)
+            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.tanss_number if cr.tanss_number}"}
               %span.fas.fa-bookmark
-              = cr.tanss_number
+              = cr.n_a_attribute(:tanss_number)
             %td
               = link_to contur_customer_path(cr) do
                 %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: Contur::Customer.model_name.human, count: 1)}"}
-            %td
               = link_to edit_contur_customer_path(cr) do
                 %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.edit", model: Contur::Customer.model_name.human, count: 1)}"}
-            %td
               = link_to contur_customer_path(cr), method: :delete, data: {confirm: I18n.t("flash.delete", model: Contur::Customer.model_name.human, count: 1)} do
                 %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.delete", model: Contur::Customer.model_name.human, count: 1)}"}
-
   .row.justify-content-center.pagination_buttons
     = paginate @cs
+  %br

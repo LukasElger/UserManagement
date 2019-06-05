@@ -41,6 +41,13 @@ class Contur::CustomersController < ApplicationController
     end
   end
 
+  def destroy
+    @cr = Contur::Customer.find(params[:id])
+    @cr.destroy
+
+    redirect_to contur_customers_path, flash: {success: I18n.t("flash.deleted", model: Contur::Customer.model_name.human, count: 1)}
+  end
+
   private
 
   def create_params
