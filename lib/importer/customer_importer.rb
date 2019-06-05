@@ -13,7 +13,7 @@ class CustomerImporter
 
       db = Contur::Customer.new(name: row[1], tanss_number: row[2], street: row[3],
                                 city: row[4], zip_code: row[5], phone_number: row[6],
-                                fax: row[7], email: row[8], comment: row[9])
+                                fax: row[7], email: row[8], website: row[9], comment: row[10])
       db.save
     end
   end

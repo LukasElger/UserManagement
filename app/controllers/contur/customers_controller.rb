@@ -52,6 +52,7 @@ class Contur::CustomersController < ApplicationController
                                              :city,
                                              :street,
                                              :tanss_number,
+                                             :website,
                                              :comment
                                            )
   end
@@ -65,6 +66,7 @@ class Contur::CustomersController < ApplicationController
                                              :city,
                                              :street,
                                              :tanss_number,
+                                             :website,
                                              :comment
                                            )
   end

@@ -258,6 +258,7 @@ de:
         zip_code: "PLZ"
         phone_number: "Telefon-Nummer"
         fax: "FAX"
+        website: "Webseite"
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
 

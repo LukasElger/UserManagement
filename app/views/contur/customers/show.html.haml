@@ -36,6 +36,10 @@
           %dd.col-sm-9= @cr.tanss_number
       %li
         %dl.row
+          %dt.col-sm-3= Contur::Customer.human_attribute_name(:website)
+          %dd.col-sm-9= @cr.website
+      %li
+        %dl.row
           %dt.col-sm-3= Contur::Customer.human_attribute_name(:server)
           %dd.col-sm-9
             -@cr.server.each do |s|

@@ -9,6 +9,7 @@
     = f.input :city, placeholder: Contur::Customer.human_attribute_name(:city)
     = f.input :street, placeholder: Contur::Customer.human_attribute_name(:street)
     = f.input :tanss_number, placeholder: Contur::Customer.human_attribute_name(:tanss_number)
+    = f.input :website, placeholder: Contur::Customer.human_attribute_name(:website)
     = f.input :comment, placeholder: Contur::Customer.human_attribute_name(:comment)
     = f.submit I18n.t("actions.update"), class: "form-control"
   %h2.footer= I18n.t("views.contur/customers.edit.footer")
