@@ -13,15 +13,23 @@
       %li
         %dl.row
           %dt.col-sm-3= Contur::Database.human_attribute_name(:github_branch)
-          %dd.col-sm-9= @db.github_branch
+          %dd.col-sm-9= link_to @db.github_branch, "https://github.com/Sektor-N/contur/tree/#{@db.github_branch}"
       %li
         %dl.row
           %dt.col-sm-3= Contur::Database.human_attribute_name(:contur_type)
           %dd.col-sm-9= @db.contur_type
       %li
         %dl.row
-          %dt.col-sm-3= Contur::Database.human_attribute_name(:server_id)
-          %dd.col-sm-9= link_to @db.server.hostname, contur_server_path(@db.server), method: :get
+          %dt.col-sm-3= Contur::Server.model_name.human
+          %dd.col-sm-9
+            - server = @db.server
+            = link_to server.hostname, contur_server_path(server), method: :get
+      %li
+        %dl.row
+          %dt.col-sm-3= Contur::Customer.model_name.human
+          %dd.col-sm-9
+            - cs = @db.server.customer
+            = link_to cs.name, contur_customer_path(cs), method: :get
       %li
         %dl.row
           %dt.col-sm-3= Contur::Database.human_attribute_name(:starts_at)
