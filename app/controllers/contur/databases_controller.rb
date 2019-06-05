@@ -6,6 +6,14 @@ class Contur::DatabasesController < ApplicationController
     else
       @dbs = Contur::Database.order(:id).page params[:page]
     end
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        @csv = Contur::DatabaseCsv.new(@dbs.limit(nil).offset(nil))
+        send_data @csv.to_csv
+      }
+    end
   end
 
   def show

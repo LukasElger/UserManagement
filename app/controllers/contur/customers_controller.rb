@@ -6,6 +6,14 @@ class Contur::CustomersController < ApplicationController
     else
       @cs = Contur::Customer.order(:id).page params[:page]
     end
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        @csv = Contur::CustomerCsv.new(@cs.limit(nil).offset(nil))
+        send_data @csv.to_csv
+      }
+    end
   end
 
   def show
@@ -46,6 +54,10 @@ class Contur::CustomersController < ApplicationController
     @cr.destroy
 
     redirect_to contur_customers_path, flash: {success: I18n.t("flash.deleted", model: Contur::Customer.model_name.human, count: 1)}
+  end
+
+  def to_csv
+
   end
 
   private

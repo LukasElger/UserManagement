@@ -45,4 +45,8 @@
   .row.justify-content-center.pagination_buttons
     = paginate @servers
   %br
-  	
+  .row.justify-content-center
+    = link_to contur_servers_path(format: :csv) do
+      %i.fas.fa-file-download
+      = "Download .csv"
+  %br

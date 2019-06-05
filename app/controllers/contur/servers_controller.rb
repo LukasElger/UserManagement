@@ -5,6 +5,14 @@ class Contur::ServersController < ApplicationController
     else
       @servers = Contur::Server.order(:id).page params[:page]
     end
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        @csv = Contur::ServerCsv.new(@servers.limit(nil).offset(nil))
+        send_data @csv.to_csv
+      }
+    end
   end
 
   def show
