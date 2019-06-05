@@ -14,9 +14,7 @@
                 %th= User.human_attribute_name(:name)
                 %th= User.human_attribute_name(:email)
                 %th= User.human_attribute_name(:account_active)
-                %th= t "actions.show"
-                %th= t "actions.edit"
-                %th= t "actions.delete"
+                %th= t "actions.actions"
             %tbody
               - @users = User.order(:id).reverse.first(5)
               - @users.each do |user|
@@ -30,10 +28,8 @@
                   %td
                     = link_to user_path(user) do
                       %i.fas.fa-search{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: User.model_name.human, count: 1)}"}
-                  %td
                     = link_to edit_user_path(user) do
                       %i.fas.fa-edit{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.edit", model: User.model_name.human, count: 1)}"}
-                  %td
                     = link_to user_path(user), method: :delete, data: {confirm: "#{I18n.t("flash.delete", model: User.model_name.human, count: 1)}"} do
                       %i.fas.fa-trash-alt{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.delete", model: User.model_name.human, count: 1)}"}
           %li.centered{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{I18n.t("tooltips.show", model: User.model_name.human, count: 1)}"}
