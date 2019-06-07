@@ -15,8 +15,7 @@
           %th= Contur::Customer.human_attribute_name(:name)
           %th= Contur::Customer.human_attribute_name(:email)
           %th= Contur::Customer.human_attribute_name(:phone_number)
-          %th= Contur::Customer.human_attribute_name(:zip_code)
-          %th= Contur::Customer.human_attribute_name(:street)
+          %th= I18n.t("activerecord.attributes.contur/customer.place")
           %th= Contur::Customer.human_attribute_name(:tanss_number)
           %th= t "actions.actions"
       %tbody
@@ -31,12 +30,16 @@
             %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.phone_number if cr.phone_number}"}
               %span.fas.fa-phone
               = cr.n_a_attribute(:phone_number)
-            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.zip_code if cr.zip_code}"}
+            %td.link{"data-placement" => "bottom", "data-toggle" => "tooltip", title: I18n.t("actions.maps")}
               %span.fas.fa-map-pin
-              = cr.n_a_attribute(:zip_code)
-            %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.street if cr.street}"}
-              %span.fas.fa-map-marker-alt
-              = cr.n_a_attribute(:street)
+              -if cr.street.present?&&cr.zip_code.present?
+                = link_to cr.zip_code, ('https://www.google.com/maps/dir/?api=1''&origin='+cr.zip_code+'&destination='+cr.street)
+              -elsif cr.zip_code.present?
+                = cr.zip_code
+              -elsif cr.street.present?
+                = cr.street
+              -else
+                = "N/A"
             %td{"data-placement" => "bottom", "data-toggle" => "tooltip", title: "#{cr.tanss_number if cr.tanss_number}"}
               %span.fas.fa-bookmark
               = cr.n_a_attribute(:tanss_number)

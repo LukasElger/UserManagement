@@ -11,6 +11,7 @@ de:
     search: "Suchen..."
     filter: "Filtern"
     reset_filter: "Filter zurücksetzen"
+    maps: "Öffne in Maps"
 
   general:
     en: "Englisch"
@@ -261,6 +262,7 @@ de:
         website: "Webseite"
         created_at: "Erstellt am"
         updated_at: "Bearbeitet am"
+        place: "Ort"
 
       paper_trail/version:
         id: "ID"
