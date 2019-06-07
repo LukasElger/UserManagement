@@ -8,6 +8,7 @@ gem 'draper'
 gem 'paper_trail'
 gem 'kaminari'
 gem 'devise'
+gem 'two_factor_authentication'
 gem 'simple_form'
 
 gem 'rails', '~> 5.2.2'
