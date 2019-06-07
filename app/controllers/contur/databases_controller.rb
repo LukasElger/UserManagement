@@ -17,7 +17,7 @@ class Contur::DatabasesController < ApplicationController
   end
 
   def show
-    @db = Contur::Database.find(params[:id])
+    @db = Contur::Database.find(params[:id]).decorate
   end
 
   def new

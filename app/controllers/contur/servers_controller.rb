@@ -16,7 +16,7 @@ class Contur::ServersController < ApplicationController
   end
 
   def show
-    @server = Contur::Server.find(params[:id])
+    @server = Contur::Server.find(params[:id]).decorate
   end
 
   def new

@@ -74,6 +74,9 @@ de:
       admin_false: "Nein"
       active_true: "Ja"
       active_false: "Nein"
+    contur/server:
+      rz_bool_yes: "Ja"
+      rz_bool_no: "Nein"
 
   sidebar:
     home: "Start"
@@ -247,6 +250,7 @@ de:
         ssh_port: "Port"
         comment: "Bemerkungen"
         rz_access: "RZ-Tunnel"
+        ssh_command: "SSH-Befehl"
 
       contur/customer:
         id: "ID"

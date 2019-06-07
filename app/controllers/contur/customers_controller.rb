@@ -17,7 +17,7 @@ class Contur::CustomersController < ApplicationController
   end
 
   def show
-    @cr = Contur::Customer.find(params[:id])
+    @cr = Contur::Customer.find(params[:id]).decorate
   end
 
   def new

@@ -2,48 +2,26 @@
   .card_block
     %h1.header= "#{I18n.t("views.contur/servers.show.header", model: @server.hostname)}"
     %ul.default_list
-      -if @server.os_version.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:os_version)
-            %dd.col-sm-9= @server.os_version
-      -if @server.ruby_version.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:ruby_version)
-            %dd.col-sm-9= @server.ruby_version
-      -if @server.nginx_version.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:nginx_version)
-            %dd.col-sm-9= @server.nginx_version
-      -if @server.postgres_version.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:postgres_version)
-            %dd.col-sm-9= @server.postgres_version
-      -if @server.hostname.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:hostname)
-            %dd.col-sm-9= @server.hostname
-      -if @server.admin_user.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:admin_user)
-            %dd.col-sm-9= @server.admin_user
-      -if @server.access_type.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:access_type)
-            %dd.col-sm-9= @server.access_type
-      -if @server.customer_id.present?
+      =@server.card_block_attr(:os_version)
+      =@server.card_block_attr(:ruby_version)
+      =@server.card_block_attr(:nginx_version)
+      =@server.card_block_attr(:postgres_version)
+      =@server.card_block_attr(:hostname)
+      =@server.card_block_attr(:admin_user)
+      =@server.card_block_attr(:access_type)
+      =@server.card_block_attr(:comment)
+      -if @server.customer.present?
         %li
           %dl.row
             %dt.col-sm-3= Contur::Server.human_attribute_name(:customer)
             %dd.col-sm-9
               -cs = Contur::Customer.find(@server.customer_id)
               =link_to cs.name, contur_customer_path(cs)
+      -else
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Server.human_attribute_name(:customer)
+            %dd.col-sm-9= "N/A"
       -if @server.databases.any?
         %li
           %dl.row
@@ -52,11 +30,11 @@
               -@server.databases.each do |db|
                 -database = Contur::Database.find(db.id)
                 =link_to db.vm_username, contur_database_path(database)
-      -if @server.comment.present?
+      -else
         %li
           %dl.row
-            %dt.col-sm-3= Contur::Server.human_attribute_name(:comment)
-            %dd.col-sm-9= @server.comment
+            %dt.col-sm-3= I18n.t("views.contur/servers.show.dbs")
+            %dd.col-sm-9= "N/A"
   -if @server.ip_address.present?||@server.ssh_password.present?||@server.rz_access
     .card_block
       %h1.header= "#{I18n.t("views.contur/servers.ssh_access", model: @server.hostname)}"
@@ -70,7 +48,10 @@
             %dt.col-sm-3= Contur::Server.human_attribute_name(:ssh_port)
             %dd.col-sm-9= @server.ssh_port
             %dt.col-sm-3= Contur::Server.human_attribute_name(:rz_access)
-            %dd.col-sm-9= @server.rz_access
+            %dd.col-sm-9= @server.rz_bool
+            -if @server.rz_access == true
+              %dt.col-sm-3= Contur::Server.human_attribute_name(:ssh_command)
+              %dd.col-sm-9= "ssh #{@server.admin_user}@#{@server.ip_address} -p #{@server.ssh_port} -L 3010:localhost:3000"
   %br
   .row.justify-content-center
     .col-sm-4

@@ -2,51 +2,16 @@
   .card_block
     %h1.header= "#{I18n.t("views.contur/customers.show.header", model: @cr.name)}"
     %ul.default_list
-      -if @cr.name.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:name)
-            %dd.col-sm-9= @cr.name
-      -if @cr.email.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:email)
-            %dd.col-sm-9= @cr.email
-      -if @cr.phone_number.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:phone_number)
-            %dd.col-sm-9= @cr.phone_number
-      -if @cr.fax.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:fax)
-            %dd.col-sm-9= @cr.fax
-      -if @cr.zip_code.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:zip_code)
-            %dd.col-sm-9= @cr.zip_code
-      -if @cr.city.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:city)
-            %dd.col-sm-9= @cr.city
-      -if @cr.street.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:street)
-            %dd.col-sm-9= @cr.street
-      -if @cr.tanss_number.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:tanss_number)
-            %dd.col-sm-9= @cr.tanss_number
-      -if @cr.website.present?
-        %li
-          %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:website)
-            %dd.col-sm-9= @cr.website
+      =@cr.card_block_attr(:name)
+      =@cr.card_block_attr(:email)
+      =@cr.card_block_attr(:phone_number)
+      =@cr.card_block_attr(:fax)
+      =@cr.card_block_attr(:zip_code)
+      =@cr.card_block_attr(:city)
+      =@cr.card_block_attr(:street)
+      =@cr.card_block_attr(:tanss_number)
+      =@cr.card_block_attr(:website)
+      =@cr.card_block_attr(:comment)
       -if @cr.server.any?
         %li
           %dl.row
@@ -55,6 +20,11 @@
               -@cr.server.each do |s|
                 -server=Contur::Server.find(s.id)
                 =link_to s.hostname, contur_server_path(server)
+      -else
+        %li
+          %dl.row
+            %dt.col-sm-3= Contur::Customer.human_attribute_name(:server)
+            %dd.col-sm-9= "N/A"
       -if @cr.databases.any?
         %li
           %dl.row
@@ -63,11 +33,11 @@
               -@cr.databases.each do |db|
                 -database=Contur::Database.find(db.id)
                 =link_to db.vm_username, contur_database_path(database)
-      -if @cr.comment.present?
+      -else
         %li
           %dl.row
-            %dt.col-sm-3= Contur::Customer.human_attribute_name(:comment)
-            %dd.col-sm-9= @cr.comment
+            %dt.col-sm-3= Contur::Customer.human_attribute_name(:databases)
+            %dd.col-sm-9= "N/A"
   %br
   .row.justify-content-center
     .col-sm-4
