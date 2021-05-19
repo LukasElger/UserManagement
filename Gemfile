@@ -12,7 +12,7 @@ gem 'simple_form'
 
 gem 'rails', '~> 5.2.2'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 4.3'
 
 # gem 'bootstrap-sass', '~> 3.3.6'
 # gem 'sass-rails', '~> 5.0'
